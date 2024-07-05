@@ -7,13 +7,13 @@
 </head>
 <script>
 	$(document).ready(function(){
-		$(".tabla").hide();
+
 	//pénznem lejövő tábla és változása
+		$("#currency").click(function(event){
+			$(".tabla_ccy").toggle();
+			event.stopPropagation(); //megakadályozza a felgyümlemlést
 
-		$("#currency").click(function(){
-			$(".tabla").show();
-
-			$(".tabla").hover(function(){
+			$(".tabla_ccy").hover(function(){
 				$(this).css('background-color','grey');
 			},
 			function(){
@@ -26,8 +26,41 @@
 			$("#euro").click(function(){
 				$("#currency").html("EUR");
 			})
+			$(document).click(function() { //click a documentumon belül
+        		if (!$(this).closest("#currency").length && !$(this).closest(".tabla_ccy").length) { //ha nem a #currency-n belül a táblára kattintunk akkor eltünteti a tabla_ccy class-t
+          			$(".tabla_ccy").hide();
+        		}
+      		})
 		})
+	//nyelv lejövő tábla és változása
+		$("#language").click(function(event){
+			$(".tabla_flag").toggle();
+			event.stopPropagation(); //megakadályozza a további folytatást
 
+			$(".tabla_flag").hover(function(){
+				$(this).css('background-color','grey');
+			},
+			function(){
+				$(this).css('background-color','white');
+			})
+
+			$("#Germany").click(function(){
+				$("#Hungary").attr("src","Germany.png");
+			})
+			$("#Poland").click(function(){
+				$("#Hungary").attr("src","Poland.png");
+			})
+			$("#UK").click(function(){
+				$("#Hungary").attr("src","UK.png");
+			})
+
+
+			$(document).click(function() { //click a documentumon belül
+        		if (!$(this).closest("#language").length && !$(this).closest(".tabla_flag").length) { //ha nem a #language-n belül a táblára kattintunk akkor eltünteti a tabla_flag class-t
+          			$(".tabla_flag").hide();
+        		}
+      		})
+		})
 	//háttérváltozás
 		$(".title_items").hover(function(){ //felső menüpontok háttérváltozása
 			$(this).css('background-color','rgba(0,0,0,0.1)');
@@ -60,14 +93,19 @@
 			<div id="chill">ChillOut.hu</div> <!-- 'Logo'  -->
 
 			<div class="space"> <!-- kisebb menü pontok -->
-				<div class="ccy">	
+				<div>	
 					<div class="title_items cursor" id="currency">HUF</div>
-					<div class="tabla cursor" id="huf">HUF</div><br>
-					<div class="tabla cursor" id="euro">EUR</div>
+					<div class="tabla_ccy hidden cursor" id="huf">HUF</div><br>
+					<div class="tabla_ccy hidden cursor" id="euro">EUR</div>
 				</div> <!-- fizető eszköz -->
 
-				<div class="title_items cursor" id="language"> <!-- nyelv kiválasztó hely  -->
-					<img class="flag" src="UK.png"> <!-- zászló import -->
+				<div>
+					<div class="title_items cursor" id="language"> <!-- nyelv kiválasztó hely  -->
+						<img class="flag" id="Hungary" src="Hungary.png"> <!-- zászló import -->
+						<div class="flag tabla_flag hidden cursor" id="UK"><img class="flag" src="UK.png"></div>
+						<div class="flag tabla_flag hidden cursor" id="Germany"><img class="flag" src="Germany.png"></div>
+						<div class="flag tabla_flag hidden cursor" id="Poland"><img class="flag" src="Poland.png"></div>
+					</div>
 				</div>
 
 				<div class="title_items cursor" id="service"> <!-- elérhetőség -->
