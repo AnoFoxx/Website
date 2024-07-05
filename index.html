@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>ChillOut.hu</title>
+</head>
+<script>
+	$(document).ready(function(){
+		$(".tabla").hide();
+	//pénznem lejövő tábla és változása
+
+		$("#currency").click(function(){
+			$(".tabla").show();
+
+			$(".tabla").hover(function(){
+				$(this).css('background-color','grey');
+			},
+			function(){
+				$(this).css('background-color','white');
+			})
+
+			$("#huf").click(function(){
+				$("#currency").html("HUF");
+			})
+			$("#euro").click(function(){
+				$("#currency").html("EUR");
+			})
+		})
+
+	//háttérváltozás
+		$(".title_items").hover(function(){ //felső menüpontok háttérváltozása
+			$(this).css('background-color','rgba(0,0,0,0.1)');
+		},
+		function(){
+			$(this).css('background-color',''); //felső menüpontok visszaváltoztatása
+		})
+
+		$(".place_items").hover(function(){ //alsó menüpontok háttérváltozása
+			$(this).css('background-color','rgba(0,0,0,0.1)');
+		},
+		function(){
+			$(this).css('background-color',''); //alsó menüpontok visszaváltoztatása
+		})
+
+	//átirányítás másik oldalra
+
+
+
+
+	})
+
+</script>
+<body>
+	<!-- felső része a weboldalnak -->
+<div id="out_box">
+
+	<header class="in_box">
+		<div id="felirat"> <!-- felső része a menü-nek -->
+			<div id="chill">ChillOut.hu</div> <!-- 'Logo'  -->
+
+			<div class="space"> <!-- kisebb menü pontok -->
+				<div class="ccy">	
+					<div class="title_items cursor" id="currency">HUF</div>
+					<div class="tabla cursor" id="huf">HUF</div><br>
+					<div class="tabla cursor" id="euro">EUR</div>
+				</div> <!-- fizető eszköz -->
+
+				<div class="title_items cursor" id="language"> <!-- nyelv kiválasztó hely  -->
+					<img class="flag" src="UK.png"> <!-- zászló import -->
+				</div>
+
+				<div class="title_items cursor" id="service"> <!-- elérhetőség -->
+					<img class="mark "src="mark.png"> <!-- ikon import -->
+				</div>
+			</div>
+
+		</div>
+
+		<div id="places"> <!-- alsó része a menü-nek -->
+
+			<div class="place_items cursor" id="">igen</div>
+
+			<div class="place_items cursor" id="">pontosan</div>
+
+			<div class="place_items cursor" id="">nagy tunódi</div>
+
+		</div>
+	</header>
+
+</div>
+
+<div id="box_out">
+
+	<div class="box_in">
+		pontosan
+	</div>
+
+</div>
+</body>
+</html>
