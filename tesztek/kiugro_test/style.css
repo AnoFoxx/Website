@@ -1,0 +1,45 @@
+body {
+	margin: 5% 10%;
+	background-color: rgb(51, 51, 51);
+}
+
+div {
+	outline: 1px dashed red;
+}
+
+
+.wrapper {
+	width: 80%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 0 40px;
+}
+
+.wrap {
+	width: 100%;
+	height: 400px;
+	padding: 30px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.apartman {
+	width: 200px;
+	height: 350px;
+}
+
+[id="1"] {
+	background-color: azure;
+}
+
+[id="2"] {
+	background-color: lightgreen;
+}
+
+[id="3"] {
+	background-color: lightblue;
+}
