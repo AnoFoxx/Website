@@ -1,0 +1,38 @@
+#nagy{
+	padding-left:250px;
+	width: 750px;
+	height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*position: relative;*/
+}
+#yep{
+	display: block;
+	position: absolute;
+	display: flex;
+	width: 250px;
+	height: 400px;
+	outline: 2px solid black;
+
+}
+#egy{
+	position: absolute;
+	margin-right: 500px;
+	width: 250px;
+	height: 400px;
+ 	outline: 1px solid blue;
+}
+#ket{
+	position: absolute;
+	width: 250px;
+	height: 400px;
+ 	outline: 2px solid green;
+}
+#har{
+	margin-left: 500px;
+	position: absolute;
+	width: 250px;
+	height: 400px;
+ 	outline: 2px solid red;
+}
