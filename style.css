@@ -1,120 +1,172 @@
+.hidden{
+
+}
+.foscroll{
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth; 
+}
+.scroll_pont{
+	scroll-snap-align: start;
+	width: 100%;
+	height: 100vh;
+
+}
 body{
+	overflow-x:hidden;
+}
+html, body {
+	scroll-behavior: smooth;
+	padding: 0;
+	height: 100%;
+	margin: 0;
+}
+#body_full{
+
+	filter: contrast(1.1);
+	position: relative;
 	margin: 0;
 	width: 100%;
-	height:100%;
-}
-.hidden{
-	display: none;
-}
-.cursor{
-	cursor:pointer;
-}
-#out_box{
-	width: 100%;
-	height: 100px;
-	background-color:rgba(164,59,37,1);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.in_box{
-	height: 100%;
-	width: 100%;
-	padding-right: 25%;
-	padding-left: 25%;
-}
-#felirat{
-	width: 100%;
-	height: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	height: 100vh;
+	background-image: url("chillout_tinodi_outside.jpg");
+	opacity: 95%;
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
-#chill{
-	text-align: center;
-	font-size:35px;
-    	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
-    	-webkit-background-clip: text;
-    	color: transparent;
-	font-family: Berlin Sans FB, Helvetica, sans-serif;
-}
-.title_items{
-	width: 48px;
-	height: 45px;
+#menu_sor{
+	top:0;
 	display: flex;
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	z-index: 1;
+	justify-content: space-between;
 	align-items: center;
-	justify-content: center;
-	margin-left: 2%;
-	margin-right: 2%;
-	border-radius: 10px;
 }
-.space{
+#bc{
+	position: absolute;
+	width: 100%;
+	height: 100px;
+	opacity: 40%;
+	background-color: black;
+}
+#first_half{
+	cursor: pointer;
+	z-index: 2;
+	margin-left: 10%;
 	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 40%;
+	height: 100px;
+}
+#logo{
+	flex-shrink: 0;
+	margin:10px 30px 10px 30px;
+	width: 90px;
+	height: 90px;
+	background-color: blue;
+}
+#felirat{
+	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
+    -webkit-background-clip: text;
+    color: transparent;
+	font-family: Berlin Sans FB, Helvetica, sans-serif;
+	margin:10px 30px 10px 30px;
+	justify-content: center;
+	align-items: center;
+	font-size: 55px;
+}
+#second_half{
 	width: 50%;
+	height: 100px;
 	justify-content: right;
 	align-items: center;
+	z-index: 2;
+	display: flex;
+	
+}
+.menu_pont_hatter{
+	flex-shrink: 0;
+	width: 80px;
+	height:80px;
+	cursor: pointer;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-radius: 30%;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	display: flex;
+	background-color: rgba(0,0,0,0.4);
+}
+.menu_pont{
+	display: flex;
+	width: 50px;
+	height:50px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 60%;
+	border:2px white solid;
+	background: green;
+	
 }
 #currency{
-	margin-top:20px;
 	color:white;
 	font-size:20px;
 	font-family: Berlin Sans FB, Helvetica, sans-serif;
-	align-items: center;
-}
-.tabla_ccy{
-	color:black;
-	position: absolute;
-	width: 60px;
-	height: auto;
-	background-color: white;
-	border-width:1px ;
-	border-style:groove;
-	border-color: black;
-}
-.tabla_flag{
-	color:black;
-	position: absolute;
-	width: 60px;
-	height: auto;
-	background-color: white;
-	border-width:1px ;
-	border-style:groove;
-	border-color: black;
-}
-.mark{
-	max-width: 32px;
-	max-height: 32px;
+	
 }
 .flag{
 	border-radius: 60%;
-	max-width: 28px;
-	max-height: 28px;
+	max-width: 50px;
+	max-height: 50px;
 }
-
-.place_items{
-	color:white;
-	width: 90px;
-	height: 45px;
-	display: flex;
-	float: left;
-	align-items: center;
-	justify-content: center;
-	margin-left: 2%;
-	margin-right: 2%;
-	border-radius: 10px;
+#language{
 	
 }
-#box_out{
+#support{
+	font-family: "Gill Sans", sans-serif;
+	color:white;
+	font-size:40px;
+}
+#book{
+
+}
+#apartmanok{
+	display: flex;
+	position: relative;
 	width: 100%;
+	height: 100vh;
+	background-color: red;
+}
+#apartman_tinodi{
+	background-color: rgba(77,98,180,1.0);
+}
+#apartman_garazs{
+	background-color: rgba(232,89,217,1.0);
+}
+#apartman_garazs_szoba{
+	background-color: rgba(68,197,68,1.0);
+}
+.apartman{
+	display: flex;
+	justify-content: center;
+	width: calc(100%/3);
+	background-color: red;
 	height: 100%;
+}
+.felirat{
+	background-color: rgba(0,0,0,0.15);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-.box_in{
-	padding-right: 25%;
-	padding-left: 25%;
-	height: 100%;
-	width: 100%;
+	width: 40%;
+	height: 60px;
+	border: 2px rgba(0,0,0,0.3) solid;
+	border-radius: 80%;
+
 }
