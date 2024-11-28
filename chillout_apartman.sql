@@ -60,6 +60,8 @@ CREATE TABLE `foglalas` (
   `verified` tinyint(1) NOT NULL,
   `mettol` varchar(11) COLLATE utf8_hungarian_ci NOT NULL,
   `meddig` varchar(11) COLLATE utf8_hungarian_ci NOT NULL,
+  `erkezes_ideje` varchar(5) COLLATE utf8_hungarian_ci NOT NULL,
+  `tavozas_ideje` varchar(5) COLLATE utf8_hungarian_ci NOT NULL,
   `idApartman` int(11) NOT NULL,
   `idFoglalo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
