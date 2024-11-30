@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<title>kiugro test</title>
+</head>
+<body>
+	<div class="main">
+		<div class="accent-bg"></div>
+		<div class="container" id="con1"></div>
+		<div class="container" id="con2"></div>
+		<div class="container" id="con3"></div>
+	</div>
+	<script>
+		$(".container").click(function() {
+
+			$(".container").addClass("background");
+			$(".accent-bg").addClass("accent-bg-show");
+			
+			$(this).removeClass("background");
+			$(this).addClass("foreground");
+		});
+
+		$(".accent-bg").click(function() {
+
+			$(".container").removeClass("background");
+			$(".container").removeClass("foreground");
+			
+			$(this).removeClass("accent-bg-show");
+		});
+	</script>
+</body>
+</html>
