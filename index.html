@@ -5,47 +5,82 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>ChillOut</title>
 <script>
-	$(document).ready(function(){
+    $(document).ready(function() {
+        $(".menu").click(function() {
+            var targetId = $(this).attr("id").replace("menu_", ""); // menu_fooldal -> fooldal
 
-	})
+            // Itt használjuk a scrollIntoView() metódust
+            var targetElement = $("#" + targetId)[0];
+                
+            targetElement.scrollIntoView({
+                behavior: "smooth",  // zökkenőmentes görgetés
+                block: "start"       // a cél a szakasz tetejére kerüljön
+            });
+        });
+    });
 </script>
 </head>
 <body>
 	<div id="full">
-		<div>
-			<div class="foscroll">
-				<div id="body_full" class="scroll_pont" >
-					<header id="menu_sor">
-						<div id="bc"></div>
 
-						<div id="first_half">
-							<div id="logo"></div>
-							<div id="felirat">ChillOut.hu</div>
-						</div>
+		<div id="fo_menu">
+			<div class="menu" id="menu_fooldal">Főoldal</div>
+			<div class="menu" id="menu_apartmanok">Apartmanok</div>
+			<div class="menu" id="menu_informacio">Informáicók</div>
+			<div class="menu" id="menu_galeria">Galéria</div>
+			<div class="menu" id="menu_ertekeles">Értékelések</div>
+			<div class="menu" id="menu_stb">Stb</div>
+		</div>
 
-						<div id="second_half">
-							<div class="menu_pont_hatter"><div id="currency" class="menu_pont">HUF</div></div>
-							<div class="menu_pont_hatter"><div id="language" class="menu_pont"><img class="flag" src="Hungary.png"></div></div>
-							<div class="menu_pont_hatter"><div id="support" class="menu_pont">?</div></div>
-							<div id="book"></div>
-						</div>
-					</header>
+		<div class="foscroll">
+			<div id="fooldal" class="scroll_pont" >
+				<img id="fo_kep" src="chillout_tinodi_outside.jpg">
+				<header id="menu_sor">
+					<div id="bc"></div>
+
+					<div id="first_half">
+						<div id="logo"></div>
+						<div id="felirat">ChillOut.hu</div>
+					</div>
+
+					<div id="second_half">
+						<div class="menu_pont_hatter hover_item"><div id="currency" class="menu_pont">HUF</div></div>
+						<div class="menu_pont_hatter hover_item"><div id="language" class="menu_pont"><img class="flag" src="Hungary.png"></div></div>
+						<div class="menu_pont_hatter hover_item"><div id="support" class="menu_pont">?</div></div>
+						<div id="book"></div>
+					</div>
+				</header>
+			</div>
+			<!-- Apartman -->
+			<div id="apartmanok" class="scroll_pont">
+				<div id="apartman_tinodi" class="apartman">
+					<div class="felirat">Tinódi Apartman</div>
 				</div>
-
-				<div id="apartmanok" class="scroll_pont">
-					<div id="apartman_tinodi" class="apartman">
-						<div class="felirat">Tinódi Apartman</div>
-					</div>
-					<div id="apartman_garazs" class="apartman">
-						<div class="felirat">Chill Apartman</div>
-					</div>
-					<div id="apartman_garazs_szoba" class="apartman">
-						<div class="felirat">Chill Apartman + 1 szoba</div>
+				<div id="apartman_garazs" class="apartman">
+					<div class="felirat">Chill Apartman</div>
+				</div>
+				<div id="apartman_garazs_szoba" class="apartman">
+					<div class="felirat">Chill Apartman + 1 szoba</div>
+				</div>
+			</div>
+			<!-- Elérhetőségek -->
+			<div id="informacio" class="scroll_pont">
+				<div id="belso_eler">
+					<div>
+						<div>
+							
+						</div>
+						<div>
+							
+						</div>
 					</div>
 				</div>
-
+			</div>
+			<div id="galeria" class="scroll_pont">
+				
 			</div>
 		</div>
+		
 	</div>
 		
 </body>
