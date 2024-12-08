@@ -1,7 +1,50 @@
 .hidden{
+	display: none;
+}
+#full{
 
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	justify-content: left;
+	z-index: 1;
+}
+#fo_menu{
+	position: fixed;
+	width: 10%;
+	height: 25vw;
+	z-index: 2;
+}
+.menu{
+	position: relative;
+	display: flex;
+	z-index: 2;
+	height: calc(100%/6);
+	width: 100%;
+	cursor: pointer;
+	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
+    -webkit-background-clip: text;
+    color: transparent;
+	font-size: 2vw;
+	align-items: center;
+}
+.menu::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: darkgrey;
+  transition: width 0.3s ease;
+}
+.menu:hover::after {
+  width: 100%;
 }
 .foscroll{
+	overflow-x: hidden;
+	position: relative;
 	width: 100%;
 	height: 100vh;
 	overflow-y: scroll;
@@ -9,27 +52,55 @@
 	scroll-behavior: smooth; 
 }
 .scroll_pont{
-	scroll-snap-align: start;
-	width: 100%;
 	height: 100vh;
-
+	width: 100%;
+	scroll-snap-align: start;
 }
-body{
-	overflow-x:hidden;
+.hover_item:hover{
+	background-color: rgba(0,0,0,0.6);
+}
+#bemutat{
+	position: absolute;
+	color: white;
+	font-size: 50px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	opacity: 100%;
+	z-index: 1;
+	width: 100%;
+	position: absolute;
+}
+body{	
+	
 }
 html, body {
+	overflow-x:hidden;
 	scroll-behavior: smooth;
 	padding: 0;
 	height: 100%;
 	margin: 0;
 }
-#body_full{
-
-	filter: contrast(1.1);
+#fo_kep{
+    object-fit: cover;
+	background-size: 100%;
+	filter: contrast(1.0);
+	opacity: 95%;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 100vw;
+	height: 100vh;
+}
+#fooldal{
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: relative;
 	margin: 0;
 	width: 100%;
 	height: 100vh;
+	filter: contrast(1.1);
 	background-image: url("chillout_tinodi_outside.jpg");
 	opacity: 95%;
 	background-repeat: no-repeat;
@@ -37,21 +108,23 @@ html, body {
 }
 
 #menu_sor{
-	top:0;
+	top: 0;
+	position: absolute;
 	display: flex;
 	width: 100%;
 	height: 100px;
-	position: absolute;
-	z-index: 1;
 	justify-content: space-between;
 	align-items: center;
 }
-#bc{
+#menu_sor #bc{
 	position: absolute;
 	width: 100%;
 	height: 100px;
 	opacity: 40%;
 	background-color: black;
+}
+#bc{
+
 }
 #first_half{
 	cursor: pointer;
@@ -140,9 +213,7 @@ html, body {
 	display: flex;
 	position: relative;
 	width: 100%;
-	height: 100vh;
-	background-color: red;
-}
+	height: 100vh;}
 #apartman_tinodi{
 	background-color: rgba(77,98,180,1.0);
 }
@@ -156,7 +227,6 @@ html, body {
 	display: flex;
 	justify-content: center;
 	width: calc(100%/3);
-	background-color: red;
 	height: 100%;
 }
 .felirat{
@@ -168,5 +238,27 @@ html, body {
 	height: 60px;
 	border: 2px rgba(0,0,0,0.3) solid;
 	border-radius: 80%;
+}
+#informacio{
 
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.75);
+}
+#belso_eler{
+	width: 100%;
+	height: 92%;
+	margin:2% 2% 2% 2%;
+	background-color: rgba(0,0,0,0.8);
+}
+
+
+#galeria{
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: red;
 }
