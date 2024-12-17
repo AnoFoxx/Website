@@ -6,6 +6,59 @@
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
+    	$(".apartman").click(function() {
+
+			$(".apartman").addClass("background");
+			$("#apartmanok").css("z-index","5");
+			$(".felirat").hide();
+			$(".accent-bg").addClass("accent-bg-show");
+			$('#apartman_garazs').toggleClass('no-hover');
+			$('#apartman_garazs_szoba').toggleClass('no-hover');
+			$('#apartman_tinodi').toggleClass('no-hover');
+
+			
+			$(this).removeClass("background");
+			$(this).addClass("foreground");
+		});
+
+		$(".accent-bg").click(function() {
+			$('#apartman_garazs').removeClass('no-hover');
+			$('#apartman_garazs_szoba').removeClass('no-hover');
+			$('#apartman_tinodi').removeClass('no-hover');
+			$("#apartmanok").css("z-index","0");
+			$(".felirat").show();
+			$(".apartman").removeClass("background");
+			$(".apartman").removeClass("foreground");
+			
+			$(this).removeClass("accent-bg-show");
+		});
+    	$("#book").click(function(){
+    		if($("#foglalas").is(":hidden")){
+    			$("#foglalas").show(400);
+ 				$("#koz").css("z-index","3");
+    		}
+    	})
+    	$("#iksz").click(function(){
+    		if(!($("#foglalas").is(":hidden"))){
+    			$("#koz").css("z-index","0");
+    			$("#foglalas").hide(0);
+
+    		}
+    	})
+
+    	//side-bar lenyitás és becsukás
+    	$("#lenyulo").click(function(){
+    		if($("#fo_menu").is(":hidden")){
+    			$("#fo_menu").show(500);
+    			$("#ikon").css("transform","rotate(90deg)");
+    		}
+    		else{
+    			$("#fo_menu").hide(500);
+    			$("#ikon").css("transform","rotate(0deg)");
+    		}
+    	})
+
+    	//menu tájékozódás
         $(".menu").click(function() {
             var targetId = $(this).attr("id").replace("menu_", ""); // menu_fooldal -> fooldal
 
@@ -22,15 +75,30 @@
 </head>
 <body>
 	<div id="full">
-
-		<div id="fo_menu">
-			<div class="menu" id="menu_fooldal">Főoldal</div>
-			<div class="menu" id="menu_apartmanok">Apartmanok</div>
-			<div class="menu" id="menu_informacio">Informáicók</div>
-			<div class="menu" id="menu_galeria">Galéria</div>
-			<div class="menu" id="menu_ertekeles">Értékelések</div>
-			<div class="menu" id="menu_stb">Stb</div>
+		<div id="koz">
+			<div id="foglalas" class="hidden">
+				<div id="bob">
+					<span id="iksz">&#10005;</span>
+				</div>
+				
+			</div>
 		</div>
+		
+		<div id="oldalso">
+			<div id="lenyulo">
+				<p id="ikon">&#9776;</p>
+			</div>
+			<div id="fo_menu" class="hidden">
+				<div class="menu" id="menu_fooldal">Főoldal</div>
+				<div class="menu" id="menu_apartmanok">Apartmanok</div>
+				<div class="menu" id="menu_informacio">Informáicók</div>
+				<div class="menu" id="menu_galeria">Galéria</div>
+				<div class="menu" id="menu_ertekeles">Értékelések</div>
+				<div class="menu" id="menu_stb">Stb</div>
+			</div>
+		</div>
+			
+		
 
 		<div class="foscroll">
 			<div id="fooldal" class="scroll_pont" >
@@ -44,25 +112,45 @@
 					</div>
 
 					<div id="second_half">
-						<div class="menu_pont_hatter hover_item"><div id="currency" class="menu_pont">HUF</div></div>
+						<div id="curren">
+							<div class="menu_pont_hatter hover_item" id="currency_button">
+								<div id="currency" class="menu_pont">HUF</div>
+							</div>
+							<!--<div id="currency_menu" class="hidden">
+								<span id="huf">HUF</span>
+								<span id="eur">EUR</span>
+								<span id="pln">PLN</span>
+							</div>-->
+						</div>
 						<div class="menu_pont_hatter hover_item"><div id="language" class="menu_pont"><img class="flag" src="Hungary.png"></div></div>
 						<div class="menu_pont_hatter hover_item"><div id="support" class="menu_pont">?</div></div>
-						<div id="book"></div>
+						<div id="book" class="hover_item foglal">Foglalás</div>
+						<!--<div>
+							<div id="bejelentkezes/regisztracio">Bejelentkezés</div>
+
+						</div>-->
 					</div>
 				</header>
 			</div>
+
 			<!-- Apartman -->
 			<div id="apartmanok" class="scroll_pont">
+				<div class="accent-bg"></div>
+
 				<div id="apartman_tinodi" class="apartman">
 					<div class="felirat">Tinódi Apartman</div>
 				</div>
+
 				<div id="apartman_garazs" class="apartman">
 					<div class="felirat">Chill Apartman</div>
 				</div>
+
 				<div id="apartman_garazs_szoba" class="apartman">
 					<div class="felirat">Chill Apartman + 1 szoba</div>
 				</div>
 			</div>
+
+
 			<!-- Elérhetőségek -->
 			<div id="informacio" class="scroll_pont">
 				<div id="belso_eler">
