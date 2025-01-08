@@ -1,62 +1,8 @@
-
-.background {
-	height: 100vh;
-
-	animation-name: background-stretch;
-	width: 50% !important;
-}
-.foreground  {
-	width: 800px!important;
-	height: 550px!important;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1;
-
-	animation-name: foreground-jump;
-	animation-duration: .3s;
-}
-.accent-bg-show {
-	top: 0;
-	left: 0;
-	position: absolute;
-	width: 100vw;
-	height: 100vh;
-
-	animation-name: accent-bg-fade-in;
-	animation-duration: .3s;
-	opacity: 50%;
-}
-
-@keyframes accent-bg-fade-in {
-	from {opacity: 0;	}
-	to: {opacity: 50%;}
-}
-
-@keyframes foreground-jump {
-	from {
-		width: calc(100vw / 3);
-		height: 100vh;
-		position: block;
-	}
-	to {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 1;
-	}
-}
-
-@keyframes background-stretch {
-	from {width: calc(100vw / 3);}
-	to {width: 50%}
-}
-
-
 .hidden{
 	display: none;
+}
+.hide{
+	visibility: hidden
 }
 #full{
 	display: flex;
@@ -129,8 +75,8 @@
 	width: 100%;
 	cursor: pointer;
 	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
-  -webkit-background-clip: text;
-  color: transparent;
+    -webkit-background-clip: text;
+    color: transparent;
 	font-size: 2vw;
 	align-items: center;
 }
@@ -164,18 +110,7 @@
 .hover_item:hover{
 	background-color: rgba(0,0,0,0.6);
 }
-#bemutat{
-	position: absolute;
-	color: white;
-	font-size: 50px;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	opacity: 100%;
-	z-index: 1;
-	width: 100%;
-	position: absolute;
-}
+
 body{	
 	
 }
@@ -189,8 +124,6 @@ html, body {
 }
 #fo_kep{
   object-fit: cover;
-	background-size: 100%;
-	filter: contrast(1.0);
 	opacity: 95%;
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -207,12 +140,19 @@ html, body {
 	width: 100%;
 	height: 100vh;
 	filter: contrast(1.1);
-	background-image: url("chillout_tinodi_outside.jpg");
 	opacity: 95%;
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
-
+#bemutat{
+	color:white;
+	font-size: 3vw;
+	position:absolute;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
 #menu_sor{
 	top: 0;
 	position: absolute;
@@ -251,8 +191,8 @@ html, body {
 }
 #felirat{
 	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
-  -webkit-background-clip: text;
-  color: transparent;
+    -webkit-background-clip: text;
+    color: transparent;
 	font-family: Berlin Sans FB, Helvetica, sans-serif;
 	margin:10px 30px 10px 30px;
 	justify-content: center;
@@ -270,20 +210,78 @@ html, body {
 .foglal{
 	background-color: rgba(0,0,0,0.4);
 }
-#book{
+
+#bejin{
+	width: 80px;
+	height: 160;
+	margin: 0px 25px 0px 5px;
+	justify-content: center;
+}
+#profile{
+	border-radius: 60%;
+	border:2px white solid;
+}
+#bejelentkezes{
+	margin: 0px;
 	cursor: pointer;
 	color: white;
-	border: 2px solid rgba(250,100,0,0.5);
-	border-radius: 20%;
-	width: 120px;
+	border-radius: 30%;
+	width: 80px;
 	height: 80px;
 	margin-left: 5px;
-	margin-right: 10px;
+	margin-right: 5px;
 	justify-content: center;
 	align-items: center;
 	display: flex;
-	font-size: 30px;
+	font-size: 20px;
 	z-index: 2;
+}
+#beiras{
+	border:2px solid grey;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	background-color: white;
+	z-index: 1;
+	right: 20px;
+	margin-top: 8px;
+	width: 310px;
+	height: 200px;
+}
+#beji_felirat{
+	padding: 5px 0px 0px 5px;
+}
+#beji{
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+}
+#vonal{
+	background-color: grey;
+	width: 99%;
+	height: 1px;
+}
+#bej{
+	margin: 0;
+	width: 100%;
+}
+#bej_gomb{
+	width: 100%;
+	display: flex;
+	justify-content: right;
+}
+#bej_gomb_{
+	margin-right: 10px;
+}
+.space_2{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	font-size: 15px;
+}
+.space{
+	margin: 5px 0px 5px 0px;
 }
 .menu_pont_hatter{
 	flex-shrink: 0;
@@ -342,9 +340,63 @@ html, body {
 	color:white;
 	font-size:40px;
 }
-#book{
 
+.background {
+	height: 100vh;
+	animation-duration: .3s;
+	animation-name: background-stretch;
+	width: 50% !important;
 }
+.foreground  {
+	width: 70vw !important;
+	height: 85vh !important;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+
+	animation-name: foreground-jump;
+	animation-duration: .3s;
+}
+.accent-bg-show {
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+
+	animation-name: accent-bg-fade-in;
+	animation-duration: .3s;
+	opacity: 50%;
+}
+
+@keyframes accent-bg-fade-in {
+	from {opacity: 0;	}
+	to: {opacity: 50%;}
+}
+
+@keyframes foreground-jump {
+	from {
+		width: calc(100vw / 3);
+		height: 100vh;
+		position: block;
+	}
+	to {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+	}
+}
+
+@keyframes background-stretch {
+	from {width: calc(100vw / 3);}
+	to {width: 50%}
+}
+
+
 #apartmanok{
 	flex-direction: row;
 	justify-content: space-between;
@@ -356,37 +408,52 @@ html, body {
 #apartman_tinodi{
 	background-color: rgba(77,98,180,1.0);
 }
-#apartman_tinodi:hover{
-	background-color: rgba(77,98,180,0.8);
-}
-#apartman_tinodi.no-hover:hover{
-	background-color: rgba(77,98,180,1.0);
-}
+
 
 #apartman_garazs{
 	background-color: rgba(232,89,217,1.0);
 }
-#apartman_garazs:hover{
-	background-color: rgba(232,89,217,0.8);
-}
-#apartman_garazs.no-hover:hover{
-	background-color: rgba(232,89,217,1.0);
-}
+
 
 #apartman_garazs_szoba{
 	background-color: rgba(68,197,68,1);
 }
-#apartman_garazs_szoba:hover{
-	background-color: rgba(68,197,68,0.8);
+.apartman_div{
+	justify-content: left;
+	width: 100%;
+	height: 100%;
 }
-#apartman_garazs_szoba.no-hover:hover{
-	background-color: rgba(68,197,68,1);
+.apartman_div_tav{
+	height: 100%;
+	width: 50%;
+	flex-direction: column;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+.apartman_div_box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.mozgo_kep{
+	background-color: white;
+	width: 300px;
+	height: 300px;
+}
+.naptar{
+	background-color: white;
+	width: 300px;
+	height: 300px;
 }
 
 .accent-bg{
 	background-color: white;
 }
 .apartman{
+	flex-wrap: wrap;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -398,12 +465,12 @@ html, body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
 	width: 100%;
 	height: 60px;
 	border: 2px rgba(0,0,0,0.3) solid;
 }
 #informacio{
-
 	display: flex;
 	position: relative;
 	width: 100%;
