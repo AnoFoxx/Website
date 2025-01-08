@@ -6,9 +6,28 @@
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
+    	/*
+		document.addEventListener("click", e =>{
+			if(e.target.classList.contains("bejelentkezes"));
+			amire rányomott annak nincs ilyen class e (bejelentkezes) akkor csinál valamit
+		})
+    	*/
+    	var bejen = $("beiras");
+    	var bej = document.getElementById("beiras");
+    	
     	$("#bejelentkezes").click(function(){
+    		$("#beiras").removeClass("hide");
+    	})
+    	$(document).mouseup(function(e){
+    		if($("#beiras").is(":visible")){
+    			
+    		}
     		
     	})
+
+    	
+    	
+    	
     	$(".apartman").click(function() {
     		var id= this.id;
 			$(".apartman").addClass("background");
