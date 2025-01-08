@@ -6,45 +6,60 @@
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
+    	$("#bejelentkezes").click(function(){
+    		
+    	})
     	$(".apartman").click(function() {
-
+    		var id= this.id;
 			$(".apartman").addClass("background");
 			$("#apartmanok").css("z-index","5");
 			$(".felirat").hide();
 			$(".accent-bg").addClass("accent-bg-show");
-			$('#apartman_garazs').toggleClass('no-hover');
-			$('#apartman_garazs_szoba').toggleClass('no-hover');
-			$('#apartman_tinodi').toggleClass('no-hover');
 
 			
 			$(this).removeClass("background");
 			$(this).addClass("foreground");
+			if(id=='apartman_tinodi') {
+				$("#apartman_tinodi").css("cursor","context-menu");
+				$("#tinodi_naptar").show();
+				$("#tinodi_kep").show();
+			}
+			if(id=='apartman_garazs'){
+				$("#apartman_garazs").css("cursor","context-menu");
+				$("#garazs_naptar").show();
+				$("#garazs_kep").show();
+			}
+			if(id=='apartman_garazs_szoba'){
+				$("#apartman_garazs_szoba").css("cursor","context-menu");
+				$("#garazs_szoba_kep").show();
+				$("#garazs_szoba_naptar").show();
+			}
 		});
 
 		$(".accent-bg").click(function() {
-			$('#apartman_garazs').removeClass('no-hover');
-			$('#apartman_garazs_szoba').removeClass('no-hover');
-			$('#apartman_tinodi').removeClass('no-hover');
 			$("#apartmanok").css("z-index","0");
 			$(".felirat").show();
+
+			$("#tinodi_naptar").hide();
+			$("#tinodi_kep").hide();
+			$("#garazs_naptar").hide();
+			$("#garazs_kep").hide();
+			$("#garazs_szoba_kep").hide();
+			$("#garazs_szoba_naptar").hide();
+
 			$(".apartman").removeClass("background");
 			$(".apartman").removeClass("foreground");
 			
 			$(this).removeClass("accent-bg-show");
 		});
-    	$("#book").click(function(){
-    		if($("#foglalas").is(":hidden")){
-    			$("#foglalas").show(400);
- 				$("#koz").css("z-index","3");
-    		}
-    	})
-    	$("#iksz").click(function(){
+    	
+    	/*$("#iksz").click(function(){
     		if(!($("#foglalas").is(":hidden"))){
     			$("#koz").css("z-index","0");
     			$("#foglalas").hide(0);
 
     		}
-    	})
+    	})*/
 
     	//side-bar lenyitás és becsukás
     	$("#lenyulo").click(function(){
@@ -76,12 +91,13 @@
 <body>
 	<div id="full">
 		<div id="koz">
-			<div id="foglalas" class="hidden">
+			 <!--<div id="foglalas" class="hidden">
 				<div id="bob">
 					<span id="iksz">&#10005;</span>
 				</div>
 				
 			</div>
+		-->
 		</div>
 		
 		<div id="oldalso">
@@ -101,8 +117,9 @@
 		
 
 		<div class="foscroll">
-			<div id="fooldal" class="scroll_pont" >
-				<img id="fo_kep" src="chillout_tinodi_outside.jpg">
+			<div id="fooldal" class="scroll_pont">
+				<p id="bemutat">Üvözlünk a ChillOut apartman weboldalán</p>
+				<img id="fo_kep" draggable="false" src="chillout_tinodi_outside.jpg">
 				<header id="menu_sor">
 					<div id="bc"></div>
 
@@ -124,11 +141,48 @@
 						</div>
 						<div class="menu_pont_hatter hover_item"><div id="language" class="menu_pont"><img class="flag" src="Hungary.png"></div></div>
 						<div class="menu_pont_hatter hover_item"><div id="support" class="menu_pont">?</div></div>
-						<div id="book" class="hover_item foglal">Foglalás</div>
-						<!--<div>
-							<div id="bejelentkezes/regisztracio">Bejelentkezés</div>
+						
+						
+						<div id="bejin">
+							<div id="bejelentkezes" class="foglal hover_item">
+								<div id="profile" class="profile" style="width: 52.5px; height: 52.5px;">
+									<svg style='width: 100%; height: 100%; border-radius: 100%;' viewBox='0 0 100 100'>
+										<rect width="100" height="100" x="0" y="0" fill="#05DB83" />
+										<circle r="20" cx="50" cy="35" fill="lightgray"/>
+										<circle r="40" cx="50" cy="100" fill="lightgray"/>
+									</svg>
+								</div>
+							</div>
 
-						</div>-->
+							<div id="beiras" class="hide">
+								<span id="beji_felirat">Bejelentkezés</span>
+								<hr id="vonal">
+								<div id="bej">
+									<table id="beji">
+										<tr>
+											<form>
+												<td><span>Felhasználónév:</span></td>
+												<td><input type="text" name="felhasznalo_nev" id="felhasznalo_nev"></td>
+											</form>
+										</tr>
+										<tr>
+											<td><span>Jelszó:</span></td>
+											<td><input type="password" name="password" id="password"></td>
+										</tr>
+									</table>
+									<div id="bej_gomb">
+										<button id="bej_gomb_">Bejelentkezés</button>
+									</div>
+									<div class="space_2">
+										<a href="" id="felejtett_jelszo">Elfelejtettem a jelszavam</a>
+									</div>
+									<div class="space_2">
+										<a href="" id="regisztracio">Regisztráció</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
 					</div>
 				</header>
 			</div>
@@ -139,14 +193,53 @@
 
 				<div id="apartman_tinodi" class="apartman">
 					<div class="felirat">Tinódi Apartman</div>
+					<div class="apartman_div">
+						<div id="tinodi_div" class="apartman_div_tav">
+							<div class="apartman_div_box">
+								<div id="tinodi_kep" class="mozgo_kep hidden"></div>
+							</div>
+							<div class="apartman_div_box">
+								<div id="tinodi_naptar" class="naptar hidden"></div>
+							</div>
+						</div>
+						<div class="apartman_div_tav">
+							
+						</div>
+					</div>
 				</div>
 
 				<div id="apartman_garazs" class="apartman">
 					<div class="felirat">Chill Apartman</div>
+					<div class="apartman_div">
+						<div id="garazs_div" class="apartman_div_tav">
+							<div class="apartman_div_box">
+								<div id="garazs_kep" class="mozgo_kep hidden"></div>
+							</div>
+							<div class="apartman_div_box">
+								<div id="garazs_naptar" class="naptar hidden"></div>
+							</div>
+						</div>
+						<div class="apartman_div_tav">
+							
+						</div>
+					</div>
 				</div>
 
 				<div id="apartman_garazs_szoba" class="apartman">
 					<div class="felirat">Chill Apartman + 1 szoba</div>
+					<div class="apartman_div">
+						<div id="garazs_szoba_div" class="apartman_div_tav">
+							<div class="apartman_div_box">
+								<div id="garazs_szoba_kep" class="mozgo_kep hidden"></div>
+							</div>
+							<div class="apartman_div_box">
+								<div id="garazs_szoba_naptar" class="naptar hidden"></div>
+							</div>
+						</div>
+						<div class="apartman_div_tav">
+							
+						</div>
+					</div>	
 				</div>
 			</div>
 
