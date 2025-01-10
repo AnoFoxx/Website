@@ -6,24 +6,36 @@
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
-    	/*
 		document.addEventListener("click", e =>{
-			if(e.target.classList.contains("bejelentkezes"));
-			amire rányomott annak nincs ilyen class e (bejelentkezes) akkor csinál valamit
+
+			if(!(e.target.classList.contains("elerhet_vis"))){
+				$("#elerheto").hide(500);
+			}
+
+			if(!(e.target.classList.contains("bejelent_class"))){
+				$("#beiras").hide(500);
+			}
 		})
-    	*/
-    	var bejen = $("beiras");
-    	var bej = document.getElementById("beiras");
-    	
-    	$("#bejelentkezes").click(function(){
-    		$("#beiras").removeClass("hide");
-    	})
-    	$(document).mouseup(function(e){
-    		if($("#beiras").is(":visible")){
-    			
+    	$("#support_icon").click(function(){
+    		if($("#elerheto").is(":visible")){
+    			$("#elerheto").hide(500);
+    		}
+    		else{
+    			$("#elerheto").show(500);
     		}
     		
     	})
+
+    	$("#bejelentkezes").click(function(){
+    		if($("#beiras").is(":visible")){
+    			$("#beiras").hide(500);
+    		}
+    		else{
+    			$("#beiras").show(500);
+    		}
+    		
+    	})
+    	
 
     	
     	
@@ -94,14 +106,13 @@
 
     	//menu tájékozódás
         $(".menu").click(function() {
-            var targetId = $(this).attr("id").replace("menu_", ""); // menu_fooldal -> fooldal
+            var targetId = $(this).attr("id").replace("menu_", "");
 
-            // Itt használjuk a scrollIntoView() metódust
             var targetElement = $("#" + targetId)[0];
                 
             targetElement.scrollIntoView({
-                behavior: "smooth",  // zökkenőmentes görgetés
-                block: "start"       // a cél a szakasz tetejére kerüljön
+                behavior: "smooth",
+                block: "start"
             });
         });
     });
@@ -109,16 +120,6 @@
 </head>
 <body>
 	<div id="full">
-		<div id="koz">
-			 <!--<div id="foglalas" class="hidden">
-				<div id="bob">
-					<span id="iksz">&#10005;</span>
-				</div>
-				
-			</div>
-		-->
-		</div>
-		
 		<div id="oldalso">
 			<div id="lenyulo">
 				<p id="ikon">&#9776;</p>
@@ -152,51 +153,59 @@
 							<div class="menu_pont_hatter hover_item" id="currency_button">
 								<div id="currency" class="menu_pont">HUF</div>
 							</div>
-							<!--<div id="currency_menu" class="hidden">
-								<span id="huf">HUF</span>
-								<span id="eur">EUR</span>
-								<span id="pln">PLN</span>
-							</div>-->
 						</div>
 						<div class="menu_pont_hatter hover_item"><div id="language" class="menu_pont"><img class="flag" src="Hungary.png"></div></div>
-						<div class="menu_pont_hatter hover_item"><div id="support" class="menu_pont">?</div></div>
+
+						<!--Elerhetőségek-->
+						<div style="display:flex; justify-content: center;">
+							<div id="support_icon" class="menu_pont_hatter hover_item elerhet_vis"><div id="support" class="menu_pont elerhet_vis">?</div></div>
+
+							<div id="elerheto" class="elerhet_vis" style="display:none;">
+								<span class="elerhet_vis">suliproject@gmail.com</span>
+								<span class="elerhet_vis">+36705384254</span>
+								<a href="https://www.facebook.com/p/ChillOut-Apartman-100063457207712/" class="elerhet_vis"><img id="facebook" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/512px-Facebook_f_logo_%282021%29.svg.png?20210818083032">Facebook</a>
+							</div>
+						</div>
 						
 						
-						<div id="bejin">
-							<div id="bejelentkezes" class="foglal hover_item">
-								<div id="profile" class="profile" style="width: 52.5px; height: 52.5px;">
-									<svg style='width: 100%; height: 100%; border-radius: 100%;' viewBox='0 0 100 100'>
-										<rect width="100" height="100" x="0" y="0" fill="#05DB83" />
-										<circle r="20" cx="50" cy="35" fill="lightgray"/>
-										<circle r="40" cx="50" cy="100" fill="lightgray"/>
+						
+						<div id="bejin" class="bejelent_class">
+							<div id="bejelentkezes" class="foglal hover_item bejelent_class">
+								<div id="profile" class="profile bejelent_class" style="width: 51.5px; height: 51.5px;">
+									<svg class="bejelent_class" style='width: 100%; height: 100%; border-radius: 100%;' viewBox='0 0 100 100'>
+										<rect class="bejelent_class" width="100" height="100" x="0" y="0" fill="green" />
+										<circle r="20" cx="50" cy="35" fill="lightgray" class="bejelent_class"/>
+										<circle r="40" cx="50" cy="100" fill="lightgray" class="bejelent_class"/>
 									</svg>
 								</div>
 							</div>
 
-							<div id="beiras" class="hide">
-								<span id="beji_felirat">Bejelentkezés</span>
-								<hr id="vonal">
-								<div id="bej">
-									<table id="beji">
-										<tr>
-											<form>
-												<td><span>Felhasználónév:</span></td>
-												<td><input type="text" name="felhasznalo_nev" id="felhasznalo_nev"></td>
-											</form>
-										</tr>
-										<tr>
-											<td><span>Jelszó:</span></td>
-											<td><input type="password" name="password" id="password"></td>
-										</tr>
+							<div id="beiras" class="bejelent_class" style="display: none;">
+								<span id="beji_felirat" class="bejelent_class">Bejelentkezés</span>
+								<hr id="vonal" class="bejelent_class">
+								<div id="bej" class="bejelent_class">
+									<table id="beji" class="bejelent_class">
+										<tbody class="bejelent_class">
+											<tr class="bejelent_class">
+												<form class="bejelent_class">
+													<td class="bejelent_class"><span class="bejelent_class">Felhasználónév:</span></td>
+													<td class="bejelent_class"><input type="text" name="felhasznalo_nev" id="felhasznalo_nev" class="bejelent_class"></td>
+												</form>
+											</tr>
+											<tr class="bejelent_class">
+												<td class="bejelent_class"><span class="bejelent_class">Jelszó:</span></td>
+												<td class="bejelent_class"><input type="password" name="password" id="password" class="bejelent_class"></td>
+											</tr>
+										</tbody>
 									</table>
-									<div id="bej_gomb">
-										<button id="bej_gomb_">Bejelentkezés</button>
+									<div id="bej_gomb" class="bejelent_class">
+										<button id="bej_gomb_" class="bejelent_class">Bejelentkezés</button>
 									</div>
-									<div class="space_2">
-										<a href="" id="felejtett_jelszo">Elfelejtettem a jelszavam</a>
+									<div class="space_2 bejelent_class">
+										<a href="" id="felejtett_jelszo" class="bejelent_class">Elfelejtettem a jelszavam</a>
 									</div>
-									<div class="space_2">
-										<a href="" id="regisztracio">Regisztráció</a>
+									<div class="space_2 bejelent_class" class="bejelent_class">
+										<a href="" id="regisztracio" class="bejelent_class">Regisztráció</a>
 									</div>
 								</div>
 							</div>
@@ -266,12 +275,37 @@
 			<!-- Elérhetőségek -->
 			<div id="informacio" class="scroll_pont">
 				<div id="belso_eler">
-					<div>
-						<div>
-							
+					<div id="info_felirat">
+						<h1 style="color:white; font-size:60px;">Az apartmanokról</h1>
+					</div>
+					<div id="informaciok">
+						<div id="teszt_1">
+							<div id="leiras">
+								bla bla bla bla bla bla
+							</div>
 						</div>
-						<div>
-							
+						<div  id="teszt_2">
+							<div class="info_apart">
+								<div class="info_hatter" style="background-color:rgba(232,89,217,1.0);"></div>
+								<div class="info_apart_felirat">
+									<h4>Tinódi Apartman</h4>
+								</div>
+								<div class="info_apart_elerheto"></div>
+							</div>
+							<div class="info_apart">
+								<div class="info_hatter" style="background-color: rgba(77,98,180,1.0);"></div>
+								<div class="info_apart_felirat">
+									<h4>Chill Apartman</h4>
+								</div>
+								<div class="info_apart_elerheto"></div>
+							</div>
+							<div class="info_apart">
+								<div class="info_hatter" style="background-color: rgba(68,197,68,1);"></div>
+								<div class="info_apart_felirat">
+									<h4>Chill Apartman + 1 szoba</h4>
+								</div>
+								<div class="info_apart_elerheto"></div>
+							</div>
 						</div>
 					</div>
 				</div>
