@@ -43,13 +43,13 @@
     	$(".apartman").click(function() {
     		var id= this.id;
 			$(".apartman").addClass("background");
-			$("#apartmanok").css("z-index","5");
+			$("#apartmanok").css("z-index","2");
 			$(".felirat").hide();
 			$(".accent-bg").addClass("accent-bg-show");
-
-			
 			$(this).removeClass("background");
 			$(this).addClass("foreground");
+			
+			
 			if(id=='apartman_tinodi') {
 				$("#apartman_tinodi").css("cursor","context-menu");
 				$("#tinodi_naptar").show();
@@ -83,14 +83,6 @@
 			
 			$(this).removeClass("accent-bg-show");
 		});
-    	
-    	/*$("#iksz").click(function(){
-    		if(!($("#foglalas").is(":hidden"))){
-    			$("#koz").css("z-index","0");
-    			$("#foglalas").hide(0);
-
-    		}
-    	})*/
 
     	//side-bar lenyitás és becsukás
     	$("#lenyulo").click(function(){
