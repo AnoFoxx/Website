@@ -6,6 +6,18 @@
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
+    	$("#regisztracio").click(function(){
+    		$("#reg_page").show(500);
+    		$("#reg_background").css("z-index","4");
+
+    	})
+    	$("#reg_close_bc").click(function(){
+    		if($("#reg_page").is(":visible")){
+    			$("#reg_page").hide(500);
+    			$("#reg_background").css("z-index","0");
+
+    		}
+    	})
 		document.addEventListener("click", e =>{
 
 			if(!(e.target.classList.contains("elerhet_vis"))){
@@ -87,6 +99,7 @@
     	//side-bar lenyitás és becsukás
     	$("#lenyulo").click(function(){
     		if($("#fo_menu").is(":hidden")){
+    			$("#lenyulo").show(500);
     			$("#fo_menu").show(500);
     			$("#ikon").css("transform","rotate(90deg)");
     		}
@@ -112,11 +125,18 @@
 </head>
 <body>
 	<div id="full">
+		<div id="reg_background"></div>
+		<div id="reg_page" style="display:none;">
+			<header id="close_header"><div id="reg_close_bc"><span id="reg_close">&#10005;</span></div></header>
+			<div id="close_body"></div>
+		</div>
+		
+		
 		<div id="oldalso">
-			<div id="lenyulo">
+			<div id="lenyulo" >
 				<p id="ikon">&#9776;</p>
 			</div>
-			<div id="fo_menu" class="hidden">
+			<div id="fo_menu" style="display:none;">
 				<div class="menu" id="menu_fooldal">Főoldal</div>
 				<div class="menu" id="menu_apartmanok">Apartmanok</div>
 				<div class="menu" id="menu_informacio">Informáicók</div>
@@ -194,10 +214,10 @@
 										<button id="bej_gomb_" class="bejelent_class">Bejelentkezés</button>
 									</div>
 									<div class="space_2 bejelent_class">
-										<a href="" id="felejtett_jelszo" class="bejelent_class">Elfelejtettem a jelszavam</a>
+										<div id="felejtett_jelszo" class="bejelent_class"><span class="reg_el">Elfelejtettem a jelszavam</span></div>
 									</div>
 									<div class="space_2 bejelent_class" class="bejelent_class">
-										<a href="" id="regisztracio" class="bejelent_class">Regisztráció</a>
+										<div id="regisztracio" class="bejelent_class"><span class="reg_el">Regisztráció</span></div>
 									</div>
 								</div>
 							</div>
@@ -216,10 +236,10 @@
 					<div class="apartman_div">
 						<div id="tinodi_div" class="apartman_div_tav">
 							<div class="apartman_div_box">
-								<div id="tinodi_kep" class="mozgo_kep hidden"></div>
+								<div id="tinodi_kep" class="mozgo_kep" style="display:none;"></div>
 							</div>
 							<div class="apartman_div_box">
-								<div id="tinodi_naptar" class="naptar hidden"></div>
+								<div id="tinodi_naptar" class="naptar" style="display:none;"></div>
 							</div>
 						</div>
 						<div class="apartman_div_tav">
@@ -233,10 +253,10 @@
 					<div class="apartman_div">
 						<div id="garazs_div" class="apartman_div_tav">
 							<div class="apartman_div_box">
-								<div id="garazs_kep" class="mozgo_kep hidden"></div>
+								<div id="garazs_kep" class="mozgo_kep" style="display:none;"></div>
 							</div>
 							<div class="apartman_div_box">
-								<div id="garazs_naptar" class="naptar hidden"></div>
+								<div id="garazs_naptar" class="naptar" style="display:none;"></div>
 							</div>
 						</div>
 						<div class="apartman_div_tav">
@@ -250,10 +270,10 @@
 					<div class="apartman_div">
 						<div id="garazs_szoba_div" class="apartman_div_tav">
 							<div class="apartman_div_box">
-								<div id="garazs_szoba_kep" class="mozgo_kep hidden"></div>
+								<div id="garazs_szoba_kep" class="mozgo_kep" style="display:none;"></div>
 							</div>
 							<div class="apartman_div_box">
-								<div id="garazs_szoba_naptar" class="naptar hidden"></div>
+								<div id="garazs_szoba_naptar" class="naptar" style="display:none;"></div>
 							</div>
 						</div>
 						<div class="apartman_div_tav">
