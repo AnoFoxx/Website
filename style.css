@@ -1,66 +1,43 @@
-
-#full{
+.flex{
 	display: flex;
-	width: 100vw;
-	height: 100vh;
-	align-items: center;
+}
+.center{
 	justify-content: center;
-	z-index: 1;
 }
-#reg_background{
-	position: fixed;
-	width: 100vw;
-	height: 100vh;
-	z-index: 0;
+.apartman, 
+.felirat, #info_felirat, #teszt_1, .info_apart_felirat{
+	justify-content: center;
 }
-#reg_page{
-	z-index: 5;
-	position: fixed;
-	background-color: white;
-	width: 90%;
-	height: 90%;
-	margin: 5% 0 5% 0;
-}
-#reg_close_bc{
-	display: flex;
-	justify-content: space-evenly;
+#full, #lenyulo, .menu, #fooldal, #bemutat, #menu_sor, #first_half, #felirat, #second_half, #bejelentkezes, .menu_pont_hatter, .menu_pont, #currency_menu, 
+#elerheto, .apartman_div_tav, .apartman_div_box, .felirat, #info_felirat, #teszt_1, .info_apart_felirat{
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.2);
-	width: 50px;
-	height: 50px;
 }
-#reg_close{
-	top: 0;
-	right: 0;
-	font-size: 35px;
+#iksz, #fo_menu, #bemutat, #menu_sor, #beiras, #bc, #currency_menu, #elerheto, .foreground, .accent-bg-show, .info_hatter{
+	position: absolute;
 }
-#close_header{
-	top: 0;
-	display: flex;
-	justify-content: right;
-	height: 60px;
+.menu, .foscroll, #fooldal, #apartmanok, .apartman_div_box, #informacio, .info_apart, #galeria{
+	position: relative;
+}
+#iksz, .menu, .foscroll, .scroll_pont, #fooldal, #menu_sor, #bc, .space_2, #apartmanok, .apartman_div, .apartman_div_box, .felirat, #informacio, #galeria,
+.info_hatter, .info_apart_elerheto, .info_apart_felirat, #info_felirat, #belso_eler, #informaciok{
 	width: 100%;
 }
-#close_body{
+#full, #fo_kep, .accent-bg-show{
+	width: 100vw;
+}
 
+#iksz,.apartman_div, .apartman_div_tav, .apartman, #teszt_1, #teszt_2, .info_apart, .info_hatter{
+	height: 100%;
 }
-#foglalas{
-	padding: 0;
-	margin:0;
-	position: fixed;
-	width: 90vw;
+#full, .foscroll, .scroll_pont, #fo_kep, #fooldal, .background, .accent-bg-show, #apartmanok, #informacio, #galeria{
 	height: 100vh;
-	background-color: white;
-	z-index: 3;
 }
-#bob{
-	display: flex;
-	justify-content: right;
+
+#full{
+	z-index: 1;
 }
 #iksz{
-	position: absolute;
-	display: flex;
-	margin: 0px 10px 0px 10px;
+	margin: 5px 10px 5px 10px;
 	font-size: 35px;
 }
 #oldalso{
@@ -73,9 +50,6 @@
 }
 #lenyulo{
 	background-color: rgba(0, 0, 0, 0.5);
-	align-items: center;
-	justify-content: center;
-	display: flex;
 	width: 50px;
 	height: 50px;
 	cursor: pointer;
@@ -88,22 +62,17 @@
 }
 #fo_menu{
 	height: 40vh;
-	position: absolute;
 	background-color: rgba(0, 0, 0, 0.5);
 }
 .menu{
 	font-family: Berlin Sans FB, Helvetica, sans-serif;
-	position: relative;
-	display: flex;
 	z-index: 2;
 	height: calc(100%/6);
-	width: 100%;
 	cursor: pointer;
 	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
     -webkit-background-clip: text;
     color: transparent;
 	font-size: 2vw;
-	align-items: center;
 }
 .menu::after {
   content: '';
@@ -120,16 +89,11 @@
 }
 .foscroll{
 	overflow-x: hidden;
-	position: relative;
-	width: 100%;
-	height: 100vh;
 	overflow-y: scroll;
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth; 
 }
 .scroll_pont{
-	height: 100vh;
-	width: 100%;
 	scroll-snap-align: start;
 }
 .hover_item:hover{
@@ -152,18 +116,10 @@ html, body {
 	opacity: 95%;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	width: 100vw;
-	height: 100vh;
 }
 #fooldal{
 	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
 	margin: 0;
-	width: 100%;
-	height: 100vh;
 	filter: contrast(1.1);
 	opacity: 95%;
 	background-repeat: no-repeat;
@@ -172,38 +128,23 @@ html, body {
 #bemutat{
 	color:white;
 	font-size: 3vw;
-	position:absolute;
-	display:flex;
-	justify-content: center;
-	align-items: center;
 	z-index: 1;
 }
 #menu_sor{
 	top: 0;
-	position: absolute;
-	display: flex;
-	width: 100%;
 	height: 100px;
 	justify-content: space-between;
-	align-items: center;
 }
-#menu_sor #bc{
-	position: absolute;
-	width: 100%;
+#bc{
 	height: 100px;
 	opacity: 40%;
 	background-color: black;
-}
-#bc{
-
 }
 #first_half{
 	cursor: pointer;
 	z-index: 2;
 	margin-left: 10%;
-	display: flex;
 	justify-content: left;
-	align-items: center;
 	width: 40%;
 	height: 100px;
 }
@@ -220,27 +161,16 @@ html, body {
     color: transparent;
 	font-family: Berlin Sans FB, Helvetica, sans-serif;
 	margin:10px 30px 10px 30px;
-	justify-content: center;
-	align-items: center;
 	font-size: 55px;
 }
 #second_half{
 	width: 50%;
 	height: 100px;
 	justify-content: right;
-	align-items: center;
 	z-index: 2;
-	display: flex;
 }
 .foglal{
 	background-color: rgba(0,0,0,0.4);
-}
-
-#bejin{
-	width: 80px;
-	height: auto;
-	margin: 0px 25px 0px 5px;
-	justify-content: center;
 }
 #profile{
 	border-radius: 60%;
@@ -260,17 +190,12 @@ html, body {
 	height: 80px;
 	margin-left: 5px;
 	margin-right: 5px;
-	justify-content: center;
-	align-items: center;
-	display: flex;
 	font-size: 20px;
 	z-index: 2;
 }
 #beiras{
 	border:2px solid grey;
-	display: flex;
 	flex-direction: column;
-	position: absolute;
 	background-color: white;
 	z-index: 3;
 	right: 20px;
@@ -292,23 +217,8 @@ html, body {
 	width: 99%;
 	height: 1px;
 }
-#bej{
-	margin: 0;
-	width: 100%;
-}
-#bej_gomb{
-	width: 100%;
-	display: flex;
-	justify-content: right;
-}
-#bej_gomb_{
-	margin-right: 10px;
-}
 .space_2{
-	width: 100%;
 	margin-top: 5px;
-	display: flex;
-	justify-content: center;
 	font-size: 15px;
 }
 .space{
@@ -322,26 +232,23 @@ html, body {
 	margin-left: 5px;
 	margin-right: 5px;
 	border-radius: 30%;
-	justify-content: center;
-	align-items: center;
 	z-index: 2;
-	display: flex;
 	background-color: rgba(0,0,0,0.4);
 }
 .menu_pont{
-	display: flex;
 	width: 50px;
 	height:50px;
-	align-items: center;
-	justify-content: center;
 	border-radius: 60%;
 	border:2px white solid;
 	background: green;
 	
 }
+.menu_pont_foglalas{
+	height: 50px;
+	width: 80px;
+}
 #curren{
 	display: inline-flex;
-	justify-content: center;
 }
 #currency{
 	color:white;
@@ -350,13 +257,9 @@ html, body {
 }
 #currency_menu{
 	font-size: 20px;
-	position: absolute;
 	width: 80px;
 	background-color: white;
 	flex-direction: column;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 .flag{
 	border-radius: 60%;
@@ -370,10 +273,7 @@ html, body {
 	justify-content: space-evenly;
 	margin-top: 89px;
 	border:2px solid grey;
-	display: flex;
 	flex-direction: column;
-	position: absolute;
-	align-items: center;
 	background-color: white;
 	z-index: 3;
 	height: 80px;
@@ -388,7 +288,6 @@ html, body {
 	width: 15px;
 }
 .background {
-	height: 100vh;
 	animation-duration: .3s;
 	animation-name: background-stretch;
 	width: 50% !important;
@@ -396,7 +295,6 @@ html, body {
 .foreground  {
 	width: 70vw !important;
 	height: 85vh !important;
-	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -408,10 +306,7 @@ html, body {
 .accent-bg-show {
 	top: 0;
 	left: 0;
-	position: absolute;
 	z-index: 3;
-	width: 100vw;
-	height: 100vh;
 
 	animation-name: accent-bg-fade-in;
 	animation-duration: .3s;
@@ -447,10 +342,7 @@ html, body {
 #apartmanok{
 	flex-direction: row;
 	justify-content: space-between;
-	display: flex;
-	position: relative;
-	width: 100%;
-	height: 100vh;}
+}
 
 #apartman_tinodi{
 	background-color: rgba(232,89,217,1.0);
@@ -468,25 +360,15 @@ html, body {
 }
 .apartman_div{
 	justify-content: left;
-	width: 100%;
-	height: 100%;
 }
 .apartman_div_tav{
-	height: 100%;
 	width: 50%;
 	flex-direction: column;
-	display: flex;
 	justify-content: left;
-	align-items: center;
 }
 .apartman_div_box{
-	position: relative;
 	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	resize: horizontal;
-	width: 100%;
 	max-width: 100%;
 	height: 50%;
 }
@@ -507,55 +389,31 @@ html, body {
 .apartman{
 	flex-wrap: wrap;
 	cursor: pointer;
-	display: flex;
-	justify-content: center;
 	width: calc(100%/3);
-	height: 100%;
 }
 .felirat{
 	background-color: rgba(0,0,0,0.15);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	width: 100%;
 	height: 60px;
 	border: 2px rgba(0,0,0,0.3) solid;
 }
 #informacio{
-	display: flex;
-	position: relative;
-	width: 100%;
-	height: 100vh;
 	background-color: rgba(0,0,0,0.75);
 }
 #info_felirat{
-	justify-content: center;
-	align-items: center;
 	background-color: darkgrey;
-	display: flex;
-	width: 100%;
 	height: 15%;
 }
 #belso_eler{
-	display: flex;
 	flex-direction: column;
-	width: 100%;
 	height: 92%;
 	margin:2% 2% 2% 2%;
 	background-color: rgba(0,0,0,0.8);
 }
 #informaciok{
-	display: flex;
-	width: 100%;
 	height: 85%;
 }
 #teszt_1{
-	justify-content: center;
-	align-items: center;
 	width:40%;
-	display: flex;
-	height: 100%;
 	background-color: white;
 }
 #leiras{
@@ -565,42 +423,25 @@ html, body {
 }
 #teszt_2{
 	width: 60%;
-	display: flex;
-	height: 100%;
 	background-color: white;
 }
 .info_apart{
-	position: relative;
 	flex-direction: column;
-	display: flex;
 	width: calc(100%/3);
-	height: 100%;
 	
 }
 .info_apart_felirat{
 	z-index: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	height: 20%;
-	width: 100%;
 }
 .info_apart_elerheto{
 	z-index: 1;
 	height: 80%;
-	width: 100%;
 }
 .info_hatter{
 	z-index: 0;
 	opacity: 60%;
-	width:100%; 
-	height:100%; 
-	position: absolute;
 }
 #galeria{
-	display: flex;
-	position: relative;
-	width: 100%;
-	height: 100vh;
 	background-color: red;
 }
