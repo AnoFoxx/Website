@@ -68,22 +68,18 @@
 				$temp1 = 3;
 				$temp2 = 3;
 
-				$kov_ho_bool = false;
-
 				for ($i=0; $i < 6; $i++) { 
 					echo "<div class='naptar-row'>";
 					for ($j=0; $j < 7; $j++) { 
-						if ($napszam > 0 && $napszam <= $honap_napok_szama) {
+						if ($napszam > 0 && $napszam <= $honap_napok_szama && $napszam <= $honap_napok_szama) {
 							echo " 
-								<div data-year='".(($kov_ho_bool) ? "$kov_ev" : "$ev")."' data-month='".(($kov_ho_bool) ? "$kov_honap" : "$honap")."' data-day='$napszam' class='naptar-nap naptar-szamozott-nap'>
-									<b style='z-index:1; ".(($kov_ho_bool) ? 'color: rgb(133 132 132);': 'color: black;')."'>
+								<div data-year='$ev' data-month='$honap' data-day='$napszam' class='naptar-nap naptar-szamozott-nap'>
+									<b style='z-index:0.9; color:".(($napszam < date("d")) ? "#777" : (($napszam == date("d")) ? "#00C510" : "black")).";'>
 										$napszam
 									</b>
 									<div style='position: absolute; width: 100%; height: 100%;'>
 										<svg style='width: 100%; height: 100%; ' viewBox='0 0 100 100'>
 							";
-								
-
 								// Logged in user által foglalt első nap
 								if ($temp1 == 0) 
 									echo "<polygon points='10,0 100,0 100,100 10,100 40,50' style='fill: $foglalo_szin;'/>";
@@ -108,51 +104,25 @@
 								else if ($temp2 == 2) 
 									echo "<polygon points='0,0 10,0 41,50 10,100 0,100' style='fill: $foglalt_szin;'/>";
 
-								// Mai nap jelzése
-								if (mktime(0, 0, 0, $honap, $napszam, $ev) == mktime(0, 0, 0, date("m"), date("d"), date("Y")) && !$kov_ho_bool)
-									echo "<circle cx='51' cy='49' r='30' fill='#00C510'/>";	
+								// // Mai nap jelzése
+								// if (mktime(0, 0, 0, $honap, $napszam, $ev) == mktime(0, 0, 0, date("m"), date("d"), date("Y")))
+								// 	echo "<circle cx='51' cy='49' r='30' fill='#00C510'/>";	
 							echo "
 										</svg>
 									</div>
 								</div>
 							";
+						} else {
+							echo "<div class='naptar-nap' style='background-color:#fff;'></div>";
 						}
-						if ($elozo_honap_megjelenitendo_napok <= $elozo_honap_nap_szam) {
-							echo "
-								<div data-year='$elozo_ev' data-month='$elozo_honap' data-day='$elozo_honap_megjelenitendo_napok' class='naptar-nap naptar-szamozott-nap' style='color: rgb(133 132 132);'>
-									<b style='z-index:1;'>$elozo_honap_megjelenitendo_napok</b>
-									<div style='position: absolute; width: 100%; height: 100%;'>
-										<svg style='width: 100%; height: 100%; ' viewBox='0 0 100 100'>
-							";
-								// Más user által foglalt első nap
-								if ($temp2 == 0) 
-									echo "<polygon points='10,0 100,0 100,100 10,100 40,50' style='fill: $foglalt_szin;'/>";
-
-								// Más user által foglalt teljes nap
-								else if ($temp2 == 1) 
-									echo "<polygon points='0,0 100,0 100,100 0,100' style='fill: $foglalt_szin;'/>";
-
-								// Más user által foglalt utolsó nap
-								else if ($temp2 == 2) 
-									echo "<polygon points='0,0 10,0 41,50 10,100 0,100' style='fill: $foglalt_szin;'/>";
-
-							echo "
-										</svg>
-									</div>
-								</div>
-							";
-							$elozo_honap_megjelenitendo_napok++;
-						}
-
-						if ($napszam < $honap_napok_szama) $napszam++;
-						else {
-							$napszam = 1;
-							$kov_ho_bool = true;
-						}
+						
+						if ($napszam <= $honap_napok_szama) $napszam++;
+						
 					}
 					echo "</div>";
 				}
 			 ?>
 		</div>
 	</div>
+	<script src="naptar.js"></script>
 </body>
