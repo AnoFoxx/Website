@@ -1,26 +1,26 @@
 .flex{
 	display: flex;
 }
-.center{
+.j-center{
 	justify-content: center;
 }
-.apartman, 
-.felirat, #info_felirat, #teszt_1, .info_apart_felirat{
-	justify-content: center;
-}
-#full, #lenyulo, .menu, #fooldal, #bemutat, #menu_sor, #first_half, #felirat, #second_half, #bejelentkezes, .menu_pont_hatter, .menu_pont, #currency_menu, 
-#elerheto, .apartman_div_tav, .apartman_div_box, .felirat, #info_felirat, #teszt_1, .info_apart_felirat{
+.a-i-center{
 	align-items: center;
 }
-#iksz, #fo_menu, #bemutat, #menu_sor, #beiras, #bc, #currency_menu, #elerheto, .foreground, .accent-bg-show, .info_hatter{
+.a-c-center{
+	align-content: center;
+}
+.absol{
 	position: absolute;
 }
-.menu, .foscroll, #fooldal, #apartmanok, .apartman_div_box, #informacio, .info_apart, #galeria{
+.relat{
 	position: relative;
 }
-#iksz, .menu, .foscroll, .scroll_pont, #fooldal, #menu_sor, #bc, .space_2, #apartmanok, .apartman_div, .apartman_div_box, .felirat, #informacio, #galeria,
-.info_hatter, .info_apart_elerheto, .info_apart_felirat, #info_felirat, #belso_eler, #informaciok{
+.wid{
 	width: 100%;
+}
+.wid-vw{
+	width: 100vw;
 }
 #full, #fo_kep, .accent-bg-show{
 	width: 100vw;
@@ -44,8 +44,8 @@
 	left: 0;
 	position: fixed;
 	margin-bottom: 200px;
-	width: 100px;
-	height: 100px;
+	width: 25px;
+	height: 25px;
 	z-index: 2;
 }
 #lenyulo{
@@ -203,15 +203,7 @@ html, body {
 	width: 310px;
 	height: 200px;
 }
-#beji_felirat{
-	padding: 5px 0px 0px 5px;
-}
-#beji{
-	margin-top: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	
-}
+
 #vonal{
 	background-color: grey;
 	width: 99%;
@@ -295,6 +287,7 @@ html, body {
 .foreground  {
 	width: 70vw !important;
 	height: 85vh !important;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -307,7 +300,7 @@ html, body {
 	top: 0;
 	left: 0;
 	z-index: 3;
-
+	position: absolute;
 	animation-name: accent-bg-fade-in;
 	animation-duration: .3s;
 	opacity: 50%;
@@ -443,5 +436,68 @@ html, body {
 	opacity: 60%;
 }
 #galeria{
-	background-color: red;
+	background-color: lightcyan;
+}
+#galeria_body{
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+}
+#galeria_scroll{
+	overflow-x: scroll;
+	overflow-x: hidden;
+	flex-wrap: wrap;
+
+	width: 80%;
+	background-color: lightblue;
+	height: 80%;
+	max-height: 700px;
+}
+.galeria_container{
+	flex: 25%;
+	max-width: 23.5%;
+	margin:0.5% 0.5% 0.5% 0.5%;
+}
+.galeria_container img{
+	width: 100%;
+	margin: 2px 0 2px 0;
+}
+.hover_galeria{
+	height: auto;
+	width: auto;
+	margin:0;
+}
+.hover_galeria:hover{
+
+}
+#ertekeles{
+	background-color: #d29df2;
+	width: 100%;
+	height: 100%;
+}
+#ertekeles_body{
+	overflow: hidden;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 80%;
+	margin-bottom: 15%;
+	background-color: white;
+}
+#ertekeles_nyilak{
+	font-size: 70px;
+	justify-content: space-between;
+	width: 100%;
+}
+#ertekeles_sor{
+	flex-direction: row;
+	width:100%;
+	height:265px;
+}
+.ertekeles_elem{
+	margin: 0px 20px 0px 20px;
+	max-height: 265px;
+	min-height: 265px;
+	width: 400px;
+	height: 60%;
+	background-color: lightblue;
 }
