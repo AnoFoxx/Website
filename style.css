@@ -22,23 +22,11 @@
 .wid-vw{
 	width: 100vw;
 }
-#full, #fo_kep, .accent-bg-show{
-	width: 100vw;
-}
-
-#iksz,.apartman_div, .apartman_div_tav, .apartman, #teszt_1, #teszt_2, .info_apart, .info_hatter{
+.hei{
 	height: 100%;
 }
-#full, .foscroll, .scroll_pont, #fo_kep, #fooldal, .background, .accent-bg-show, #apartmanok, #informacio, #galeria{
+.hei-vh{
 	height: 100vh;
-}
-
-#full{
-	z-index: 1;
-}
-#iksz{
-	margin: 5px 10px 5px 10px;
-	font-size: 35px;
 }
 #oldalso{
 	left: 0;
@@ -280,6 +268,7 @@ html, body {
 	width: 15px;
 }
 .background {
+	height: 100vh;
 	animation-duration: .3s;
 	animation-name: background-stretch;
 	width: 50% !important;
@@ -299,6 +288,8 @@ html, body {
 .accent-bg-show {
 	top: 0;
 	left: 0;
+	width: 100vw;
+	height: 100vh;
 	z-index: 3;
 	position: absolute;
 	animation-name: accent-bg-fade-in;
@@ -439,8 +430,6 @@ html, body {
 	background-color: lightcyan;
 }
 #galeria_body{
-	width: 100%;
-	height: 100%;
 	flex-direction: column;
 }
 #galeria_scroll{
@@ -459,7 +448,6 @@ html, body {
 	margin:0.5% 0.5% 0.5% 0.5%;
 }
 .galeria_container img{
-	width: 100%;
 	margin: 2px 0 2px 0;
 }
 .hover_galeria{
@@ -472,13 +460,10 @@ html, body {
 }
 #ertekeles{
 	background-color: #d29df2;
-	width: 100%;
-	height: 100%;
 }
 #ertekeles_body{
 	overflow: hidden;
 	flex-wrap: wrap;
-	width: 100%;
 	height: 80%;
 	margin-bottom: 15%;
 	background-color: white;
@@ -486,18 +471,14 @@ html, body {
 #ertekeles_nyilak{
 	font-size: 70px;
 	justify-content: space-between;
-	width: 100%;
 }
 #ertekeles_sor{
 	flex-direction: row;
-	width:100%;
 	height:265px;
 }
 .ertekeles_elem{
 	margin: 0px 20px 0px 20px;
-	max-height: 265px;
-	min-height: 265px;
+	height: 265px;
 	width: 400px;
-	height: 60%;
 	background-color: lightblue;
 }
