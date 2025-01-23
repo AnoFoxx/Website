@@ -28,6 +28,7 @@ body {
 	height: calc(var(--naptar-nap-size) - 3px);
 	line-height: var(--naptar-nap-size);
 	text-align: center;
+	cursor: pointer;
 }
 
 .naptar-container, .naptar-napok-container, .naptar-row, .naptar-header, .naptar-nap{
@@ -67,12 +68,13 @@ body {
 .naptar-szamozott-nap {
 	background-color: #fff;
 	z-index: 1;
+	cursor: pointer;
 }
 
 .naptar-nap {
 	width: calc(var(--naptar-nap-size) - 3px);
 	height: calc(var(--naptar-nap-size) - 3px);
-	margin: 1px 2px;
+	margin: 1px 1px;
 	position: relative;
 	z-index: 0;
 }
