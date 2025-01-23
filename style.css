@@ -477,24 +477,68 @@ html, body {
 	height:265px;
 }
 .ertekeles_elem{
+	flex-shrink: 0;
 	margin: 0px 20px 0px 20px;
 	height: 265px;
 	width: 400px;
 	background-color: lightblue;
 }
+.ertekeles_fejlec{
+	justify-content: space-between;
+	height: 20%;
+}
+.ertekeles_nev{
+
+}
+.ertekeles_date{
+ color: rgba(0,0,0,0.4);
+}
+.ertekeles_rate{
+ height: 40%;
+}
+.ertekeles_szoveg{
+	height: 40%;
+}
+.ertekeles_margin{
+	margin: 10px 10px 10px 10px;
+}
+
+
+
+
+
+
 @media only screen and (max-width: 900px){
 
+	@keyframes rotation{
+		from{
+			transform: rotate(0deg);
+		}
+		to{
+			transform: rotate(359deg);
+		}
+	}
 	#oldalso, #logo, .menu_pont_hatter{
 		display: none;
 	}
 	#settings{
-		display: block !important;
-		visibility: visible;
-		font-size: 80px;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		font-size: 50px;
 		color: lightgrey;
 		margin: 0 20px 0 20px;
 	}
-	#settings:hover{
-		transform: rotate();
+	#kerek{
+		height: 100%;
+		width: 100%;
+	}
+	#kerek img{
+		width: 100%;
+	}
+	#kerek:hover{
+		animation: rotation 3s infinite linear;
 	}
 }
