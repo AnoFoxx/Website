@@ -394,7 +394,7 @@ html, body {
 	background-color: rgba(0,0,0,0.8);
 }
 #informaciok{
-	height: 85%;
+	height: 90%;
 }
 #teszt_1{
 	width:40%;
@@ -403,7 +403,7 @@ html, body {
 #leiras{
 	background-color: grey;
 	width: 80%;
-	height: 80%;
+	height: 85%;
 }
 #teszt_2{
 	width: 60%;
@@ -432,6 +432,10 @@ html, body {
 #galeria_body{
 	flex-direction: column;
 }
+#galeria_felirat{
+		position: absolute;
+		top: 0;
+	}
 #galeria_scroll{
 	overflow-x: scroll;
 	overflow-x: hidden;
@@ -470,7 +474,10 @@ html, body {
 }
 #ertekeles_nyilak{
 	font-size: 70px;
-	justify-content: space-between;
+	justify-content: space-evenly;
+}
+#ertekeles_nyilak span{
+	margin: 0 -35px 0 -35px;
 }
 #ertekeles_sor{
 	flex-direction: row;
@@ -531,6 +538,7 @@ html, body {
 		color: lightgrey;
 		margin: 0 20px 0 20px;
 	}
+
 	#kerek{
 		height: 100%;
 		width: 100%;
@@ -539,6 +547,82 @@ html, body {
 		width: 100%;
 	}
 	#kerek:hover{
-		animation: rotation 3s infinite linear;
+		animation: rotation 4s infinite linear;
+	}
+
+	#apartmanok{
+		display:block;
+
+	}
+	.apartman{
+		width: 100%;
+		height: calc(100%/3);
+	}
+	.foreground{
+		z-index: 5;
+		width: 100vw !important;
+		height: 100vh !important;
+	}
+	.background{
+		display: none;
+	}
+	.accent-bg-show{
+		z-index: 6;
+		position: fixed;
+		left: calc(100% - 107px);
+		top: 0;
+		width: 90px;
+		height: 90px;
+	}
+	.accent-bg-show:after{
+		display: flex;
+		position: absolute;
+		top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+		justify-content: center;
+		align-items: flex-end;
+		font-family: sans-serif;
+		content: "\0078"; 
+    font-size: 90px;
+	}
+	.mozgo_kep, .naptar{
+		width: 80%;
+		padding-bottom: 80%;
+	}
+	#belso_eler{
+		height: 96%;
+	}
+	#informaciok{
+		display: block;
+	}
+	#teszt_1, #teszt_2{
+		width: 100%;
+		height: 50%;
+	}
+	#leiras{
+		width: 95%;
+		height: 85%;
+	}
+	#info_felirat{
+		height: 10%;
+	}
+	#galeria_felirat{
+		position: absolute;
+		top: 0;
+	}
+	#ertekeles_nyilak{
+		font-size: 150px;
+		justify-content: space-evenly;
+	}
+	#ertekeles_nyilak span{
+		cursor: pointer;
+	}
+	@media only screen and (max-height: 800px){
+		.mozgo_kep, .naptar{
+			width: 60%;
+			padding-bottom: 60%;
+		}
 	}
 }
