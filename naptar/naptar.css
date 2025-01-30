@@ -6,6 +6,7 @@
 	--light-gray: #a2a2a2;
 	--black: #000;
 	--deep-blue: #006ce4;
+	--deep-orange: #ff931b;
 }
 
 body {
@@ -79,7 +80,7 @@ body {
 	z-index: 0;
 }
 
-.date-start::after, .date-end::after {
+.date-start::after, .date-end::after, .foglalt-date-start::after, .foglalt-date-end::after {
 	background-color: transparent;
 	opacity: .5;
 	width: 0;
@@ -88,10 +89,13 @@ body {
 	top: 0;
 	left: 0;
 	content: "";
+	border-left: calc(var(--naptar-nap-size) - 3px) solid transparent;
+	border-top: 0 solid transparent;
+	border-right: 0 solid transparent;
+	border-radius: 5px;
 }
 
-.date-full::after {
-	background-color: var(--deep-blue);
+.date-full::after, .foglalt-date-full::after {
 	opacity: .5;
 	width: calc(var(--naptar-nap-size) - 3px);
 	height: calc(var(--naptar-nap-size) - 3px);
@@ -103,13 +107,22 @@ body {
 }
 
 .date-start::after, .date-end::after {
-	border-left: calc(var(--naptar-nap-size) - 3px) solid transparent;
 	border-bottom: calc(var(--naptar-nap-size) - 3px) solid var(--deep-blue);
-	border-top: 0 solid transparent;
-	border-right: 0 solid transparent;
-	border-radius: 5px;
 }
 
-.date-end::after {
+.foglalt-date-start::after, .foglalt-date-end::after {
+	border-bottom: calc(var(--naptar-nap-size) - 3px) solid var(--deep-orange);
+}
+
+.date-end::after, .foglalt-date-end::after {
 	transform: rotate(-180deg);
 } 
+
+.date-full::after {
+	background-color: var(--deep-blue);
+}
+
+.foglalt-date-full::after {
+	background-color: var(--deep-orange);
+}
+
