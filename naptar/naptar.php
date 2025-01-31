@@ -14,12 +14,15 @@
 			$honapok = array("_", "Január", "Február", "Március", "Április", "Május", "Június", "Július", "Agusztus", "Szeptember", "Október", "November", "December");
 			$elozo_honap_napok_kihagyas = array(6, 0, 1, 2, 3, 4, 5);
 			
-			$ev = (isset($_GET["ev"])) 
+			$ev = isset($_GET["ev"])
 				? $_GET["ev"]
 				: date("Y");
-			$honap = (isset($_GET["honap"])) 
+			$honap = isset($_GET["honap"])
 				? $_GET["honap"]
 				: date("m");
+			$apartman = isset($_GET["apartman"])
+				? $_GET["apartman"]
+				: die("Error: No apartman was given");
 
 			$kov_honap = date("m", strtotime("01.$honap.$ev +1 month"));
 			$kov_ev = date("Y", strtotime("01.$honap.$ev +1 month"));
@@ -34,6 +37,26 @@
 			$elozo_honap_megjelenitendo_napok = $elozo_honap_nap_szam - $elozo_honap_napok_kihagyas[$honap_elso_napja] + 1;
 
 			$napszam = 1 - $elozo_honap_napok_kihagyas[$honap_elso_napja];
+
+			// REST API call
+			$api_url = "http://localhost/api/rest.php?year=$ev&month=$honap&apartman=$apartman";
+			$curl = curl_init($api_url);
+
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_HTTPGET, true);
+
+			$response = curl_exec($curl);
+
+			if(curl_errno($curl)) {
+			    curl_close($curl);
+			    die("cURL Error: ".curl_error($curl));
+			}
+
+			$data = json_decode($response, true);
+			curl_close($curl);
+
+			
+			$foglalt_napok = $data
 		 ?>
 		<div class="naptar-header">
 			<!--  -->
@@ -49,12 +72,12 @@
 			<script type="text/javascript">
 				document.getElementById("elozo_honap").addEventListener("click", e => {
 					log("<?php echo "".$_SERVER["PHP_SELF"]."?ev=$elozo_ev&honap=$elozo_honap" ?>");
-					window.location.href = "<?php echo "".$_SERVER["PHP_SELF"]."?ev=$elozo_ev&honap=$elozo_honap" ?>";
+					window.location.href = "<?php echo "".$_SERVER["PHP_SELF"]."?ev=$elozo_ev&honap=$elozo_honap&apartman=$apartman" ?>";
 
 				});
 				document.getElementById("kov_honap").addEventListener("click", e => {
 					log("<?php echo "".$_SERVER["PHP_SELF"]."?ev=$kov_ev&honap=$kov_honap" ?>");
-					window.location.href = "<?php echo "".$_SERVER["PHP_SELF"]."?ev=$kov_ev&honap=$kov_honap" ?>";
+					window.location.href = "<?php echo "".$_SERVER["PHP_SELF"]."?ev=$kov_ev&honap=$kov_honap&apartman=$apartman" ?>";
 				});
 			</script>
 		</div>
@@ -101,4 +124,26 @@
 			 ?>
 		</div>
 	</div>
+	<script type="text/javascript">
+		// Rest api call
+		const szamozottNaptarNap = document.getElementsByClassName("naptar-szamozott-nap");
+		const getDateFromDOM = element => new Date(`${element.getAttribute("data-year")}-${element.getAttribute("data-month")}-${element.getAttribute("data-day")}`);
+
+		fetch (<?php echo "\"http://localhost/api/rest.php?year=$ev&month=$honap&apartman=$apartman\"" ?>)
+			.then(res => {
+				if (!res.ok) throw new Error(`REST API Error: ${res.statusText}`);
+				return res.json();
+			})
+			.then(data => {
+				for (let i = 0; i < szamozottNaptarNap.length; i++) { 
+					if (szamozottNaptarNap[i].firstElementChild.getAttribute("status") == "enabled") {
+						// This is where the magic happens
+					}
+				}
+			})
+			.catch(err => console.error(`There was a problem with the fetch operation: ${err}`))
+
+		
+
+	</script>
 </body>

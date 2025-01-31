@@ -10,7 +10,8 @@ let selectionEndingDate = new Object;
 let clickTimeout;
 
 let url = location.href;
-log(url);
+
+
 
 const szamozottNaptarNap = document.getElementsByClassName("naptar-szamozott-nap");
 
@@ -24,7 +25,6 @@ const resetDateClasses = () => {
 }
 
 window.onload = () => {
-	
 	for (let i = 0; i < szamozottNaptarNap.length; i++) {
 		if (sessionStorage.getItem("starterDate") != "null" && sessionStorage.getItem("endingDate") != "null") {
 			dateSet = true;
@@ -33,13 +33,16 @@ window.onload = () => {
 			selectionEndingDate = new Date(sessionStorage.getItem("endingDate"));
 
 			for (let i = 0; i < szamozottNaptarNap.length; i++) {
-				if (szamozottNaptarNap[i].firstElementChild.getAttribute("status") == "enabled" && getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() > selectionStarterDate.getTime() && getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() < selectionEndingDate.getTime()) {
-					szamozottNaptarNap[i].firstElementChild.classList.add("date-full");
-				} else if (szamozottNaptarNap[i].firstElementChild.getAttribute("status") == "enabled" && getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() == selectionStarterDate.getTime()) {
-					szamozottNaptarNap[i].firstElementChild.classList.add("date-start");
-				} else if (szamozottNaptarNap[i].firstElementChild.getAttribute("status") == "enabled" && getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() == selectionEndingDate.getTime()) {
-					szamozottNaptarNap[i].firstElementChild.classList.add("date-end");
+				if (szamozottNaptarNap[i].firstElementChild.getAttribute("status") == "enabled" ) {
+					if (getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() > selectionStarterDate.getTime() && getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() < selectionEndingDate.getTime()) {
+						szamozottNaptarNap[i].firstElementChild.classList.add("date-full");
+					} else if (getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() == selectionStarterDate.getTime()) {
+						szamozottNaptarNap[i].firstElementChild.classList.add("date-start");
+					} else if (getDateFromDOM(szamozottNaptarNap[i].firstElementChild).getTime() == selectionEndingDate.getTime()) {
+						szamozottNaptarNap[i].firstElementChild.classList.add("date-end");
+					}
 				}
+				
 			}
 		} else if (sessionStorage.getItem("starterDate") != "null" && sessionStorage.getItem("endingDate") == "null") {
 			dateSelectionInProgress = true;
