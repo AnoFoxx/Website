@@ -357,13 +357,13 @@ html, body {
 .mozgo_kep{
 	background-color: white;
 	overflow: hidden;
-	width: 60%;
-	padding-top: 60%;
+	width: 55%;
+	padding-top: 55%;
 }
 .naptar{
 	overflow: hidden;
-	width: 60%;
-	padding-top: 60%;
+	width: 55%;
+	padding-top: 55%;
 }
 .naptar iframe{
 	position: absolute;
@@ -613,9 +613,25 @@ html, body {
     	font-size: 90px;
 	}
 
-	.mozgo_kep, .naptar{
-		width: 80%;
-		padding-bottom: 80%;
+	.mozgo_kep{
+	background-color: white;
+	overflow: hidden;
+	width: 90%;
+	padding-top: 90%;
+	}
+	.naptar{
+		overflow: hidden;
+		width: 90%;
+		padding-top: 90%;
+	}
+	.naptar iframe{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
 	}
 	#belso_eler{
 		height: 96%;
