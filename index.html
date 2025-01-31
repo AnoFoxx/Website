@@ -6,6 +6,19 @@
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
+
+    	$(".galeria_img").click(function () {
+        	let imgsrc = $(this).attr("src");
+        $(".galeria_big_img").attr("src", imgsrc);
+        $(".galeria_background").fadeIn();
+	    });
+
+	    $(".galeria_background").click(function (a) {
+	        if (!$(a.target).is(".galeria_big_img")) {
+	            $(".galeria_background").fadeOut();
+	        }
+	    });
+
 		document.addEventListener("click", e =>{
 
 			if(!(e.target.classList.contains("elerhet_vis"))){
@@ -36,17 +49,17 @@
 			
 			
 			if(id=='apartman_tinodi') {
-				$("#apartman_tinodi").css("cursor","context-menu");
+				$("#apartman_tinodi").css("cursor","default");
 				$("#tinodi_naptar").show();
 				$("#tinodi_kep").show();
 			}
 			if(id=='apartman_garazs'){
-				$("#apartman_garazs").css("cursor","context-menu");
+				$("#apartman_garazs").css("cursor","default");
 				$("#garazs_naptar").show();
 				$("#garazs_kep").show();
 			}
 			if(id=='apartman_garazs_szoba'){
-				$("#apartman_garazs_szoba").css("cursor","context-menu");
+				$("#apartman_garazs_szoba").css("cursor","default");
 				$("#garazs_szoba_kep").show();
 				$("#garazs_szoba_naptar").show();
 			}
@@ -67,6 +80,7 @@
 			$(".apartman").removeClass("foreground");
 			
 			$(this).removeClass("accent-bg-show");
+			$(".apartman").css("cursor","pointer");
 		});
 
     	//side-bar lenyitás és becsukás
@@ -139,7 +153,11 @@
 							</div>
 						</div>
 						
-
+						<div id="curren" class="j-center">
+							<div class="menu_pont_hatter hover_item flex j-center a-i-center" id="currency_button">
+								<div id="currency" class="menu_pont flex j-center a-i-center">HUF</div>
+							</div>
+						</div>
 						
 						<div class="menu_pont_hatter hover_item flex j-center a-i-center"><div id="language" class="menu_pont flex j-center a-i-center"><img class="flag" src="Hungary.png"></div></div>
 
@@ -175,10 +193,14 @@
 					<div class="apartman_div wid hei">
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="tinodi_kep" class="mozgo_kep" style="display:none;"></div>
+								<div id="tinodi_kep" class="mozgo_kep" style="display:none;">
+									
+								</div>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="tinodi_naptar" class="naptar" style="display:none;"></div>
+								<div id="tinodi_naptar" class="naptar relat" style="display:none;">
+									<iframe src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
+								</div>
 							</div>
 						</div>
 						<div class="apartman_div_tav flex a-i-center hei">
@@ -195,7 +217,9 @@
 								<div id="garazs_kep" class="mozgo_kep" style="display:none;"></div>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="garazs_naptar" class="naptar" style="display:none;"></div>
+								<div id="garazs_naptar" class="naptar relat" style="display:none;">
+									<iframe src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+								</div>
 							</div>
 						</div>
 						<div class="apartman_div_tav flex a-i-center hei">
@@ -212,7 +236,9 @@
 								<div id="garazs_szoba_kep" class="mozgo_kep" style="display:none;"></div>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="garazs_szoba_naptar" class="naptar" style="display:none;"></div>
+								<div id="garazs_szoba_naptar" class="naptar relat" style="display:none;">
+									<iframe src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+								</div>
 							</div>
 						</div>
 						<div class="apartman_div_tav flex a-i-center hei">
@@ -269,36 +295,32 @@
 						</div>
 						<div id="galeria_scroll" class="flex">
 
-							<div class="galeria_container">
-
-								<div class="hover_galeria">
-									<img class="wid" src="197380587_309774294126729_837119488468419663_n.jpg"></img>
-								</div>
-								<div class="hover_galeria">
-									<img class="wid" src="197682974_309775084126650_8599254100645199733_n.jpg">
-								</div>
-								<div class="hover_galeria"> 
-									<img class="wid" src="196542893_309774497460042_5365852929352842521_n.jpg">
-								</div>
-								<div class="hover_galeria">
-									<img class="wid" src="109659262_126030289167798_627955873022627372_n.jpg">
-								</div>
-								<div class="hover_galeria">
-									<img class="wid" src="108543029_126029162501244_5586371617194681912_n.jpg">
-								</div>
-								<div class="hover_galeria">
-									<img class="wid" src="108158170_126029169167910_1706267934831082978_n.jpg">
-								</div>
+							<div class="galeria_background" style="display:none;">
+								<img src="" class="galeria_big_img">
 							</div>
-							<div class="galeria_container">
-
-							</div>
-							<div class="galeria_container">
 								
-							</div>
-							<div class="galeria_container">
-								
-							</div>
+								<div class="galeria_container">
+
+
+								<img class="galeria_img wid" src="197380587_309774294126729_837119488468419663_n.jpg"></img>
+
+								<img class="galeria_img wid" src="197682974_309775084126650_8599254100645199733_n.jpg">
+
+								<img class="galeria_img wid" src="196542893_309774497460042_5365852929352842521_n.jpg">
+
+								<img class="galeria_img wid" src="109659262_126030289167798_627955873022627372_n.jpg">
+
+								<img class="galeria_img wid" src="108543029_126029162501244_5586371617194681912_n.jpg">
+
+								<img class="galeria_img wid" src="108158170_126029169167910_1706267934831082978_n.jpg">
+
+								</div>
+								<div class="galeria_container"></div>
+								<div class="galeria_container"></div>
+								<div class="galeria_container"></div>
+							
+
+							
 						</div>
 					</div>
 				</div>
