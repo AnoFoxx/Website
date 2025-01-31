@@ -83,13 +83,10 @@
 }
 .scroll_pont{
 	scroll-snap-align: start;
+	scroll-snap-stop: always;
 }
 .hover_item:hover{
 	background-color: rgba(0,0,0,0.6);
-}
-
-body{	
-	
 }
 html, body {
 	user-select: none;
@@ -286,6 +283,7 @@ html, body {
 	animation-duration: .3s;
 }
 .accent-bg-show {
+	overflow-x: hidden;
 	top: 0;
 	left: 0;
 	width: 100vw;
@@ -358,13 +356,23 @@ html, body {
 }
 .mozgo_kep{
 	background-color: white;
-	width: 55%;
-	padding-bottom: 55%;
+	overflow: hidden;
+	width: 60%;
+	padding-top: 60%;
 }
 .naptar{
-	background-color: white;
-	width: 55%;
-	padding-bottom: 55%;
+	overflow: hidden;
+	width: 60%;
+	padding-top: 60%;
+}
+.naptar iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .accent-bg{
@@ -446,6 +454,22 @@ html, body {
 	height: 80%;
 	max-height: 700px;
 }
+.galeria_background{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.galeria_background img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+}
 .galeria_container{
 	flex: 25%;
 	max-width: 23.5%;
@@ -454,14 +478,15 @@ html, body {
 .galeria_container img{
 	margin: 2px 0 2px 0;
 }
+.galeria_container img:hover {
+
+}
 .hover_galeria{
 	height: auto;
 	width: auto;
 	margin:0;
 }
-.hover_galeria:hover{
 
-}
 #ertekeles{
 	background-color: #d29df2;
 }
@@ -569,7 +594,7 @@ html, body {
 	.accent-bg-show{
 		z-index: 6;
 		position: fixed;
-		left: calc(100% - 107px);
+		left: calc(100% - 105px);
 		top: 0;
 		width: 90px;
 		height: 90px;
@@ -578,15 +603,16 @@ html, body {
 		display: flex;
 		position: absolute;
 		top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
 		justify-content: center;
 		align-items: flex-end;
 		font-family: sans-serif;
 		content: "\0078"; 
-    font-size: 90px;
+    	font-size: 90px;
 	}
+
 	.mozgo_kep, .naptar{
 		width: 80%;
 		padding-bottom: 80%;
