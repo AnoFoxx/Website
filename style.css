@@ -1,3 +1,6 @@
+img{
+	image-rendering: auto;
+}
 .flex{
 	display: flex;
 }
@@ -31,7 +34,7 @@
 #oldalso{
 	left: 0;
 	position: fixed;
-	margin-bottom: 200px;
+	margin-bottom: 250px;
 	width: 25px;
 	height: 25px;
 	z-index: 2;
@@ -49,18 +52,20 @@
 	font-size: 45px;
 }
 #fo_menu{
-	height: 40vh;
+	width: auto;
+	height: 340px;
 	background-color: rgba(0, 0, 0, 0.5);
 }
 .menu{
 	font-family: Berlin Sans FB, Helvetica, sans-serif;
 	z-index: 2;
+	width: 200px;
 	height: calc(100%/6);
 	cursor: pointer;
 	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
   -webkit-background-clip: text;
   color: transparent;
-	font-size: 2vw;
+	font-size: 36px;
 }
 .menu::after {
   content: '';
@@ -69,7 +74,7 @@
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: ghostwhite;
+  background-color: lightgrey;
   transition: width 0.3s ease;
 }
 .menu:hover::after {
@@ -451,7 +456,7 @@ html, body {
 }
 .info_apart{
 	flex-direction: column;
-	width: calc(100%/3);
+	width: calc(100%/2);
 	
 }
 .info_apart_felirat{
@@ -508,37 +513,29 @@ html, body {
 	margin:0.5% 0.5% 0.5% 0.5%;
 }
 .galeria_container img{
-	margin: 2px 0 2px 0;
-}
-.galeria_container img:hover {
-
-}
-.hover_galeria{
 	height: auto;
-	width: auto;
-	margin:0;
+	margin: 2px 0 2px 0;
 }
 
 #ertekeles{
 	background-color: #d29df2;
 }
 #ertekeles_body{
+	background-color: lightgrey;
 	overflow: hidden;
 	flex-wrap: wrap;
 	height: 80%;
 	margin-bottom: 15%;
-	background-color: white;
 }
 #ertekeles_nyilak{
-	font-size: 70px;
+	font-size: 120px;
 	justify-content: space-evenly;
 }
 #ertekeles_nyilak span{
 	margin: 0 -35px 0 -35px;
 }
 #ertekeles_sor{
-	border-style: groove;
-	border: 2px solid rgba(0,0,0,0.2);
+	background-color: white;
 	flex-direction: row;
 	height:600px;
 }
