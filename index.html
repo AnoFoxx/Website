@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="preload" href="path/to/your-image.jpg" as="image">
+
+
+
+
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
+    	$("#foglal").click(function(){
+    		window.location.replace("file:///D:/Project_new/foglalas.html");
+    	})
 
     	$(".galeria_img").click(function () {
+        	let imgsrc = $(this).attr("src");
+        $(".galeria_big_img").attr("src", imgsrc);
+        $(".galeria_background").fadeIn();
+	    });
+
+	    $(".galeria_background").click(function (a) {
+	        if (!$(a.target).is(".galeria_big_img")) {
+	            $(".galeria_background").fadeOut();
+	        }
+	    });
+	    $("#tinodi_kepek_2").click(function () {
         	let imgsrc = $(this).attr("src");
         $(".galeria_big_img").attr("src", imgsrc);
         $(".galeria_background").fadeIn();
@@ -40,6 +60,7 @@
     	
     	$(".apartman").click(function() {
     		var id= this.id;
+    		$(".apartman").css("height","100%");
 			$(".apartman").addClass("background");
 			$("#apartmanok").css("z-index","2");
 			$(".felirat").hide();
@@ -49,6 +70,9 @@
 			
 			
 			if(id=='apartman_tinodi') {
+				$("#tinodi_kepek_1").hide();
+				$("#tinodi_kepek_2").show();
+				$("#tinodi_kepek_2").attr("src","apartman_1_kepek\\tinodi_3.jpg");
 				$("#apartman_tinodi").css("cursor","default");
 				$("#tinodi_naptar").show();
 				$("#tinodi_kep").show();
@@ -66,9 +90,13 @@
 		});
 
 		$(".accent-bg").click(function() {
+			$(".apartman").css("height","70%");
 			$("#apartmanok").css("z-index","0");
 			$(".felirat").show();
 
+			$("#tinodi_kepek_2").attr("src","");
+			$("#tinodi_kepek_1").show();
+			$("#tinodi_kepek_2").hide();
 			$("#tinodi_naptar").hide();
 			$("#tinodi_kep").hide();
 			$("#garazs_naptar").hide();
@@ -130,7 +158,9 @@
 
 		<div class="foscroll relat wid hei-vh">
 			<div id="fooldal" class="scroll_pont flex j-center a-i-center relat wid hei-vh">
-				<p id="bemutat" class="flex j-center a-i-center absol">Üvözlünk a ChillOut apartman weboldalán</p>
+				<div id="bemutat_hatter">
+					<p id="bemutat" class="flex j-center a-i-center absol">Üvözlünk a ChillOut apartman weboldalán</p>
+				</div>
 				<img id="fo_kep" class="wid-vw hei-vh" draggable="false" src="chillout_tinodi_outside.jpg">
 				<header id="menu_sor" class="flex a-i-center absol wid">
 					<div id="bc" class="absol wid"></div>
@@ -185,21 +215,23 @@
 			</div>
 
 			<!-- Apartman -->
-			<div id="apartmanok" class="scroll_pont flex relat wid hei-vh">
+			<div id="apartmanok" class="scroll_pont flex relat wid hei-vh j-center a-i-center">
 				<div class="accent-bg"></div>
 
-				<div id="apartman_tinodi" class="apartman flex j-center hei">
-					<div class="felirat flex j-center a-i-center wid">Tinódi Apartman</div>
+				<div id="apartman_tinodi" class="apartman flex j-center">
+					
+					<div class="felirat flex j-center a-i-center wid" style="z-index:2;">Tinódi Apartman</div>
+					<img src="apartman_1_kepek\tinodi_1.jpg" id="tinodi_kepek_1" class="wid hei">
 					<div class="apartman_div wid hei">
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
 								<div id="tinodi_kep" class="mozgo_kep" style="display:none;">
-									
+									<img src="" id="tinodi_kepek_2" class="absol wid hei">
 								</div>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
 								<div id="tinodi_naptar" class="naptar relat" style="display:none;">
-									<iframe src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
+									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
 						</div>
@@ -218,7 +250,7 @@
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
 								<div id="garazs_naptar" class="naptar relat" style="display:none;">
-									<iframe src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
 						</div>
@@ -237,7 +269,7 @@
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
 								<div id="garazs_szoba_naptar" class="naptar relat" style="display:none;">
-									<iframe src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
 						</div>
@@ -295,32 +327,38 @@
 						</div>
 						<div id="galeria_scroll" class="flex">
 
-							<div class="galeria_background" style="display:none;">
-								<img src="" class="galeria_big_img">
+							<div class="galeria_background" style="display:none; z-index: 3;">
+								<img src="" class="galeria_big_img" style="z-index:3;">
 							</div>
-								
 								<div class="galeria_container">
-
-
-								<img class="galeria_img wid" src="197380587_309774294126729_837119488468419663_n.jpg"></img>
-
-								<img class="galeria_img wid" src="197682974_309775084126650_8599254100645199733_n.jpg">
-
-								<img class="galeria_img wid" src="196542893_309774497460042_5365852929352842521_n.jpg">
-
-								<img class="galeria_img wid" src="109659262_126030289167798_627955873022627372_n.jpg">
-
-								<img class="galeria_img wid" src="108543029_126029162501244_5586371617194681912_n.jpg">
-
-								<img class="galeria_img wid" src="108158170_126029169167910_1706267934831082978_n.jpg">
-
+									<img class="galeria_img wid" src="apartman_1_kepek/tinodi_1.jpg"></img>
+									<img class="galeria_img wid" src="apartman_1_kepek/tinodi_5.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_3.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_7.jpg">
+									<img class="galeria_img wid" src="apartman_3_kepek/chill_plus_1.jpg">
 								</div>
-								<div class="galeria_container"></div>
-								<div class="galeria_container"></div>
-								<div class="galeria_container"></div>
-							
-
-							
+								<div class="galeria_container">
+									<img class="galeria_img wid" src="apartman_1_kepek/tinodi_2.jpg">
+									<img class="galeria_img wid" src="apartman_1_kepek/tinodi_6.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_4.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_8.jpg">
+									<img class="galeria_img wid" src="apartman_3_kepek/chill_plus_3.jpg">
+									
+								</div>
+								<div class="galeria_container">
+									<img class="galeria_img wid" src="apartman_1_kepek/tinodi_3.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_1.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_5.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_9.jpg">
+									
+								</div>
+								<div class="galeria_container">
+									<img class="galeria_img wid" src="apartman_1_kepek/tinodi_4.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_2.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_6.jpg">
+									<img class="galeria_img wid" src="apartman_2_kepek/chill_10.jpg">
+									<img class="galeria_img wid" src="apartman_3_kepek/chill_plus_2.jpg">
+								</div>
 						</div>
 					</div>
 				</div>
@@ -336,6 +374,32 @@
 						</div>
 						<div id="ertekeles_sor" class="flex j-center a-i-center wid">
 
+							<div class="ertekeles_elem">
+
+								<div class="ertekeles_fejlec flex wid">
+									<span class="ertekeles_nev ertekeles_margin">Név</span>
+									<span class="ertekeles_date ertekeles_margin">Dátum</span>
+								</div>
+								<div class="ertekeles_rate flex wid j-center a-i-center">
+									csillagok
+								</div>
+								<div class="ertekeles_szoveg flex wid j-center a-i-center">
+									<span>szöveg</span>
+								</div>
+							</div>
+							<div class="ertekeles_elem">
+
+								<div class="ertekeles_fejlec flex wid">
+									<span class="ertekeles_nev ertekeles_margin">Név</span>
+									<span class="ertekeles_date ertekeles_margin">Dátum</span>
+								</div>
+								<div class="ertekeles_rate flex wid j-center a-i-center">
+									csillagok
+								</div>
+								<div class="ertekeles_szoveg flex wid j-center a-i-center">
+									<span>szöveg</span>
+								</div>
+							</div>
 							<div class="ertekeles_elem">
 
 								<div class="ertekeles_fejlec flex wid">
