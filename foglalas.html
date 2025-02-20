@@ -8,6 +8,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script>
  	$(document).ready(function(){
+ 		$("#felirat").click(function(){
+ 			window.location.replace("file:///D:/Project_new/index.html");
+ 		})
  		$("#dark_mode").change(function(){
  			if($(this).is(":checked")){
  				$("#full").css("background-color","grey");
@@ -36,6 +39,30 @@
  			$("#menu").hide(500);
  			$("#menu_hatter").hide(500);
  		})
+
+ 		$("#apartman_select").change(function(){
+
+ 			var selected= $("#apartman_select option:selected");
+ 			if(selected.attr('id')!="default_option"){
+ 				$("#varos_irsz").css("display","flex");
+ 				$("#varos_irsz").css({"position":"relative","right":7});
+ 				$("#info_div").css({
+ 					"transition":"all 1s ease",
+ 					"flex-direction":"row-reverse",
+ 					"justify-content":"center"
+ 				});
+ 				$("#apartman_kep").addClass("visible");
+ 			}
+ 			else{
+ 				$("#varos_irsz").css({"display":"block","position":"static","right":0});
+ 				$("#info_div").css({
+    	 	 	"transition": "all 1s ease",
+     			 "flex-direction": "column",
+     		 	"justify-content": "flex-start"
+   		 		});
+ 				$("#apartman_kep").removeClass("visible");
+ 			}
+ 		})
  	})
  </script>
 </head>
@@ -48,8 +75,8 @@
 		</div>
 	</div>
 	<header>
-		<div  style="width:100%;height: 100%;background-color: rgba(0, 0, 0, 0.45); position: absolute; opacity: 40%;"></div>
-		<div id="head_left" style="">
+		<div id="felirat_hatter"></div>
+		<div id="head_left">
 			<div id="felirat">ChillOut.hu</div>
 		</div>
 		<div id="head_right">
@@ -61,11 +88,12 @@
 		</div>
 	</header>
 	<div id="full">
-		<div style="width:700px; height: 600px; background-color: rgba(0, 0, 0, 0.3); margin-top: 30px; display: flex;justify-content: flex-start; flex-direction: column;">
+		<div style="width:850px; height: 750px; background-color: rgba(0, 0, 0, 0.3); margin-top: 30px; display: flex;justify-content: flex-start; flex-direction: column;">
 			<div style="width:100%;height:70px;display:flex;justify-content: center;"><h1>Foglalás</h1></div>
 
-			<div style="width:100%;height:calc(100% - 70px); display: flex; justify-content: flex-start; flex-direction: column; align-items: center;">
-				<table id="opciok">
+			<div id="info_div">
+				
+				<table id="opciok" style="border-spacing: 7px;">
 					<tr class="normal">
 						<td>Vezetéknév:</td>
 						<td><input type="text" name="vez_name"></td>
@@ -83,15 +111,20 @@
 						<td><input type="tel" name="phone_number" placeholder="Add meg a telefonszámod"></td>
 					</tr>
 					<tr class="normal">
-						<td>Nemzetiség:</td>
-						<td><input type="text" name="nemzetiseg"> </td>
+						<td>Ország:</td>
+						<td><input type="text" name="orszag"> </td>
 					</tr>
+					<tr id="varos_irsz">
+						<td>Ir.szám:<input type="text" name="irszam" style="width:40px;"></td>
+						<td>Település:<input type="text" name="telepules" style="width:140px;"></td>
+					</tr>
+					<!-- Ir.szám, település 2 input-->
 					<tr class="normal">
 						<td>Város:</td>
 						<td><input type="text" name="varos"></td>
 					</tr>
 					<tr class="normal">
-						<td>Lakcím:</td>
+						<td>Utca, házszám:</td>
 						<td><input type="text" name="lakcim"></td>
 					</tr>
 					<tr class="fo">
@@ -99,10 +132,18 @@
 					</tr>
 					<tr class="apartmanok"> 
 						<td colspan="2">
-							Apartman: <select></select>
+							Apartman: <select id="apartman_select">
+								<option id="default_option">--Válasz apartmant--</option>
+								<option></option>
+
+							</select>
 						</td>
 					</tr>
 				</table>
+				<div id="apartman_kep"></div>
+			</div>
+			<div style="width:100%;height:41%; display:flex;justify-content: center;align-items: center;">
+				<div id="naptar" style="width:250px; height:250px;"></div>
 			</div>
 		</div>
 	</div>
