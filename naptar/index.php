@@ -1,3 +1,4 @@
+<?php include "error_handeler.php" ?>
 <!DOCTYPE html>
 <html>
 <head>
