@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<title>ChillOut</title>
+<script>
+    $(document).ready(function() {
+    	$("#foglal").click(function(){
+    		window.location.href="foglalas.html";
+    	})
+
+    	$(".galeria_img").click(function () {
+        	let imgsrc = $(this).attr("src");
+        $(".galeria_big_img").attr("src", imgsrc);
+        $(".galeria_background").fadeIn();
+	    });
+
+	    $(".galeria_background").click(function (a) {
+	        if (!$(a.target).is(".galeria_big_img")) {
+	            $(".galeria_background").fadeOut();
+	        }
+	    });
+	    $("#tinodi_kepek_2").click(function () {
+        	let imgsrc = $(this).attr("src");
+        $(".galeria_big_img").attr("src", imgsrc);
+        $(".galeria_background").fadeIn();
+	    });
+
+	    $(".galeria_background").click(function (a) {
+	        if (!$(a.target).is(".galeria_big_img")) {
+	            $(".galeria_background").fadeOut();
+	        }
+	    });
+
+		document.addEventListener("click", e =>{
+
+			if(!(e.target.classList.contains("elerhet_vis"))){
+				$("#elerheto").hide(500);
+			}
+		})
+    	$("#support_icon").click(function(){
+    		if($("#elerheto").is(":visible")){
+    			$("#elerheto").hide(500);
+    		}
+    		else{
+    			$("#elerheto").show(500);
+    		}
+    		
+    	})
+
+    	
+    	
+    	
+    	$(".apartman").click(function() {
+    		var id= this.id;
+    		$(".apartman").css("height","100%");
+			$(".apartman").addClass("background");
+			$("#apartmanok").css("z-index","2");
+			$(".felirat").hide();
+			$(".accent-bg").addClass("accent-bg-show");
+			$(this).removeClass("background");
+			$(this).addClass("foreground");
+			
+			
+			if(id=='apartman_tinodi') {
+				$("#tinodi_kepek_1").hide();
+				$("#tinodi_kepek_2").show();
+				$("#tinodi_kepek_2").attr("src","apartman_1_kepek\\tinodi_3.svg");
+				$("#apartman_tinodi").css("cursor","default");
+				$("#tinodi_naptar").show();
+				$("#tinodi_kep").show();
+			}
+			if(id=='apartman_garazs'){
+				$("#apartman_garazs").css("cursor","default");
+				$("#garazs_naptar").show();
+				$("#garazs_kep").show();
+			}
+			if(id=='apartman_garazs_szoba'){
+				$("#apartman_garazs_szoba").css("cursor","default");
+				$("#garazs_szoba_kep").show();
+				$("#garazs_szoba_naptar").show();
+			}
+		});
+
+		$(".accent-bg").click(function() {
+			$(".apartman").css("height","70%");
+			$("#apartmanok").css("z-index","0");
+			$(".felirat").show();
+
+			$("#tinodi_kepek_2").attr("src","");
+			$("#tinodi_kepek_1").show();
+			$("#tinodi_kepek_2").hide();
+			$("#tinodi_naptar").hide();
+			$("#tinodi_kep").hide();
+			$("#garazs_naptar").hide();
+			$("#garazs_kep").hide();
+			$("#garazs_szoba_kep").hide();
+			$("#garazs_szoba_naptar").hide();
+
+			$(".apartman").removeClass("background");
+			$(".apartman").removeClass("foreground");
+			
+			$(this).removeClass("accent-bg-show");
+			$(".apartman").css("cursor","pointer");
+		});
+
+    	//side-bar lenyitás és becsukás
+    	$("#lenyulo").click(function(){
+    		if($("#fo_menu").is(":hidden")){
+    			$("#lenyulo").show(500);
+    			$("#fo_menu").show(500);
+    			$("#ikon").css("transform","rotate(90deg)");
+    		}
+    		else{
+    			$("#fo_menu").hide(500);
+    			$("#ikon").css("transform","rotate(0deg)");
+    		}
+    	})
+
+    	//menu tájékozódás
+        $(".menu").click(function() {
+            var targetId = $(this).attr("id").replace("menu_", "");
+
+            var targetElement = $("#" + targetId)[0];
+                
+            targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    });
+</script>
+</head>
+<body>
+	<div id="full" style="z-index: 1;" class="flex j-center a-i-center wid-vw hei-vh">
+		<div id="oldalso">
+			<div id="lenyulo" class="flex j-center a-i-center">
+				<span id="ikon">&#9776;</span>
+			</div>
+			<div id="fo_menu" style="display:none;" class="absol">
+				<div class="menu relat flex a-i-center wid" id="menu_fooldal">Főoldal</div>
+				<div class="menu relat flex a-i-center wid" id="menu_apartmanok">Apartmanok</div>
+				<div class="menu relat flex a-i-center wid" id="menu_informacio">Informáicók</div>
+				<div class="menu relat flex a-i-center wid" id="menu_galeria">Galéria</div>
+				<div class="menu relat flex a-i-center wid" id="menu_ertekeles">Értékelések</div>
+				<div class="menu relat flex a-i-center wid" id="menu_stb">Stb</div>
+			</div>
+		</div>
+			
+		
+
+		<div class="foscroll relat wid hei-vh">
+			<div id="fooldal" class="scroll_pont flex j-center a-i-center relat wid hei-vh">
+				<div id="bemutat_hatter">
+					<p id="bemutat" class="flex j-center a-i-center absol">Üvözlünk a ChillOut apartman weboldalán</p>
+				</div>
+				<img id="fo_kep" class="wid-vw hei-vh" draggable="false" src="chillout_tinodi_outside.jpg">
+				<header id="menu_sor" class="flex a-i-center absol wid">
+					<div id="bc" class="absol wid"></div>
+
+					<div id="first_half" class="flex a-i-center">
+						<div id="logo"></div>
+						<div id="felirat" class="j-center a-i-center">ChillOut.hu</div>
+					</div>
+
+					<div id="second_half" class="flex a-i-center">
+
+						<div>
+							<div id="settings" style="display: none;">
+								<span id="kerek">
+									<img src="settings_gear.png">
+								</span>
+							</div>
+							<div style="display: none;">
+								
+							</div>
+						</div>
+						
+						<div id="curren" class="j-center">
+							<div class="menu_pont_hatter hover_item flex j-center a-i-center" id="currency_button">
+								<div id="currency" class="menu_pont flex j-center a-i-center">HUF</div>
+							</div>
+						</div>
+						
+						<div class="menu_pont_hatter hover_item flex j-center a-i-center"><div id="language" class="menu_pont flex j-center a-i-center"><img class="flag" src="Hungary.png"></div></div>
+
+						<!--Elerhetőségek-->
+						<div class="flex j-center">
+							<div id="support_icon" class="menu_pont_hatter hover_item elerhet_vis flex j-center a-i-center"><div id="support" class="menu_pont elerhet_vis flex j-center a-i-center">?</div></div>
+
+							<div id="elerheto" class="elerhet_vis flex j-center a-i-center absol" style="display:none;">
+								<span class="elerhet_vis">suliproject@gmail.com</span>
+								<span class="elerhet_vis">+36705384254</span>
+								<a href="https://www.facebook.com/p/ChillOut-Apartman-100063457207712/" class="elerhet_vis"><img id="facebook" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/512px-Facebook_f_logo_%282021%29.svg.png?20210818083032">Facebook</a>
+							</div>
+						</div>
+						
+						
+						
+						<div id="foglal" class="hover_item menu_pont_hatter flex j-center a-i-center">
+							<div class="menu_pont_foglalas flex j-center a-i-center">
+								<span>Foglalás</span>
+							</div>
+						</div>
+						
+					</div>
+				</header>
+			</div>
+
+			<!-- Apartman -->
+			<div id="apartmanok" class="scroll_pont flex relat wid hei-vh j-center a-i-center">
+				<div class="accent-bg"></div>
+
+				<div id="apartman_tinodi" class="apartman flex j-center">
+					
+					<div class="felirat flex j-center a-i-center wid" style="z-index:2;">Tinódi Apartman</div>
+					<img src="apartman_1_kepek\tinodi_1.jpg" id="tinodi_kepek_1" class="wid hei">
+					<div class="apartman_div wid hei">
+						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
+							<div class="apartman_div_box flex j-center a-i-center relat wid">
+								<div id="tinodi_kep" class="mozgo_kep" style="display:none;">
+									<img src="" id="tinodi_kepek_2" class="absol wid hei">
+								</div>
+							</div>
+							<div class="apartman_div_box flex j-center a-i-center relat wid">
+								<div id="tinodi_naptar" class="naptar relat" style="display:none;">
+									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
+								</div>
+							</div>
+						</div>
+						<div class="apartman_div_tav flex a-i-center hei">
+							
+						</div>
+					</div>
+				</div>
+
+				<div id="apartman_garazs" class="apartman flex j-center hei">
+					<div class="felirat flex j-center a-i-center wid">Chill Apartman</div>
+					<div class="apartman_div wid hei">
+						<div id="garazs_div" class="apartman_div_tav flex a-i-center hei">
+							<div class="apartman_div_box flex j-center a-i-center relat wid">
+								<div id="garazs_kep" class="mozgo_kep" style="display:none;"></div>
+							</div>
+							<div class="apartman_div_box flex j-center a-i-center relat wid">
+								<div id="garazs_naptar" class="naptar relat" style="display:none;">
+									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+								</div>
+							</div>
+						</div>
+						<div class="apartman_div_tav flex a-i-center hei">
+							
+						</div>
+					</div>
+				</div>
+
+				<div id="apartman_garazs_szoba" class="apartman flex j-center hei">
+					<div class="felirat flex j-center a-i-center wid">Chill Apartman + 1 szoba</div>
+					<div class="apartman_div wid hei">
+						<div id="garazs_szoba_div" class="apartman_div_tav flex a-i-center hei">
+							<div class="apartman_div_box flex j-center a-i-center relat wid">
+								<div id="garazs_szoba_kep" class="mozgo_kep" style="display:none;"></div>
+							</div>
+							<div class="apartman_div_box flex j-center a-i-center relat wid">
+								<div id="garazs_szoba_naptar" class="naptar relat" style="display:none;">
+									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+								</div>
+							</div>
+						</div>
+						<div class="apartman_div_tav flex a-i-center hei">
+							
+						</div>
+					</div>	
+				</div>
+			</div>
+
+
+			<!-- Elérhetőségek -->
+			<div id="informacio" class="scroll_pont flex relat wid hei-vh">
+				<div id="belso_eler" class="flex wid">
+					<div id="info_felirat" class="flex j-center a-i-center wid">
+						<h1 style="color:white; font-size:60px;">Az apartmanokról</h1>
+					</div>
+					<div id="informaciok" class="flex wid">
+						<div id="teszt_1" class="flex j-center a-i-center hei">
+							<div id="leiras">
+								bla bla bla bla bla bla
+							</div>
+						</div>
+						<div  id="teszt_2" class="flex j-center a-i-center hei">
+							<div class="info_apart flex relat hei">
+								<div class="info_hatter absol wid hei" style="background-color:rgba(232,89,217,1.0);"></div>
+								<div class="info_apart_felirat flex j-center a-i-center wid">
+									<h4>Tinódi Apartman</h4>
+								</div>
+								<div class="info_apart_elerheto wid"></div>
+							</div>
+							<div class="info_apart flex relat hei">
+								<div class="info_hatter absol wid hei" style="background-color: rgba(77,98,180,1.0);"></div>
+								<div class="info_apart_felirat flex j-center a-i-center wid">
+									<h4>Chill Apartman</h4>
+								</div>
+								<div class="info_apart_elerheto wid"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="galeria" class="scroll_pont flex relat wid hei-vh">
+				<div style="width: 100%;height: 100%;display: flex;justify-content: center;">
+					<div id="galeria_body" class="j-center a-i-center flex">
+						<div id="galeria_felirat" class="j-center a-i-center flex wid">
+							<h1>Galéria</h1>
+						</div>
+						<div id="galeria_scroll" class="flex">
+
+							<div class="galeria_background" style="display:none; z-index: 3;">
+								<img src="" class="galeria_big_img" style="z-index:3;">
+							</div>
+								<div class="galeria_container">
+									<img loading="lazy" class="galeria_img wid" src="apartman_1_kepek/tinodi_1.svg"></img>
+									<img loading="lazy" class="galeria_img wid" src="apartman_1_kepek/tinodi_5.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_3.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_7.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_3_kepek/chill_plus_1.svg">
+								</div>
+								<div class="galeria_container">
+									<img loading="lazy" class="galeria_img wid" src="apartman_1_kepek/tinodi_2.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_1_kepek/tinodi_6.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_4.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_8.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_3_kepek/chill_plus_3.svg">
+									
+								</div>
+								<div class="galeria_container">
+									<img loading="lazy" class="galeria_img wid" src="apartman_1_kepek/tinodi_3.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_1.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_5.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_9.svg">
+									
+								</div>
+								<div class="galeria_container">
+									<img loading="lazy" class="galeria_img wid" src="apartman_1_kepek/tinodi_4.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_2.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_6.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_2_kepek/chill_10.svg">
+									<img loading="lazy" class="galeria_img wid" src="apartman_3_kepek/chill_plus_2.svg">
+								</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div id="ertekeles" class="scroll_pont flex wid hei-vh">
+				<div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
+					<h1>Értékelések</h1>
+					<div id="ertekeles_body" class="flex  a-c-center j-center wid">
+						<div id="ertekeles_nyilak" class="flex wid">
+							<span style="margin-left: 10px">&#8678;</span>
+							<span style="margin-right: 10px">&#8680;</span>
+						</div>
+						<div id="ertekeles_sor" class="flex j-center a-i-center wid">
+
+							<div class="ertekeles_elem">
+
+								<div class="ertekeles_fejlec flex wid">
+									<span class="ertekeles_nev ertekeles_margin">Név</span>
+									<span class="ertekeles_date ertekeles_margin">Dátum</span>
+								</div>
+								<div class="ertekeles_rate flex wid j-center a-i-center">
+									csillagok
+								</div>
+								<div class="ertekeles_szoveg flex wid j-center a-i-center">
+									<span>szöveg</span>
+								</div>
+							</div>
+							<div class="ertekeles_elem">
+
+								<div class="ertekeles_fejlec flex wid">
+									<span class="ertekeles_nev ertekeles_margin">Név</span>
+									<span class="ertekeles_date ertekeles_margin">Dátum</span>
+								</div>
+								<div class="ertekeles_rate flex wid j-center a-i-center">
+									csillagok
+								</div>
+								<div class="ertekeles_szoveg flex wid j-center a-i-center">
+									<span>szöveg</span>
+								</div>
+							</div>
+							<div class="ertekeles_elem">
+
+								<div class="ertekeles_fejlec flex wid">
+									<span class="ertekeles_nev ertekeles_margin">Név</span>
+									<span class="ertekeles_date ertekeles_margin">Dátum</span>
+								</div>
+								<div class="ertekeles_rate flex wid j-center a-i-center">
+									csillagok
+								</div>
+								<div class="ertekeles_szoveg flex wid j-center a-i-center">
+									<span>szöveg</span>
+								</div>
+							</div>
+
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+		
+</body>
+</html>

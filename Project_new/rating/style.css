@@ -1,0 +1,37 @@
+input[type="radio"] {
+  display: none;
+}
+.review_box{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+.star-label{
+  display: flex;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  aspect-ratio:1;
+  background: grey;
+  clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%); 
+  position: relative;
+  overflow: hidden;
+}
+
+.review_box:not(:checked)>label{
+  background-color:grey;
+}
+.review_box>input:checked ~ label{
+  background-color: rgba(242,195,0);
+}
+.review_box:not(:checked) > label:hover,
+.review_box:not(:checked) > label:hover ~ label {
+    background-color: #deb217;  
+}
+.review_box > input:checked + label:hover,
+.review_box > input:checked + label:hover ~ label,
+.review_box > input:checked ~ label:hover,
+.review_box > input:checked ~ label:hover ~ label,
+.review_box > label:hover ~ input:checked ~ label {
+    background-color: #c59b08;
+}
