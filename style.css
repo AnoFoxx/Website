@@ -31,6 +31,14 @@ img{
 .hei-vh{
 	height: 100vh;
 }
+.lazy_toltes{
+	opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.lazy_toltes.betoltott{
+	opacity: 1;
+}
+
 #oldalso{
 	left: 0;
 	position: fixed;
@@ -39,6 +47,7 @@ img{
 	height: 25px;
 	z-index: 2;
 }
+
 #lenyulo{
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 50px;
@@ -516,7 +525,16 @@ html, body {
 	height: auto;
 	margin: 2px 0 2px 0;
 }
-
+.galeria_mobile_container{
+	display: none;
+	flex: 25%;
+	max-width: 49%;
+	margin:0.5% 0.5% 0.5% 0.5%;
+}
+.galeria_mobile_container img{
+	height: auto;
+	margin: 2px 0 2px 0;
+}
 #ertekeles{
 	background-color: #d29df2;
 }
@@ -571,8 +589,13 @@ html, body {
 
 
 
-@media only screen and (max-width: 900px){
-
+@media only screen and (max-width: 1000px){
+	.galeria_mobile_container{
+		display: block;
+	}
+	.galeria_container{
+		display: none;
+	}
 	@keyframes rotation{
 		from{
 			transform: rotate(0deg);
@@ -611,7 +634,7 @@ html, body {
 	}
 	.apartman{
 		width: 100%;
-		height: calc(100%/3);
+		height: calc(100%/3) !important;
 	}
 	.foreground{
 		z-index: 5;
