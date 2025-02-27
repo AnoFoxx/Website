@@ -18,7 +18,7 @@ $(document).ready(function() {
                 observer.unobserve(img); // Stop observing once the image is loaded
             }
         });
-    }, { threshold: 0.5 }); // 50% of the image must be visible
+    }, { threshold: 0.1}); // 50% of the image must be visible
 
     // Target only images with the class 'gallery_img'
     $('.lazy_toltes').each(function() {
