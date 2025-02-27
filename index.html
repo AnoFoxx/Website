@@ -64,7 +64,7 @@
 			
 			
 			if(id=='apartman_tinodi') {
-				$("#tinodi_kepek_1").hide();
+				$("#tinodi_kepek_0").hide();
 				$("#tinodi_kepek_2").show();
 				$("#tinodi_kepek_2").attr("src","apartman_1_kepek\\tinodi_3.svg");
 				$("#apartman_tinodi").css("cursor","default");
@@ -88,7 +88,7 @@
 			$("#apartmanok").css("z-index","0");
 			$(".felirat").show();
 
-			$("#tinodi_kepek_1").show();
+			$("#tinodi_kepek_0").show();
 			$("#tinodi_kepek_2").attr("src","");
 			$("#tinodi_kepek_2").hide();
 			$("#tinodi_naptar").hide();
@@ -129,6 +129,51 @@
                 block: "start"
             });
         });
+        const images = $(".tinodi_kep"); // All the images in the container
+	    let currentIndex = 1; // Start with the second image (index 1)
+
+	    // Function to set up the images on the screen
+	    function updateImages() {
+	        // First, hide all images
+	        images.removeClass('active');
+	        
+	        // Make the current, previous, and next images visible
+	        $(images[currentIndex]).addClass('active'); // Center image
+	        $(images[(currentIndex - 1 + images.length) % images.length]).addClass('active'); // Left image
+	        $(images[(currentIndex + 1) % images.length]).addClass('active'); // Right image
+
+	        // Reposition the images
+	        $(images[currentIndex]).css('transform', 'translateX(0)');
+	        $(images[(currentIndex - 1 + images.length) % images.length]).css('transform', 'translateX(-100%)'); // Left image
+	        $(images[(currentIndex + 1) % images.length]).css('transform', 'translateX(100%)'); // Right image
+	    }
+
+	    // Initialize the images on page load
+	    updateImages();
+
+	    // Next Arrow (Right)
+	    $(".next-arrow").click(function () {
+	        // Slide the current image to the left (out of view)
+	        $(images[currentIndex]).css('transform', 'translateX(-100%)'); // Move current image to the left
+
+	        // Move to the next image
+	        currentIndex = (currentIndex + 1) % images.length; // Increment the index and loop back if needed
+
+	        // Update the images to show the new set of images
+	        updateImages();
+	    });
+
+	    // Previous Arrow (Left)
+	    $(".prev-arrow").click(function () {
+	        // Slide the current image to the right (out of view)
+	        $(images[currentIndex]).css('transform', 'translateX(100%)'); // Move current image to the right
+
+	        // Move to the previous image
+	        currentIndex = (currentIndex - 1 + images.length) % images.length; // Decrement the index and loop back if needed
+
+	        // Update the images to show the new set of images
+	        updateImages();
+	    });
     });
 </script>
 </head>
@@ -215,13 +260,20 @@
 				<div id="apartman_tinodi" class="apartman flex j-center">
 					
 					<div class="felirat flex j-center a-i-center wid" style="z-index:2;">Tinódi Apartman</div>
-					<img src="apartman_1_kepek\tinodi_1.jpg" id="tinodi_kepek_1" class="wid hei">
+					<img src="apartman_1_kepek\tinodi_1.jpg" id="tinodi_kepek_0" class="wid hei">
 					<div class="apartman_div wid hei">
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
+								<button class="prev-arrow">&#10094;</button>
 								<div id="tinodi_kep" class="mozgo_kep" style="display:none;">
-									<img src="" id="tinodi_kepek_2" class="absol wid hei">
+									<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
+   	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
+    								<img src="apartman_1_kepek/tinodi_2.svg" class="tinodi_kep">
+    								<img src="apartman_1_kepek/tinodi_3.svg" class="tinodi_kep">
+    								<img src="apartman_1_kepek/tinodi_4.svg" class="tinodi_kep">
+    								<img src="apartman_1_kepek/tinodi_5.svg" class="tinodi_kep">
 								</div>
+								<button class="next-arrow">&#10095;</button>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
 								<div id="tinodi_naptar" class="naptar relat" style="display:none;">
