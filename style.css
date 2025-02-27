@@ -356,25 +356,34 @@ html, body {
 	background-color: rgba(232,89,217,1.0);
 
 }
-#tinodi_kepek_1{
+#tinodi_kepek_0{
 	max-height:100%; 
 	max-width:100%;
 	object-fit: cover;
 }
-#tinodi_kepek_2{
+#tinodi_kep img:first-child {
+    left: 0; /* Center the first image */
+}
+.tinodi_kep{
 	image-rendering: auto;
 	position: absolute;
 	margin: 0;
 	top: 0;
 	left: 0;
-	display: block;
+	display: none;
 	width: 100%;
 	height: 100%;
 	max-height:100%; 
 	max-width:100%;
 	object-fit: cover;
-	
 	background-size: 100%;
+	transition: transform 0.5s ease;
+}
+.tinodi_kep.active{
+	display: block;
+}
+#tinodi_kepek_2{
+	left: 0;
 }
 #apartman_garazs{
 	background-color: rgba(77,98,180,1.0);
@@ -403,6 +412,7 @@ html, body {
 	overflow: hidden;
 	width: 65%;
 	padding-top: 55%;
+	transition: transform 0.5s ease-in-out;
 }
 .naptar{
 	overflow: hidden;
@@ -583,10 +593,6 @@ html, body {
 .ertekeles_margin{
 	margin: 10px 10px 10px 10px;
 }
-
-
-
-
 
 
 @media only screen and (max-width: 1000px){
