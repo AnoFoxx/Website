@@ -46,7 +46,7 @@
     	})
 
     	
-    	
+    	let parent_divId = null;
     	let image = null;
 	    let index = 1;
     	$(".apartman").click(function() {
@@ -66,6 +66,8 @@
 				$("#apartman_tinodi .accent_hide").show();
 
 				image = $(".tinodi_kep");
+				parent_divId = "#tinodi_div";
+				console.log("parent_divId set to:", parent_divId);
 			}
 			updateImage();
 			if(id=='apartman_garazs'){
@@ -126,7 +128,6 @@
 	    function updateImage() {
 
 	    	if (image === null || image.length === 0) return;
-	    	
 	        image.removeClass('active');
 	        
 	        //3 kép megjelenítése
@@ -138,26 +139,26 @@
 	        $(image[index]).css('transform', 'translateX(0)');
 	        $(image[(index - 1 + image.length) % image.length]).css('transform', 'translateX(-100%)');
 	        $(image[(index + 1) % image.length]).css('transform', 'translateX(100%)');
-	    }
+	        bindArrowClicks();
+		}
 
-	    
-	    updateImage();
+		function bindArrowClicks() {
+    		$(parent_divId + " .jobb_nyil").off("click").on("click", function () {
+        		if (image && image.length > 0) {
+		            $(image[index]).css('transform', 'translateX(-100%)');
+		            index = (index + 1) % image.length;
+		            updateImage();
+        		}
+    	});
 
-	    // Jobb nyíl
-	    $(".jobb_nyil_tinodi").click(function () {
-	        $(image[index]).css('transform', 'translateX(-100%)');
-	        index = (index + 1) % image.length;
-
-	        updateImage();
-	    });
-
-	    // Bal nyíl
-	    $(".bal_nyil_tinodi").click(function () {
-	        $(image[index]).css('transform', 'translateX(100%)');
-	        index = (index - 1 + image.length) % image.length;
-
-	        updateImage();
-	    });
+	    $(parent_divId + " .bal_nyil").off("click").on("click", function () {
+	        	if (image && image.length > 0) {
+			        $(image[index]).css('transform', 'translateX(100%)');
+			        index = (index - 1 + image.length) % image.length;
+			        updateImage();
+	        	}
+	    	});
+		}
 
 	    //chillout körhinta
 
@@ -253,7 +254,7 @@
 					<div class="apartman_div wid hei">
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
 							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
-								<button class="bal_nyil_tinodi">&#10094;</button>
+								<button class="bal_nyil">&#10094;</button>
 								<div id="tinodi_kep_show" class="mozgo_kep accent_hide point">
 									<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
    	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
@@ -262,7 +263,7 @@
     								<img src="apartman_1_kepek/tinodi_4.svg" class="tinodi_kep">
     								<img src="apartman_1_kepek/tinodi_5.svg" class="tinodi_kep">
 								</div>
-								<button class="jobb_nyil_tinodi">&#10095;</button>
+								<button class="jobb_nyil">&#10095;</button>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
 								<div id="tinodi_naptar" class="naptar relat accent_hide">
