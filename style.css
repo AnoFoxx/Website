@@ -31,6 +31,9 @@ img{
 .hei-vh{
 	height: 100vh;
 }
+.point{
+	cursor: pointer;
+}
 .lazy_toltes{
 	opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -308,6 +311,7 @@ html, body {
 	animation-duration: .3s;
 }
 .accent-bg-show {
+	cursor: pointer;
 	overflow-x: hidden;
 	top: 0;
 	left: 0;
@@ -356,13 +360,13 @@ html, body {
 	background-color: rgba(232,89,217,1.0);
 
 }
-#tinodi_kepek_0{
+#tinodi_fo_kep{
 	max-height:100%; 
 	max-width:100%;
 	object-fit: cover;
 }
-#tinodi_kep img:first-child {
-    left: 0; /* Center the first image */
+#tinodi_kep_show img:first-child {
+    left: 0; 
 }
 .tinodi_kep{
 	image-rendering: auto;
@@ -381,9 +385,6 @@ html, body {
 }
 .tinodi_kep.active{
 	display: block;
-}
-#tinodi_kepek_2{
-	left: 0;
 }
 #apartman_garazs{
 	background-color: rgba(77,98,180,1.0);
@@ -565,7 +566,7 @@ html, body {
 #ertekeles_sor{
 	background-color: white;
 	flex-direction: row;
-	height:600px;
+	height:400px;
 }
 .ertekeles_elem{
 	flex-shrink: 0;
