@@ -16,12 +16,7 @@
         $(".galeria_background").fadeIn();
 	    });
 
-	    $(".galeria_background").click(function (a) {
-	        if (!$(a.target).is(".galeria_big_img")) {
-	            $(".galeria_background").fadeOut();
-	        }
-	    });
-	    $("#tinodi_kepek_2").click(function () {
+	    $(".tinodi_kep").click(function () {
         	let imgsrc = $(this).attr("src");
         $(".galeria_big_img").attr("src", imgsrc);
         $(".galeria_background").fadeIn();
@@ -39,6 +34,7 @@
 				$("#elerheto").hide(500);
 			}
 		})
+
     	$("#support_icon").click(function(){
     		if($("#elerheto").is(":visible")){
     			$("#elerheto").hide(500);
@@ -51,7 +47,7 @@
 
     	
     	
-    	
+
     	$(".apartman").click(function() {
     		var id= this.id;
     		$(".apartman").css("height","100%");
@@ -64,22 +60,17 @@
 			
 			
 			if(id=='apartman_tinodi') {
-				$("#tinodi_kepek_0").hide();
-				$("#tinodi_kepek_2").show();
-				$("#tinodi_kepek_2").attr("src","apartman_1_kepek\\tinodi_3.svg");
+				$("#tinodi_fo_kep").hide();
 				$("#apartman_tinodi").css("cursor","default");
-				$("#tinodi_naptar").show();
-				$("#tinodi_kep").show();
+				$("#apartman_tinodi .accent_hide").show();
 			}
 			if(id=='apartman_garazs'){
 				$("#apartman_garazs").css("cursor","default");
-				$("#garazs_naptar").show();
-				$("#garazs_kep").show();
+				$("#apartman_garazs .accent_hide").show();
 			}
 			if(id=='apartman_garazs_szoba'){
 				$("#apartman_garazs_szoba").css("cursor","default");
-				$("#garazs_szoba_kep").show();
-				$("#garazs_szoba_naptar").show();
+				$("#garazs_szoba_kep .accent_hide").show();
 			}
 		});
 
@@ -88,15 +79,8 @@
 			$("#apartmanok").css("z-index","0");
 			$(".felirat").show();
 
-			$("#tinodi_kepek_0").show();
-			$("#tinodi_kepek_2").attr("src","");
-			$("#tinodi_kepek_2").hide();
-			$("#tinodi_naptar").hide();
-			$("#tinodi_kep").hide();
-			$("#garazs_naptar").hide();
-			$("#garazs_kep").hide();
-			$("#garazs_szoba_kep").hide();
-			$("#garazs_szoba_naptar").hide();
+			$("#tinodi_fo_kep").show();
+			$(".accent_hide").hide();
 
 			$(".apartman").removeClass("background");
 			$(".apartman").removeClass("foreground");
@@ -129,55 +113,55 @@
                 block: "start"
             });
         });
-        const images = $(".tinodi_kep"); // All the images in the container
-	    let currentIndex = 1; // Start with the second image (index 1)
 
-	    // Function to set up the images on the screen
-	    function updateImages() {
-	        // First, hide all images
-	        images.removeClass('active');
+        //kép körhinta
+
+        //tinodi körhinta
+        const image = $(".tinodi_kep");
+	    let index = 1;
+
+	    function updateImage() {
+	        image.removeClass('active');
 	        
-	        // Make the current, previous, and next images visible
-	        $(images[currentIndex]).addClass('active'); // Center image
-	        $(images[(currentIndex - 1 + images.length) % images.length]).addClass('active'); // Left image
-	        $(images[(currentIndex + 1) % images.length]).addClass('active'); // Right image
+	        //3 kép megjelenítése
+	        $(image[index]).addClass('active');
+	        $(image[(index - 1 + image.length) % image.length]).addClass('active');
+	        $(image[(index + 1) % image.length]).addClass('active');
 
-	        // Reposition the images
-	        $(images[currentIndex]).css('transform', 'translateX(0)');
-	        $(images[(currentIndex - 1 + images.length) % images.length]).css('transform', 'translateX(-100%)'); // Left image
-	        $(images[(currentIndex + 1) % images.length]).css('transform', 'translateX(100%)'); // Right image
+	        //Elmozgatás
+	        $(image[index]).css('transform', 'translateX(0)');
+	        $(image[(index - 1 + image.length) % image.length]).css('transform', 'translateX(-100%)');
+	        $(image[(index + 1) % image.length]).css('transform', 'translateX(100%)');
 	    }
 
-	    // Initialize the images on page load
-	    updateImages();
+	    
+	    updateImage();
 
-	    // Next Arrow (Right)
-	    $(".next-arrow").click(function () {
-	        // Slide the current image to the left (out of view)
-	        $(images[currentIndex]).css('transform', 'translateX(-100%)'); // Move current image to the left
+	    // Jobb nyíl
+	    $(".jobb_nyil_tinodi").click(function () {
+	        $(image[index]).css('transform', 'translateX(-100%)');
+	        index = (index + 1) % image.length;
 
-	        // Move to the next image
-	        currentIndex = (currentIndex + 1) % images.length; // Increment the index and loop back if needed
-
-	        // Update the images to show the new set of images
-	        updateImages();
+	        updateImage();
 	    });
 
-	    // Previous Arrow (Left)
-	    $(".prev-arrow").click(function () {
-	        // Slide the current image to the right (out of view)
-	        $(images[currentIndex]).css('transform', 'translateX(100%)'); // Move current image to the right
+	    // Bal nyíl
+	    $(".bal_nyil_tinodi").click(function () {
+	        $(image[index]).css('transform', 'translateX(100%)');
+	        index = (index - 1 + image.length) % image.length;
 
-	        // Move to the previous image
-	        currentIndex = (currentIndex - 1 + images.length) % images.length; // Decrement the index and loop back if needed
-
-	        // Update the images to show the new set of images
-	        updateImages();
+	        updateImage();
 	    });
+
+	    //chillout körhinta
+
     });
 </script>
 </head>
 <body>
+	<div class="galeria_background" style="display:none; z-index: 3;">
+		<img src="" class="galeria_big_img" style="z-index:3;">
+	</div>
 	<div id="full" style="z-index: 1;" class="flex j-center a-i-center wid-vw hei-vh">
 		<div id="oldalso">
 			<div id="lenyulo" class="flex j-center a-i-center">
@@ -258,14 +242,13 @@
 				<div class="accent-bg"></div>
 
 				<div id="apartman_tinodi" class="apartman flex j-center">
-					
 					<div class="felirat flex j-center a-i-center wid" style="z-index:2;">Tinódi Apartman</div>
-					<img src="apartman_1_kepek\tinodi_1.jpg" id="tinodi_kepek_0" class="wid hei">
+					<img src="apartman_1_kepek\tinodi_1.jpg" id="tinodi_fo_kep" class="wid hei">
 					<div class="apartman_div wid hei">
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
-							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<button class="prev-arrow">&#10094;</button>
-								<div id="tinodi_kep" class="mozgo_kep" style="display:none;">
+							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
+								<button class="bal_nyil_tinodi">&#10094;</button>
+								<div id="tinodi_kep_show" class="mozgo_kep accent_hide point">
 									<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
    	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
     								<img src="apartman_1_kepek/tinodi_2.svg" class="tinodi_kep">
@@ -273,10 +256,10 @@
     								<img src="apartman_1_kepek/tinodi_4.svg" class="tinodi_kep">
     								<img src="apartman_1_kepek/tinodi_5.svg" class="tinodi_kep">
 								</div>
-								<button class="next-arrow">&#10095;</button>
+								<button class="jobb_nyil_tinodi">&#10095;</button>
 							</div>
-							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="tinodi_naptar" class="naptar relat" style="display:none;">
+							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
+								<div id="tinodi_naptar" class="naptar relat accent_hide">
 									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
@@ -291,11 +274,15 @@
 					<div class="felirat flex j-center a-i-center wid">Chill Apartman</div>
 					<div class="apartman_div wid hei">
 						<div id="garazs_div" class="apartman_div_tav flex a-i-center hei">
-							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="garazs_kep" class="mozgo_kep" style="display:none;"></div>
+							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
+								<button class="prev-arrow">&#10094;</button>
+								<div id="garazs_kep" class="mozgo_kep accent_hide point">
+									
+								</div>
+								<button class="next-arrow">&#10095;</button>
 							</div>
-							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="garazs_naptar" class="naptar relat" style="display:none;">
+							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
+								<div id="garazs_naptar" class="naptar relat accent_hide">
 									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
@@ -311,10 +298,10 @@
 					<div class="apartman_div wid hei">
 						<div id="garazs_szoba_div" class="apartman_div_tav flex a-i-center hei">
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="garazs_szoba_kep" class="mozgo_kep" style="display:none;"></div>
+								<div id="garazs_szoba_kep" class="mozgo_kep accent_hide point" style="display:none;"></div>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="garazs_szoba_naptar" class="naptar relat" style="display:none;">
+								<div id="garazs_szoba_naptar" class="naptar relat accent_hide" style="display:none;">
 									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
@@ -366,9 +353,7 @@
 						</div>
 						<div id="galeria_scroll" class="flex">
 
-							<div class="galeria_background" style="display:none; z-index: 3;">
-								<img src="" class="galeria_big_img" style="z-index:3;">
-							</div>
+							
 								<div class="galeria_container">
 									<img  class="galeria_img lazy_toltes wid" src="apartman_1_kepek/tinodi_1.svg"></img>
 									<img  class="galeria_img lazy_toltes wid" src="apartman_1_kepek/tinodi_5.svg">
