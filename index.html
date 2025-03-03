@@ -47,7 +47,8 @@
 
     	
     	
-
+    	let image = null;
+	    let index = 1;
     	$(".apartman").click(function() {
     		var id= this.id;
     		$(".apartman").css("height","100%");
@@ -63,7 +64,10 @@
 				$("#tinodi_fo_kep").hide();
 				$("#apartman_tinodi").css("cursor","default");
 				$("#apartman_tinodi .accent_hide").show();
+
+				image = $(".tinodi_kep");
 			}
+			updateImage();
 			if(id=='apartman_garazs'){
 				$("#apartman_garazs").css("cursor","default");
 				$("#apartman_garazs .accent_hide").show();
@@ -117,10 +121,12 @@
         //kép körhinta
 
         //tinodi körhinta
-        const image = $(".tinodi_kep");
-	    let index = 1;
+        
 
 	    function updateImage() {
+
+	    	if (image === null || image.length === 0) return;
+	    	
 	        image.removeClass('active');
 	        
 	        //3 kép megjelenítése
