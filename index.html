@@ -67,17 +67,19 @@
 
 				image = $(".tinodi_kep");
 				parent_divId = "#tinodi_div";
-				console.log("parent_divId set to:", parent_divId);
 			}
-			updateImage();
 			if(id=='apartman_garazs'){
 				$("#apartman_garazs").css("cursor","default");
 				$("#apartman_garazs .accent_hide").show();
+				image = $(".chill_kep");
+				parent_divId = "#garazs_div";
 			}
+			
 			if(id=='apartman_garazs_szoba'){
 				$("#apartman_garazs_szoba").css("cursor","default");
 				$("#garazs_szoba_kep .accent_hide").show();
 			}
+			updateImage();
 		});
 
 		$(".accent-bg").click(function() {
@@ -122,23 +124,25 @@
 
         //kép körhinta
 
-        //tinodi körhinta
-        
-
 	    function updateImage() {
 
 	    	if (image === null || image.length === 0) return;
 	        image.removeClass('active');
-	        
-	        //3 kép megjelenítése
-	        $(image[index]).addClass('active');
-	        $(image[(index - 1 + image.length) % image.length]).addClass('active');
-	        $(image[(index + 1) % image.length]).addClass('active');
 
-	        //Elmozgatás
-	        $(image[index]).css('transform', 'translateX(0)');
-	        $(image[(index - 1 + image.length) % image.length]).css('transform', 'translateX(-100%)');
-	        $(image[(index + 1) % image.length]).css('transform', 'translateX(100%)');
+	        $(image).css('display', 'none');
+
+    		$(image[index]).css('display', 'block').addClass('active');
+    		$(image[(index - 1 + image.length) % image.length]).css('display', 'block').addClass('active');
+
+    		$(image[(index + 1) % image.length]).css('display', 'block').addClass('active');
+    		$(image[index]).css('transform', 'translateX(0)');
+
+    		$(image[(index - 1 + image.length) % image.length]).css('transform', 'translateX(-100%)');
+
+    		$(image[(index + 1) % image.length]).css('transform', 'translateX(100%)');
+    		
+    		$(image).css('transition', 'transform 0.5s ease'); 
+
 	        bindArrowClicks();
 		}
 
@@ -282,11 +286,20 @@
 					<div class="apartman_div wid hei">
 						<div id="garazs_div" class="apartman_div_tav flex a-i-center hei">
 							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
-								<button class="prev-arrow">&#10094;</button>
+								<button class="bal_nyil">&#10094;</button>
 								<div id="garazs_kep" class="mozgo_kep accent_hide point">
-									
+									<img src="apartman_2_kepek/chill_1.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_2.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_3.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_4.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_5.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_6.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_7.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_8.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_9.svg" class="chill_kep">
+   	 								<img src="apartman_2_kepek/chill_10.svg" class="chill_kep">
 								</div>
-								<button class="next-arrow">&#10095;</button>
+								<button class="jobb_nyil">&#10095;</button>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
 								<div id="garazs_naptar" class="naptar relat accent_hide">
