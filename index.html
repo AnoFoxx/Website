@@ -6,6 +6,31 @@
 	<title>ChillOut</title>
 <script>
     $(document).ready(function() {
+    	//side-bar lenyitás és becsukás
+    	$("#lenyulo").click(function(){
+    		if($("#fo_menu").is(":hidden")){
+    			$("#lenyulo").show(500);
+    			$("#fo_menu").show(500);
+    			$("#ikon").css("transform","rotate(90deg)");
+    		}
+    		else{
+    			$("#fo_menu").hide(500);
+    			$("#ikon").css("transform","rotate(0deg)");
+    		}
+    	})
+
+    	//menu tájékozódás
+        $(".menu").click(function() {
+            var targetId = $(this).attr("id").replace("menu_", "");
+
+            var targetElement = $("#" + targetId)[0];
+                
+            targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+
     	$("#foglal").click(function(){
     		window.location.href="foglalas.html";
     	})
@@ -46,9 +71,10 @@
     	})
 
     	
+
     	let parent_divId = null;
     	let image = null;
-	    let index = 1;
+	    let indices = {};
     	$(".apartman").click(function() {
     		var id= this.id;
     		$(".apartman").css("height","100%");
@@ -59,27 +85,40 @@
 			$(this).removeClass("background");
 			$(this).addClass("foreground");
 			
-			
-			if(id=='apartman_tinodi') {
+
+			if (indices[id] === undefined) {
+		        indices[id] = 0;  // Default starting index for any apartman
+    		}	
+
+			if (indices[id] === undefined) {
+		        indices[id] = 0; // Default starting index is 0
+		    }
+			if(id=='apartman_tinodi' && indices[id] == 0) {
+				indices[id] = 1;
 				$("#tinodi_fo_kep").hide();
 				$("#apartman_tinodi").css("cursor","default");
 				$("#apartman_tinodi .accent_hide").show();
-
 				image = $(".tinodi_kep");
 				parent_divId = "#tinodi_div";
+
 			}
-			if(id=='apartman_garazs'){
+			if(id=='apartman_garazs' && indices[id] == 0){
+				indices[id] = 0;
 				$("#apartman_garazs").css("cursor","default");
 				$("#apartman_garazs .accent_hide").show();
 				image = $(".chill_kep");
 				parent_divId = "#garazs_div";
 			}
 			
-			if(id=='apartman_garazs_szoba'){
+			if(id=='apartman_garazs_szoba' && indices[id] == 0){
+				indices[id] = 0;
 				$("#apartman_garazs_szoba").css("cursor","default");
 				$("#garazs_szoba_kep .accent_hide").show();
+				image = $(".chill_plus_kep");
+				parent_divId = "#garazs_szoba_div";
 			}
-			updateImage();
+			updateImage(id);
+    		setupArrowListeners(id);
 		});
 
 		$(".accent-bg").click(function() {
@@ -97,72 +136,47 @@
 			$(".apartman").css("cursor","pointer");
 		});
 
-    	//side-bar lenyitás és becsukás
-    	$("#lenyulo").click(function(){
-    		if($("#fo_menu").is(":hidden")){
-    			$("#lenyulo").show(500);
-    			$("#fo_menu").show(500);
-    			$("#ikon").css("transform","rotate(90deg)");
-    		}
-    		else{
-    			$("#fo_menu").hide(500);
-    			$("#ikon").css("transform","rotate(0deg)");
-    		}
-    	})
-
-    	//menu tájékozódás
-        $(".menu").click(function() {
-            var targetId = $(this).attr("id").replace("menu_", "");
-
-            var targetElement = $("#" + targetId)[0];
-                
-            targetElement.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
+    	
 
         //kép körhinta
 
-	    function updateImage() {
+	function updateImage(id) {
+    if (!image || image.length === 0) {
+        return;
+    }
 
-	    	if (image === null || image.length === 0) return;
-	        image.removeClass('active');
+    let currentIndex = indices[id];
 
-	        $(image).css('display', 'none');
+    // Reset previous images: remove transform and hide them
+    $(image).removeClass('active').css('transform', '');
+    $(image).css('display', 'none'); // Ensure all images are hidden first
 
-    		$(image[index]).css('display', 'block').addClass('active');
-    		$(image[(index - 1 + image.length) % image.length]).css('display', 'block').addClass('active');
+    // Show the new images (previous, current, next)
+    $(image[currentIndex]).css('display', 'block').addClass('active').css('transform', 'translateX(0)');
+    $(image[(currentIndex - 1 + image.length) % image.length]).css('display', 'block').addClass('active').css('transform', 'translateX(-100%)');
+    $(image[(currentIndex + 1) % image.length]).css('display', 'block').addClass('active').css('transform', 'translateX(100%)');
 
-    		$(image[(index + 1) % image.length]).css('display', 'block').addClass('active');
-    		$(image[index]).css('transform', 'translateX(0)');
+    // Apply transition effect
+    $(image).css('transition', 'transform 0.5s ease');
+}
 
-    		$(image[(index - 1 + image.length) % image.length]).css('transform', 'translateX(-100%)');
+// Function to set up the arrow listeners to change the index
+function setupArrowListeners(id) {
 
-    		$(image[(index + 1) % image.length]).css('transform', 'translateX(100%)');
-    		
-    		$(image).css('transition', 'transform 0.5s ease'); 
+    $(parent_divId + " .jobb_nyil").off("click").on("click", function() {
+        if (image && image.length > 0) {
+            indices[id] = (indices[id] + 1) % image.length;  // Increment index
+            updateImage(id);  // Update image based on new index
+        }
+    });
 
-	        bindArrowClicks();
-		}
-
-		function bindArrowClicks() {
-    		$(parent_divId + " .jobb_nyil").off("click").on("click", function () {
-        		if (image && image.length > 0) {
-		            $(image[index]).css('transform', 'translateX(-100%)');
-		            index = (index + 1) % image.length;
-		            updateImage();
-        		}
-    	});
-
-	    $(parent_divId + " .bal_nyil").off("click").on("click", function () {
-	        	if (image && image.length > 0) {
-			        $(image[index]).css('transform', 'translateX(100%)');
-			        index = (index - 1 + image.length) % image.length;
-			        updateImage();
-	        	}
-	    	});
-		}
+    $(parent_divId + " .bal_nyil").off("click").on("click", function() {
+        if (image && image.length > 0) {
+            indices[id] = (indices[id] - 1 + image.length) % image.length;  // Decrement index
+            updateImage(id);  // Update image based on new index
+        }
+    });
+}
 
 	    //chillout körhinta
 
@@ -318,7 +332,13 @@
 					<div class="apartman_div wid hei">
 						<div id="garazs_szoba_div" class="apartman_div_tav flex a-i-center hei">
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
-								<div id="garazs_szoba_kep" class="mozgo_kep accent_hide point" style="display:none;"></div>
+								<button class="bal_nyil">&#10094;</button>
+								<div id="garazs_szoba_kep" class="mozgo_kep accent_hide point" style="display:none;">
+									<img src="apartman_3_kepek/chill_plus_1.svg" class="chill_plus_kep">
+									<img src="apartman_3_kepek/chill_plus_2.svg" class="chill_plus_kep">
+									<img src="apartman_3_kepek/chill_plus_3.svg" class="chill_plus_kep">
+								</div>
+								<button class="jobb_nyil">&#10095;</button>
 							</div>
 							<div class="apartman_div_box flex j-center a-i-center relat wid">
 								<div id="garazs_szoba_naptar" class="naptar relat accent_hide" style="display:none;">
