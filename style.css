@@ -368,7 +368,7 @@ html, body {
 #tinodi_kep_show img:first-child {
     left: 0; 
 }
-.tinodi_kep{
+.mozgo_kep img{
 	image-rendering: auto;
 	position: absolute;
 	margin: 0;
@@ -382,6 +382,9 @@ html, body {
 	object-fit: cover;
 	background-size: 100%;
 	transition: transform 0.5s ease;
+}
+.mozgo_kep img.active {
+    display: block; /* Only show the active image */
 }
 .tinodi_kep.active{
 	display: block;
