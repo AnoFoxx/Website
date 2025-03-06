@@ -73,74 +73,70 @@
     	
 
     	let parent_divId = null;
-    	let image = null;
-	    let indices = {};
-    	$(".apartman").click(function() {
-    		var id= this.id;
-    		$(".apartman").css("height","100%");
-			$(".apartman").addClass("background");
-			$("#apartmanok").css("z-index","2");
-			$(".felirat").hide();
-			$(".accent-bg").addClass("accent-bg-show");
-			$(this).removeClass("background");
-			$(this).addClass("foreground");
-			
+let image = null;
+let indices = {};
 
-			if (indices[id] === undefined) {
-		        indices[id] = 0;  // Default starting index for any apartman
-    		}	
+$(".apartman").click(function() {
+    var id = this.id;
+    $(".apartman").css("height", "100%");
+    $(".apartman").addClass("background");
+    $("#apartmanok").css("z-index", "2");
+    $(".felirat").hide();
+    $(".accent-bg").addClass("accent-bg-show");
+    $(this).removeClass("background");
+    $(this).addClass("foreground");
 
-			if (indices[id] === undefined) {
-		        indices[id] = 0; // Default starting index is 0
-		    }
-			if(id=='apartman_tinodi' && indices[id] == 0) {
-				indices[id] = 1;
-				$("#tinodi_fo_kep").hide();
-				$("#apartman_tinodi").css("cursor","default");
-				$("#apartman_tinodi .accent_hide").show();
-				image = $(".tinodi_kep");
-				parent_divId = "#tinodi_div";
+    if (indices[id] === undefined) {
+        indices[id] = 0; // Default starting index for any apartman
+    }
 
-			}
-			if(id=='apartman_garazs' && indices[id] == 0){
-				indices[id] = 0;
-				$("#apartman_garazs").css("cursor","default");
-				$("#apartman_garazs .accent_hide").show();
-				image = $(".chill_kep");
-				parent_divId = "#garazs_div";
-			}
-			
-			if(id=='apartman_garazs_szoba' && indices[id] == 0){
-				indices[id] = 0;
-				$("#apartman_garazs_szoba").css("cursor","default");
-				$("#garazs_szoba_kep .accent_hide").show();
-				image = $(".chill_plus_kep");
-				parent_divId = "#garazs_szoba_div";
-			}
-			updateImage(id);
-    		setupArrowListeners(id);
-		});
+    if (id == 'apartman_tinodi' && indices[id] == 0) {
+        indices[id] = 1;
+        $("#tinodi_fo_kep").hide();
+        $("#apartman_tinodi").css("cursor", "default");
+        $("#apartman_tinodi .accent_hide").show();
+        image = $(".tinodi_kep");
+        parent_divId = "#tinodi_div";
+    }
+    if (id == 'apartman_garazs' && indices[id] == 0) {
+        indices[id] = 0;
+        $("#apartman_garazs").css("cursor", "default");
+        $("#apartman_garazs .accent_hide").show();
+        image = $(".chill_kep");
+        parent_divId = "#garazs_div";
+    }
 
-		$(".accent-bg").click(function() {
-			$(".apartman").css("height","70%");
-			$("#apartmanok").css("z-index","0");
-			$(".felirat").show();
+    if (id == 'apartman_garazs_szoba' && indices[id] == 0) {
+        indices[id] = 0;
+        $("#apartman_garazs_szoba").css("cursor", "default");
+        $("#garazs_szoba_kep .accent_hide").show();
+        image = $(".chill_plus_kep");
+        parent_divId = "#garazs_szoba_div";
+    }
 
-			$("#tinodi_fo_kep").show();
-			$(".accent_hide").hide();
+    updateImage(id);
+    setupArrowListeners(id);
+});
 
-			$(".apartman").removeClass("background");
-			$(".apartman").removeClass("foreground");
-			
-			$(this).removeClass("accent-bg-show");
-			$(".apartman").css("cursor","pointer");
-		});
+$(".accent-bg").click(function() {
+    $(".apartman").css("height", "70%");
+    $("#apartmanok").css("z-index", "0");
+    $(".felirat").show();
 
-    	
+    $("#tinodi_fo_kep").show();  // Ensure main image is visible
+    $(".accent_hide").hide();    // Hide accent elements
 
-        //kép körhinta
+    $(".apartman").removeClass("background");
+    $(".apartman").removeClass("foreground");
 
-	function updateImage(id) {
+    $(this).removeClass("accent-bg-show");
+    $(".apartman").css("cursor", "pointer");
+
+    indices = {};  // Reset all indices when closing
+});
+
+// Function to update images in the carousel
+function updateImage(id) {
     if (!image || image.length === 0) {
         return;
     }
@@ -148,13 +144,13 @@
     let currentIndex = indices[id];
 
     // Reset previous images: remove transform and hide them
-    $(image).removeClass('active').css('transform', '');
-    $(image).css('display', 'none'); // Ensure all images are hidden first
+    $(image).removeClass('active');
+    $(image).css('transform', ''); // Ensure all images are hidden first
 
     // Show the new images (previous, current, next)
-    $(image[currentIndex]).css('display', 'block').addClass('active').css('transform', 'translateX(0)');
-    $(image[(currentIndex - 1 + image.length) % image.length]).css('display', 'block').addClass('active').css('transform', 'translateX(-100%)');
-    $(image[(currentIndex + 1) % image.length]).css('display', 'block').addClass('active').css('transform', 'translateX(100%)');
+    $(image[currentIndex]).addClass('active').css('transform', 'translateX(0)');
+    $(image[(currentIndex - 1 + image.length) % image.length]).addClass('active').css('transform', 'translateX(-100%)');
+    $(image[(currentIndex + 1) % image.length]).addClass('active').css('transform', 'translateX(100%)');
 
     // Apply transition effect
     $(image).css('transition', 'transform 0.5s ease');
@@ -162,7 +158,6 @@
 
 // Function to set up the arrow listeners to change the index
 function setupArrowListeners(id) {
-
     $(parent_divId + " .jobb_nyil").off("click").on("click", function() {
         if (image && image.length > 0) {
             indices[id] = (indices[id] + 1) % image.length;  // Increment index
@@ -177,6 +172,7 @@ function setupArrowListeners(id) {
         }
     });
 }
+
 
 	    //chillout körhinta
 
