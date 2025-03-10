@@ -9,7 +9,7 @@
  <script>
  	$(document).ready(function(){
  		$("#felirat").click(function(){
- 			window.location.replace("file:///D:/Project_new/index.html");
+ 			window.location.href="index.html";
  		})
  		$("#dark_mode").change(function(){
  			if($(this).is(":checked")){
@@ -44,23 +44,18 @@
 
  			var selected= $("#apartman_select option:selected");
  			if(selected.attr('id')!="default_option"){
- 				$("#varos_irsz").css("display","flex");
- 				$("#varos_irsz").css({"position":"relative","right":7});
  				$("#info_div").css({
- 					"transition":"all 1s ease",
- 					"flex-direction":"row-reverse",
- 					"justify-content":"center"
+ 					"align-items":"stretch",
+ 					"flex-direction":"row"
  				});
- 				$("#apartman_kep").addClass("visible");
+ 				$("#apartman_info").show();
  			}
  			else{
- 				$("#varos_irsz").css({"display":"block","position":"static","right":0});
  				$("#info_div").css({
-    	 	 	"transition": "all 1s ease",
-     			 "flex-direction": "column",
-     		 	"justify-content": "flex-start"
-   		 		});
- 				$("#apartman_kep").removeClass("visible");
+ 					"align-items":"center",
+ 					"flex-direction":"column"
+ 				});
+ 				$("#apartman_info").hide();
  			}
  		})
  	})
@@ -87,63 +82,64 @@
 			</div>
 		</div>
 	</header>
-	<div id="full">
-		<div style="width:850px; height: 750px; background-color: rgba(0, 0, 0, 0.3); margin-top: 30px; display: flex;justify-content: flex-start; flex-direction: column;">
+	<style type="text/css">
+		.option{
+			padding
+			flex-direction: row;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 70px;
+			width: 450px;
+			margin-bottom: 10px;
+		}
+		.option input{
+			padding-left: 10px;
+			font-size: 20px;
+			width: 300px;
+			height: 50px;
+			border-radius: 50px;
+		}
+	</style>
+	<div id="full" style="overflow-x: scroll;">
+		<div style="width:1050px; height: 1050px; background-color: rgba(0, 0, 0, 0.3); margin-top: 30px; display: flex;justify-content: flex-start; flex-direction: column; border-radius: 50px;">
 			<div style="width:100%;height:70px;display:flex;justify-content: center;"><h1>Foglalás</h1></div>
 
 			<div id="info_div">
-				
-				<table id="opciok" style="border-spacing: 7px;">
-					<tr class="normal">
-						<td>Vezetéknév:</td>
-						<td><input type="text" name="vez_name"></td>
-					</tr>
-					<tr class="normal">
-						<td>Utónév</td>
-						<td><input type="text" name="uto_name"></td>
-					</tr>
-					<tr class="normal">
-						<td>Email: </td>
-						<td><input type="email" name="email" placeholder="youremail@gmail.com"></td>
-					</tr>
-					<tr class="normal">
-						<td>Telefonszám:</td>
-						<td><input type="tel" name="phone_number" placeholder="Add meg a telefonszámod"></td>
-					</tr>
-					<tr class="normal">
-						<td>Ország:</td>
-						<td><input type="text" name="orszag"> </td>
-					</tr>
-					<tr id="varos_irsz">
-						<td>Ir.szám:<input type="text" name="irszam" style="width:40px;"></td>
-						<td>Település:<input type="text" name="telepules" style="width:140px;"></td>
-					</tr>
-					<!-- Ir.szám, település 2 input-->
-					<tr class="normal">
-						<td>Város:</td>
-						<td><input type="text" name="varos"></td>
-					</tr>
-					<tr class="normal">
-						<td>Utca, házszám:</td>
-						<td><input type="text" name="lakcim"></td>
-					</tr>
-					<tr class="fo">
-						<td colspan="2">Hány felnőtt?<input  type="number" name="felnot">Hány gyerek?<input type="number" name="gyerek"></td>
-					</tr>
-					<tr class="apartmanok"> 
-						<td colspan="2">
-							Apartman: <select id="apartman_select">
-								<option id="default_option">--Válasz apartmant--</option>
-								<option></option>
-
-							</select>
-						</td>
-					</tr>
-				</table>
-				<div id="apartman_kep"></div>
+				<div id="apartman_info">
+					<div id="apartman_kep_div">
+						<div id="apartman_kep"></div>
+					</div>
+					<div id="apartman_naptar_div">
+						<div id="apartman_naptar"></div>
+					</div>
+				</div>
+				<div id="option_div">
+					<div class="option">Vezetéknév:<input type="text" name="vez_name"></div>
+					<div class="option">Utónév:<input type="text" name="uto_name"></div>
+					<div class="option">Email:<input type="email" name="email" placeholder="youremail@gmail.com"></div>
+					<div class="option">Telefonszám:<input type="tel" name="phone_number" placeholder="Add meg a telefonszámod"></div>
+					<div class="option">Ország:<input type="text" name="orszag"></div>
+					<div>
+						<div class="option">Ir.szám:<input type="text" name="irszam"></div>
+						<div class="option">Település:<input type="text" name="telepules"></div>
+					</div>
+					<div class="option">Város:<input type="text" name="varos"></div>
+					<div class="option">Utca, házszám:<input type="text" name="lakcim"></div>
+					<div style="display:flex; justify-content: space-evenly;">
+						<div class="age">Felnőtt:<input max="15" min="1" class="szemely" type="number" name="felnot"></div>
+						<div class="age">Gyerek:<input max="15" class="szemely" type="number" name="gyerek"></div>
+					</div>
+					<div style="display:flex; justify-content:center;align-items: center;">
+						Apartman:<select id="apartman_select">
+							<option id="default_option">--Válasz apartmant--</option>
+							<option>yea</option>
+						</select>
+					</div>
+				</div>
 			</div>
-			<div style="width:100%;height:41%; display:flex;justify-content: center;align-items: center;">
-				<div id="naptar" style="width:250px; height:250px;"></div>
+			<div id="leadas">
+				<input type="submit" name="leadas" value="Leadás">
 			</div>
 		</div>
 	</div>
