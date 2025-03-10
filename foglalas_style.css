@@ -12,9 +12,6 @@ header{
 	width: 100vw;
 	height: 100px;
 }
-tbody{
-	width: 100%;
-}
 #varos_irsz{
 	margin: 0;
 }
@@ -25,60 +22,75 @@ tbody{
 	justify-content: center;
 	align-content: center;
 }
+#option_div{
+	width:500px;height:750px ;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+}
+.age{
+	margin-bottom: 10px;
+}
+.age input{
+	padding-left: 10px;
+	font-size: 20px;
+	border-radius: 30px;
+	height: 50px;
+	width: 100px;
+}
 #info_div{
-	transition: flex-direction 1s ease, justify-content 1s ease;
 	width:100%;
-	height:50%; 
+	height:770px; 
 	display: flex; 
-	justify-content: flex-start; 
 	flex-direction: column; 
 	align-items: center;
 }
-#apartman_kep{
-	width: 50%;
-	height: 100%;
-	opacity: 0;
+#apartman_info{
 	display: none;
-	transition: opacity 1s ease;
+	flex-direction: column;
+	height: 750px;
+	width: 500px;
 }
-#apartman_kep.visible {
-  opacity: 1;
-  display: block;
-}
-#opciok ::-webkit-backface-visibility: hidden;
-#opciok{
-	border: none;
-	width: 50%;
+#apartman_kep_div{
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50%;
 }
-#opciok tbody{
+#apartman_naptar_div{
 	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50%;
 }
-#opciok .normal input{
-	width: 170px;
+#apartman_kep{
+	height: 375px;
+	width: 375px;
 }
-#opciok .fo input{
-	width: 17px;
+#apartman_naptar{
+	height: 375px;
+	width: 375px;
 }
-.apartmanok td select{
-	width: 157px;
+#apartman_select{
+	width: 200px;
+	height: 50px;
+	border-radius:50px;
 }
-
-#opciok .fo input::-webkit-outer-spin-button,
-#opciok .fo input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+#leadas{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 80px;
 }
-
-
-#opciok .fo input[type=number] {
-  -moz-appearance: textfield;
+#leadas input{
+	background-color: rgba(140, 100, 140, 1);
+	border-radius: 50px;
+	width: 200px;
+	height: 60px;
 }
-
-
 #head_left{
 	width:50%;
 	height:100%; 
