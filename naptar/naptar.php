@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" href="naptar.css">
-	<script src="naptar.js"></script>
 </head>
 
 <body>		
@@ -52,12 +51,10 @@
 
 			<script type="text/javascript">
 				document.getElementById("elozo_honap").addEventListener("click", e => {
-					log("<?php echo "".$_SERVER["PHP_SELF"]."?ev=$elozo_ev&honap=$elozo_honap" ?>");
 					window.location.href = "<?php echo "".$_SERVER["PHP_SELF"]."?ev=$elozo_ev&honap=$elozo_honap&apartman=$apartman" ?>";
 
 				});
 				document.getElementById("kov_honap").addEventListener("click", e => {
-					log("<?php echo "".$_SERVER["PHP_SELF"]."?ev=$kov_ev&honap=$kov_honap" ?>");
 					window.location.href = "<?php echo "".$_SERVER["PHP_SELF"]."?ev=$kov_ev&honap=$kov_honap&apartman=$apartman" ?>";
 				});
 			</script>
@@ -107,26 +104,6 @@
 			 ?>
 		</div>
 	</div>
-	<script type="text/javascript">
-		// Rest api call
-		const szamozottNaptarNapok = document.getElementsByClassName("naptar-szamozott-nap");
-		fetch (<?php echo "'http://localhost/Website/api/rest.php?year=$ev&month=$honap&apartman=$apartman&token=3e0c89ad3cb8077143ee8eeeb1359587e1cc2aa2'"; ?>)
-			.then(res => {
-				if (!res.ok) throw new Error(res.message);
-				return res.json();
-			})
-			.then(d => {
-				if (!d.success) throw new Error(d.message);
-
-				for (let i = 0; i < szamozottNaptarNap.length; i++) { 
-					if (szamozottNaptarNap[i].firstElementChild.getAttribute("status") == "enabled") {
-						// This is where the magic happens
-					}
-				}
-			})
-			.catch(err => console.error(`There was a problem with the fetch operation: ${err.message}`))
-
-		
-
-	</script>
+	<script>var url = <?php echo "'http://localhost/Website/api/rest.php?year=$ev&month=$honap&apartman=$apartman'"; ?></script>
+	<script src="naptar.js"></script>
 </body>
