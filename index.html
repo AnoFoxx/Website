@@ -73,7 +73,6 @@
 let parent_divId = null;
 let image = null;
 let indices = {
-    // Set both initial indices explicitly to 0
     'apartman_tinodi': 0,
     'apartman_garazs': 0
 };
@@ -93,30 +92,26 @@ $(".apartman").click(function() {
     }
 
     if (id === 'apartman_tinodi' && indices[id] === 0) {
-        indices[id] = 0; // Ensure the index starts at 0
+        indices[id] = 0;
         $("#apartman_tinodi").css("cursor", "default");
         $("#apartman_tinodi .accent_hide").show();
 
         image = $(".tinodi_kep");
         parent_divId = "#tinodi_div";
-
-        // Update the image immediately after setting the index to 0
         updateImage(id);
     }
 
     if (id === 'apartman_garazs' && indices[id] === 0) {
-        indices[id] = 0; // Ensure the index starts at 0 for garazs as well
+        indices[id] = 0;
         $("#apartman_garazs").css("cursor", "default");
         $("#apartman_garazs .accent_hide").show();
         image = $(".chill_kep");
         parent_divId = "#garazs_div";
-
-        // Update the image immediately after setting the index to 0
         updateImage(id);
     }
 
     if (id === 'apartman_garazs_szoba' && indices[id] === 0) {
-        indices[id] = 0; // Ensure the index starts at 0
+        indices[id] = 0;
         $("#apartman_garazs_szoba").css("cursor", "default");
         $("#garazs_szoba_kep .accent_hide").show();
         image = $(".chill_plus_kep");
@@ -125,7 +120,7 @@ $(".apartman").click(function() {
 
     $("#" + id + " .apartman_div").css("background-image", "url()");
     $("#apartmanok-bg").hide();
-    setupArrowListeners(id); // Set up listeners after we update the image
+    setupArrowListeners(id);
 });
 
 $(".accent-bg").click(function() {
@@ -146,7 +141,7 @@ $(".accent-bg").click(function() {
     $(this).removeClass("accent-bg-show");
     $(".apartman").css("cursor", "pointer");
 
-    indices = {};  // Reset indices when closing the carousel
+    indices = {};
 });
 
 function updateImage(id) {
@@ -156,36 +151,29 @@ function updateImage(id) {
 
     let currentIndex = indices[id];
 
-    // Reset all images (ensure all images are hidden)
     $(image).removeClass('active').css('transform', '');
 
-    // Show the current image in the center
     $(image[currentIndex]).addClass('active').css('transform', 'translateX(0)');
 
-    // Move the previous image off-screen to the left
     $(image[(currentIndex - 1 + image.length) % image.length])
         .addClass('active')
         .css('transform', 'translateX(-100%)');
 
-    // Move the next image off-screen to the right
     $(image[(currentIndex + 1) % image.length])
         .addClass('active')
         .css('transform', 'translateX(100%)');
 
-    // Apply the transition to make the sliding smooth
     $(image).css('transition', 'transform 0.5s ease');
 
-    // Prevent images from jumping unexpectedly when wrapping
     if (currentIndex === image.length - 1) {
-        $(image[0]).css('transform', 'translateX(100%)');  // Move the first image off-screen to the right
+        $(image[0]).css('transform', 'translateX(100%)');
     }
     if (currentIndex === 0) {
-        $(image[image.length - 1]).css('transform', 'translateX(-100%)');  // Move the last image off-screen to the left
+        $(image[image.length - 1]).css('transform', 'translateX(-100%)');
     }
 }
 
 function setupArrowListeners(id) {
-    // Right arrow (next image)
     $(parent_divId + " .jobb_nyil").off("click").on("click", function() {
         if (image && image.length > 0) {
             indices[id] = (indices[id] + 1) % image.length;
@@ -193,7 +181,6 @@ function setupArrowListeners(id) {
         }
     });
 
-    // Left arrow (previous image)
     $(parent_divId + " .bal_nyil").off("click").on("click", function() {
         if (image && image.length > 0) {
             indices[id] = (indices[id] - 1 + image.length) % image.length;
