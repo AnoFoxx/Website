@@ -41,7 +41,7 @@
         $(".galeria_background").fadeIn();
 	    });
 
-	    $(".tinodi_kep").click(function () {
+	    $(".tinodi_kep, .chill_kep").click(function () {
         	let imgsrc = $(this).attr("src");
         $(".galeria_big_img").attr("src", imgsrc);
         $(".galeria_background").fadeIn();
@@ -70,11 +70,13 @@
     		
     	})
 
-    	
-
-let parent_divId = null;
+    	let parent_divId = null;
 let image = null;
 let indices = {};
+
+// Initialize the indices for apartman_tinodi to start at 0
+indices['apartman_tinodi'] = 0;  // Set default to 0 for tinodi_kepek
+
 $(".apartman").click(function() {
     var id = this.id;
     $(".apartman").css("height", "100%");
@@ -90,7 +92,7 @@ $(".apartman").click(function() {
     }
 
     if (id == 'apartman_tinodi' && indices[id] == 0) {
-        indices[id] = 1;
+        indices[id] = 0;  // Ensure the index starts from 0
         $("#apartman_tinodi").css("cursor", "default");
         $("#apartman_tinodi .accent_hide").show();
 
@@ -112,21 +114,20 @@ $(".apartman").click(function() {
         image = $(".chill_plus_kep");
         parent_divId = "#garazs_szoba_div";
     }
-    $("#"+id +" .apartman_div").css("background-image","url()");
+    $("#" + id + " .apartman_div").css("background-image", "url()");
     $("#apartmanok-bg").hide();
     updateImage(id);
     setupArrowListeners(id);
 });
 
 $(".accent-bg").click(function() {
-	$("#apartmanok-bg").show();
-	$("#apartman_tinodi .apartman_div").css("background-image","url(apartman_1_kepek/tinodi_1.svg)");
-	$("#apartman_garazs .apartman_div").css("background-image","url(apartman_2_kepek/chill_1.svg)");
-	$("#apartman_garazs_szoba .apartman_div").css("background-image","url()");
+    $("#apartmanok-bg").show();
+    $("#apartman_tinodi .apartman_div").css("background-image", "url(apartman_1_kepek/tinodi_1.svg)");
+    $("#apartman_garazs .apartman_div").css("background-image", "url(apartman_2_kepek/chill_1.svg)");
+    $("#apartman_garazs_szoba .apartman_div").css("background-image", "url()");
 
-
-	$(".apartman").css("height","auto");
-	$(".apartman_fo_kep").show();
+    $(".apartman").css("height", "auto");
+    $(".apartman_fo_kep").show();
     $(".felirat").show();
 
     $(".accent_hide").hide();
@@ -137,7 +138,7 @@ $(".accent-bg").click(function() {
     $(this).removeClass("accent-bg-show");
     $(".apartman").css("cursor", "pointer");
 
-    indices = {};
+    indices = {};  // Reset indices when closing the carousel
 });
 
 function updateImage(id) {
@@ -147,18 +148,38 @@ function updateImage(id) {
 
     let currentIndex = indices[id];
 
+    // Reset all images
     $(image).removeClass('active').css('transform', '');
 
+    // Handle the current image (centered view)
     $(image[currentIndex]).addClass('active').css('transform', 'translateX(0)');
-    $(image[(currentIndex - 1 + image.length) % image.length]).addClass('active').css('transform', 'translateX(-100%)');
-    $(image[(currentIndex + 1) % image.length]).addClass('active').css('transform', 'translateX(100%)');
 
+    // Handle the previous image (moved off-screen to the left)
+    $(image[(currentIndex - 1 + image.length) % image.length])
+        .addClass('active')
+        .css('transform', 'translateX(-100%)');
+
+    // Handle the next image (moved off-screen to the right)
+    $(image[(currentIndex + 1) % image.length])
+        .addClass('active')
+        .css('transform', 'translateX(100%)');
+
+    // Apply the transition for smooth animation
     $(image).css('transition', 'transform 0.5s ease');
+
+    // Avoid the issue of images sliding in front at the reset (wrap-around behavior)
+    if (currentIndex === image.length - 1) {
+        $(image[0]).css('transform', 'translateX(100%)');  // Move the first image to the right
+    }
+
+    // Check if we are at the first image, then reset transform to avoid overlap
+    if (currentIndex === 0) {
+        $(image[image.length - 1]).css('transform', 'translateX(-100%)');  // Move the last image to the left
+    }
 }
 
-
 function setupArrowListeners(id) {
-
+    // Right arrow (next image)
     $(parent_divId + " .jobb_nyil").off("click").on("click", function() {
         if (image && image.length > 0) {
             indices[id] = (indices[id] + 1) % image.length;
@@ -166,6 +187,7 @@ function setupArrowListeners(id) {
         }
     });
 
+    // Left arrow (previous image)
     $(parent_divId + " .bal_nyil").off("click").on("click", function() {
         if (image && image.length > 0) {
             indices[id] = (indices[id] - 1 + image.length) % image.length;
@@ -173,7 +195,6 @@ function setupArrowListeners(id) {
         }
     });
 }
-
 
 
 
@@ -269,7 +290,7 @@ function setupArrowListeners(id) {
 							<div class="wid flex" style="height:50%;">
 								<div class="apartman_div_box flex relat hei a-i-center j-center accent_hide" style="display:none;">
 									<button class="bal_nyil">&#10094;</button>
-									<div id="tinodi_kep_show" class="mozgo_kep point">
+									<div id="tinodi_kep_show" class="mozgo_kep accent_hide point">
 										<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
 	   	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
 	    								<img src="apartman_1_kepek/tinodi_2.svg" class="tinodi_kep">
