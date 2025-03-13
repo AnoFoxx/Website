@@ -75,7 +75,6 @@
 let parent_divId = null;
 let image = null;
 let indices = {};
-
 $(".apartman").click(function() {
     var id = this.id;
     $(".apartman").css("height", "100%");
@@ -92,8 +91,6 @@ $(".apartman").click(function() {
 
     if (id == 'apartman_tinodi' && indices[id] == 0) {
         indices[id] = 1;
-        if($(window).width()>1000) $("#apartman_tinodi .apartman_div_leir").show();
-        if($(window).width()<1000) $("#apartman_tinodi .apartman_div_leir_mobil").show();
         $("#apartman_tinodi").css("cursor", "default");
         $("#apartman_tinodi .accent_hide").show();
 
@@ -268,38 +265,42 @@ function setupArrowListeners(id) {
 					
 					<div style="background-image: url(apartman_1_kepek\\tinodi_1.svg);background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;" class="apartman_div wid hei">
 
-						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
-							<div class="apartman_div_box flex relat wid accent_hide" style="display:none;">
-								<button class="bal_nyil">&#10094;</button>
-								<div id="tinodi_kep_show" class="mozgo_kep point">
-									<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
-   	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
-    								<img src="apartman_1_kepek/tinodi_2.svg" class="tinodi_kep">
-    								<img src="apartman_1_kepek/tinodi_3.svg" class="tinodi_kep">
-    								<img src="apartman_1_kepek/tinodi_4.svg" class="tinodi_kep">
-    								<img src="apartman_1_kepek/tinodi_5.svg" class="tinodi_kep">
+						<div id="tinodi_div" class="apartman_div_tav flex a-i-center wid hei">	
+							<div class="wid flex" style="height:50%;">
+								<div class="apartman_div_box flex relat hei a-i-center j-center accent_hide" style="display:none;">
+									<button class="bal_nyil">&#10094;</button>
+									<div id="tinodi_kep_show" class="mozgo_kep point">
+										<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
+	   	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
+	    								<img src="apartman_1_kepek/tinodi_2.svg" class="tinodi_kep">
+	    								<img src="apartman_1_kepek/tinodi_3.svg" class="tinodi_kep">
+	    								<img src="apartman_1_kepek/tinodi_4.svg" class="tinodi_kep">
+	    								<img src="apartman_1_kepek/tinodi_5.svg" class="tinodi_kep">
+									</div>
+									<button class="jobb_nyil">&#10095;</button>
 								</div>
-								<button class="jobb_nyil">&#10095;</button>
-							</div>
-							<div class="apartman_div_leir_mobil flex a-i-center">
-								<span style="padding-left: 10px;">yea blu blu</span>
-							</div>
-							<div class="apartman_div_box flex relat wid accent_hide" style="display:none;">
-								<div class="naptar_mobil relat ">
-									
-								</div>
-								<div id="tinodi_terkep" class="terkep accent_hide relat">
-									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
-								</div>
-							</div>
-						</div>
-						<div class="apartman_div_leir flex hei">
-							<div style="width:100%;height: 50%;">
-								<span>blu blu</span>
-							</div>
-							<div style="width:100%;height: 50%;" class="flex a-i-center j-center">
-								<div class="naptar relat accent_hide">
 
+								<div class="apartman_div_leir hei accent_hide">
+									<div style="width:100%;height: 50%;">
+										<span>blu blu</span>
+									</div>
+								</div>
+							</div>
+
+							<div style="height: 50%;" class="wid flex relat accent_hide">
+								<div class="apartman_div_box hei flex a-i-center j-center">
+									<div id="tinodi_terkep" class="a-i-center j-center terkep flex relat accent_hide">
+										<div style="width:100%;aspect-ratio:1/1;">
+											<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
+										</div>
+									</div>
+								</div>
+								<div class="apartman_div_box hei">
+									<div class="flex a-i-center j-center">
+										<div class="naptar relat accent_hide">
+
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
