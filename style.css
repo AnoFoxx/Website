@@ -353,6 +353,7 @@ html, body {
 }
 
 #apartmanok-bg{
+	opacity: 50%;
 	position: absolute;
 	filter: blur(2px);
 	z-index: -1;
@@ -427,45 +428,33 @@ html, body {
 .apartman_div_leir{
 	display: none;
 	width: 50%;
-	flex-direction: column;
-}
-.apartman_div_leir_mobil{
-	display: none;
 }
 .apartman_div_tav{
-	width: 50%;
 	flex-direction: column;
 	justify-content: left;
 }
 .apartman_div_box{
-	justify-content: center;
-	align-items: center;
+	width: 50%;
 	resize: horizontal;
-	max-width: 100%;
-	height: 50%;
 }
 .terkep{
-	overflow: hidden;
-	width: 52.5%;
+	display: none;
+	width: 50%;
 	aspect-ratio: 1/1;
 }
 .terkep iframe{
 	width: 100%;
 	height: 100%;
 }
-.naptar_mobil{
-	display: none;
-}
 .naptar{
 	overflow: hidden;
-	width: 52.5%;
-	aspect-ratio: 1/1;
+	width: 100%;
 }
 .accent-bg{
 	background-color: white;
 }
 .apartman{
-	filter: drop-shadow(1mm 1mm 6mm white);
+	filter: drop-shadow(1mm 1mm 8mm white);
 	overflow: hidden;
 	flex-wrap: wrap;
 	cursor: pointer;
@@ -654,12 +643,6 @@ html, body {
 	.apartman_div_leir{
 		display: none;
 	}
-	.apartman_div_leir_mobil{
-		display: block;
-		width: 100%;
-		height: calc(100% / 3);
-		display: flex;
-	}
 	.apartman{
 		border-radius: 0;
 	}
@@ -745,20 +728,9 @@ html, body {
 		aspect-ratio: 1/1;
 		width: 30%;
 	}
-	.naptar_mobil{
-		display: block;
-		overflow: hidden;
-		aspect-ratio: 1/1;
-		width: 30%;
-	}
-	.naptar{
-		display: none;
-		
-	}
 	.terkep{
 		position: static;
 		overflow: hidden;
-		aspect-ratio: 1/1;
 		width: 30%;
 	}
 	.terkep iframe{
