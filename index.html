@@ -70,12 +70,13 @@
     		
     	})
 
-    	let parent_divId = null;
+let parent_divId = null;
 let image = null;
-let indices = {};
-
-// Initialize the indices for apartman_tinodi to start at 0
-indices['apartman_tinodi'] = 0;  // Set default to 0 for tinodi_kepek
+let indices = {
+    // Set both initial indices explicitly to 0
+    'apartman_tinodi': 0,
+    'apartman_garazs': 0
+};
 
 $(".apartman").click(function() {
     var id = this.id;
@@ -87,37 +88,44 @@ $(".apartman").click(function() {
     $(this).removeClass("background");
     $(this).addClass("foreground");
 
-    if (indices[id] == undefined) {
+    if (indices[id] === undefined) {
         indices[id] = 0;
     }
 
-    if (id == 'apartman_tinodi' && indices[id] == 0) {
-        indices[id] = 0;  // Ensure the index starts from 0
+    if (id === 'apartman_tinodi' && indices[id] === 0) {
+        indices[id] = 0; // Ensure the index starts at 0
         $("#apartman_tinodi").css("cursor", "default");
         $("#apartman_tinodi .accent_hide").show();
 
         image = $(".tinodi_kep");
         parent_divId = "#tinodi_div";
+
+        // Update the image immediately after setting the index to 0
+        updateImage(id);
     }
-    if (id == 'apartman_garazs' && indices[id] == 0) {
-        indices[id] = 0;
+
+    if (id === 'apartman_garazs' && indices[id] === 0) {
+        indices[id] = 0; // Ensure the index starts at 0 for garazs as well
         $("#apartman_garazs").css("cursor", "default");
         $("#apartman_garazs .accent_hide").show();
         image = $(".chill_kep");
         parent_divId = "#garazs_div";
+
+        // Update the image immediately after setting the index to 0
+        updateImage(id);
     }
 
-    if (id == 'apartman_garazs_szoba' && indices[id] == 0) {
-        indices[id] = 0;
+    if (id === 'apartman_garazs_szoba' && indices[id] === 0) {
+        indices[id] = 0; // Ensure the index starts at 0
         $("#apartman_garazs_szoba").css("cursor", "default");
         $("#garazs_szoba_kep .accent_hide").show();
         image = $(".chill_plus_kep");
         parent_divId = "#garazs_szoba_div";
     }
+
     $("#" + id + " .apartman_div").css("background-image", "url()");
     $("#apartmanok-bg").hide();
-    updateImage(id);
-    setupArrowListeners(id);
+    setupArrowListeners(id); // Set up listeners after we update the image
 });
 
 $(".accent-bg").click(function() {
@@ -142,39 +150,37 @@ $(".accent-bg").click(function() {
 });
 
 function updateImage(id) {
-    if (!image || image.length == 0) {
+    if (!image || image.length === 0) {
         return;
     }
 
     let currentIndex = indices[id];
 
-    // Reset all images
+    // Reset all images (ensure all images are hidden)
     $(image).removeClass('active').css('transform', '');
 
-    // Handle the current image (centered view)
+    // Show the current image in the center
     $(image[currentIndex]).addClass('active').css('transform', 'translateX(0)');
 
-    // Handle the previous image (moved off-screen to the left)
+    // Move the previous image off-screen to the left
     $(image[(currentIndex - 1 + image.length) % image.length])
         .addClass('active')
         .css('transform', 'translateX(-100%)');
 
-    // Handle the next image (moved off-screen to the right)
+    // Move the next image off-screen to the right
     $(image[(currentIndex + 1) % image.length])
         .addClass('active')
         .css('transform', 'translateX(100%)');
 
-    // Apply the transition for smooth animation
+    // Apply the transition to make the sliding smooth
     $(image).css('transition', 'transform 0.5s ease');
 
-    // Avoid the issue of images sliding in front at the reset (wrap-around behavior)
+    // Prevent images from jumping unexpectedly when wrapping
     if (currentIndex === image.length - 1) {
-        $(image[0]).css('transform', 'translateX(100%)');  // Move the first image to the right
+        $(image[0]).css('transform', 'translateX(100%)');  // Move the first image off-screen to the right
     }
-
-    // Check if we are at the first image, then reset transform to avoid overlap
     if (currentIndex === 0) {
-        $(image[image.length - 1]).css('transform', 'translateX(-100%)');  // Move the last image to the left
+        $(image[image.length - 1]).css('transform', 'translateX(-100%)');  // Move the last image off-screen to the left
     }
 }
 
@@ -195,7 +201,6 @@ function setupArrowListeners(id) {
         }
     });
 }
-
 
 
 	    //chillout körhinta
@@ -291,12 +296,13 @@ function setupArrowListeners(id) {
 								<div class="apartman_div_box flex relat hei a-i-center j-center accent_hide" style="display:none;">
 									<button class="bal_nyil">&#10094;</button>
 									<div id="tinodi_kep_show" class="mozgo_kep accent_hide point">
-										<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
+										
 	   	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
 	    								<img src="apartman_1_kepek/tinodi_2.svg" class="tinodi_kep">
 	    								<img src="apartman_1_kepek/tinodi_3.svg" class="tinodi_kep">
 	    								<img src="apartman_1_kepek/tinodi_4.svg" class="tinodi_kep">
 	    								<img src="apartman_1_kepek/tinodi_5.svg" class="tinodi_kep">
+	    								<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
 									</div>
 									<button class="jobb_nyil">&#10095;</button>
 								</div>
