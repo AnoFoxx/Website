@@ -72,7 +72,7 @@
 
     	
 
-    	let parent_divId = null;
+let parent_divId = null;
 let image = null;
 let indices = {};
 
@@ -86,15 +86,17 @@ $(".apartman").click(function() {
     $(this).removeClass("background");
     $(this).addClass("foreground");
 
-    if (indices[id] === undefined) {
-        indices[id] = 0; // Default starting index for any apartman
+    if (indices[id] == undefined) {
+        indices[id] = 0;
     }
 
     if (id == 'apartman_tinodi' && indices[id] == 0) {
         indices[id] = 1;
-        $("#tinodi_fo_kep").hide();
+        if($(window).width()>1000) $("#apartman_tinodi .apartman_div_leir").show();
+        if($(window).width()<1000) $("#apartman_tinodi .apartman_div_leir_mobil").show();
         $("#apartman_tinodi").css("cursor", "default");
         $("#apartman_tinodi .accent_hide").show();
+
         image = $(".tinodi_kep");
         parent_divId = "#tinodi_div";
     }
@@ -113,18 +115,24 @@ $(".apartman").click(function() {
         image = $(".chill_plus_kep");
         parent_divId = "#garazs_szoba_div";
     }
-
+    $("#"+id +" .apartman_div").css("background-image","url()");
+    $("#apartmanok-bg").hide();
     updateImage(id);
     setupArrowListeners(id);
 });
 
 $(".accent-bg").click(function() {
-    $(".apartman").css("height", "70%");
-    $("#apartmanok").css("z-index", "0");
+	$("#apartmanok-bg").show();
+	$("#apartman_tinodi .apartman_div").css("background-image","url(apartman_1_kepek/tinodi_1.svg)");
+	$("#apartman_garazs .apartman_div").css("background-image","url(apartman_2_kepek/chill_1.svg)");
+	$("#apartman_garazs_szoba .apartman_div").css("background-image","url()");
+
+
+	$(".apartman").css("height","auto");
+	$(".apartman_fo_kep").show();
     $(".felirat").show();
 
-    $("#tinodi_fo_kep").show();  // Ensure main image is visible
-    $(".accent_hide").hide();    // Hide accent elements
+    $(".accent_hide").hide();
 
     $(".apartman").removeClass("background");
     $(".apartman").removeClass("foreground");
@@ -132,50 +140,48 @@ $(".accent-bg").click(function() {
     $(this).removeClass("accent-bg-show");
     $(".apartman").css("cursor", "pointer");
 
-    indices = {};  // Reset all indices when closing
+    indices = {};
 });
 
-// Function to update images in the carousel
 function updateImage(id) {
-    if (!image || image.length === 0) {
+    if (!image || image.length == 0) {
         return;
     }
 
     let currentIndex = indices[id];
 
-    // Reset previous images: remove transform and hide them
-    $(image).removeClass('active');
-    $(image).css('transform', ''); // Ensure all images are hidden first
+    $(image).removeClass('active').css('transform', '');
 
-    // Show the new images (previous, current, next)
     $(image[currentIndex]).addClass('active').css('transform', 'translateX(0)');
     $(image[(currentIndex - 1 + image.length) % image.length]).addClass('active').css('transform', 'translateX(-100%)');
     $(image[(currentIndex + 1) % image.length]).addClass('active').css('transform', 'translateX(100%)');
 
-    // Apply transition effect
     $(image).css('transition', 'transform 0.5s ease');
 }
 
-// Function to set up the arrow listeners to change the index
+
 function setupArrowListeners(id) {
+
     $(parent_divId + " .jobb_nyil").off("click").on("click", function() {
         if (image && image.length > 0) {
-            indices[id] = (indices[id] + 1) % image.length;  // Increment index
-            updateImage(id);  // Update image based on new index
+            indices[id] = (indices[id] + 1) % image.length;
+            updateImage(id);
         }
     });
 
     $(parent_divId + " .bal_nyil").off("click").on("click", function() {
         if (image && image.length > 0) {
-            indices[id] = (indices[id] - 1 + image.length) % image.length;  // Decrement index
-            updateImage(id);  // Update image based on new index
+            indices[id] = (indices[id] - 1 + image.length) % image.length;
+            updateImage(id);
         }
     });
 }
 
 
-	    //chillout körhinta
 
+
+	    //chillout körhinta
+	
     });
 </script>
 </head>
@@ -202,6 +208,7 @@ function setupArrowListeners(id) {
 
 		<div class="foscroll relat wid hei-vh">
 			<div id="fooldal" class="scroll_pont flex j-center a-i-center relat wid hei-vh">
+				<div style="display: flex;justify-content: center;align-items: center;z-index: 1;position: absolute;width: 50%;height: 20vh;background-color: rgba(255, 255, 255, 0.7);filter: blur(10px); border-radius:50px;"></div>
 				<div id="bemutat_hatter">
 					<p id="bemutat" class="flex j-center a-i-center absol">Üvözlünk a ChillOut apartman weboldalán</p>
 				</div>
@@ -226,13 +233,6 @@ function setupArrowListeners(id) {
 								
 							</div>
 						</div>
-						
-						<div id="curren" class="j-center">
-							<div class="menu_pont_hatter hover_item flex j-center a-i-center" id="currency_button">
-								<div id="currency" class="menu_pont flex j-center a-i-center">HUF</div>
-							</div>
-						</div>
-						
 						<div class="menu_pont_hatter hover_item flex j-center a-i-center"><div id="language" class="menu_pont flex j-center a-i-center"><img class="flag" src="Hungary.png"></div></div>
 
 						<!--Elerhetőségek-->
@@ -261,15 +261,17 @@ function setupArrowListeners(id) {
 			<!-- Apartman -->
 			<div id="apartmanok" class="scroll_pont flex relat wid hei-vh j-center a-i-center">
 				<div class="accent-bg"></div>
-
+				<div id="apartmanok-bg" class="wid-vw hei-vh"></div>
 				<div id="apartman_tinodi" class="apartman flex j-center">
+					<!--<div style="display: block;background-color: rgba(0,0,0,0.3);" class="apartman_bg wid hei absol" ></div>Hover megoldása-->
 					<div class="felirat flex j-center a-i-center wid" style="z-index:2;">Tinódi Apartman</div>
-					<img src="apartman_1_kepek\tinodi_1.jpg" id="tinodi_fo_kep" class="wid hei">
-					<div class="apartman_div wid hei">
+					
+					<div style="background-image: url(apartman_1_kepek\\tinodi_1.svg);background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;" class="apartman_div wid hei">
+
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center hei">
-							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
+							<div class="apartman_div_box flex relat wid accent_hide" style="display:none;">
 								<button class="bal_nyil">&#10094;</button>
-								<div id="tinodi_kep_show" class="mozgo_kep accent_hide point">
+								<div id="tinodi_kep_show" class="mozgo_kep point">
 									<img src="apartman_1_kepek/tinodi_6.svg" class="tinodi_kep">
    	 								<img src="apartman_1_kepek/tinodi_1.svg" class="tinodi_kep">
     								<img src="apartman_1_kepek/tinodi_2.svg" class="tinodi_kep">
@@ -279,23 +281,36 @@ function setupArrowListeners(id) {
 								</div>
 								<button class="jobb_nyil">&#10095;</button>
 							</div>
-							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
-								<div id="tinodi_naptar" class="naptar relat accent_hide">
+							<div class="apartman_div_leir_mobil flex a-i-center">
+								<span style="padding-left: 10px;">yea blu blu</span>
+							</div>
+							<div class="apartman_div_box flex relat wid accent_hide" style="display:none;">
+								<div class="naptar_mobil relat ">
+									
+								</div>
+								<div id="tinodi_terkep" class="terkep accent_hide relat">
 									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Tinódi utca 7.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
 						</div>
-						<div class="apartman_div_tav flex a-i-center hei">
-							
+						<div class="apartman_div_leir flex hei">
+							<div style="width:100%;height: 50%;">
+								<span>blu blu</span>
+							</div>
+							<div style="width:100%;height: 50%;" class="flex a-i-center j-center">
+								<div class="naptar relat accent_hide">
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div id="apartman_garazs" class="apartman flex j-center hei">
+				<div id="apartman_garazs" class="apartman flex j-center">
 					<div class="felirat flex j-center a-i-center wid">Chill Apartman</div>
-					<div class="apartman_div wid hei">
+					<div style="background-image: url(apartman_2_kepek\\chill_1.svg);background-size: cover;background-repeat: no-repeat;background-position: 10%; display: flex;" class="apartman_div wid hei">
 						<div id="garazs_div" class="apartman_div_tav flex a-i-center hei">
-							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
+							<div class="apartman_div_box flex  relat wid accent_hide" style="display:none;">
 								<button class="bal_nyil">&#10094;</button>
 								<div id="garazs_kep" class="mozgo_kep accent_hide point">
 									<img src="apartman_2_kepek/chill_1.svg" class="chill_kep">
@@ -311,23 +326,37 @@ function setupArrowListeners(id) {
 								</div>
 								<button class="jobb_nyil">&#10095;</button>
 							</div>
-							<div class="apartman_div_box flex j-center a-i-center relat wid accent_hide" style="display:none;">
-								<div id="garazs_naptar" class="naptar relat accent_hide">
+							<div class="apartman_div_leir_mobil flex a-i-center hei">
+							
+							</div>
+							<div class="apartman_div_box flex  relat wid accent_hide" style="display:none;">
+								<div id="garazs_naptar" class="naptar_mobil relat accent_hide">
+									
+								</div>
+								<div id="chill_terkep" class="terkep accent_hide relat">
 									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
 								</div>
+								
 							</div>
 						</div>
-						<div class="apartman_div_tav flex a-i-center hei">
-							
+						<div class="apartman_div_leir flex hei accent_hide">
+							<div style="width:100%;height: 50%;">
+								<span>blu blu</span>
+							</div>
+							<div style="width:100%;height: 50%;" class="flex a-i-center j-center">
+								<div class="naptar relat accent_hide">
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div id="apartman_garazs_szoba" class="apartman flex j-center hei">
+				<div id="apartman_garazs_szoba" class="apartman flex j-center">
 					<div class="felirat flex j-center a-i-center wid">Chill Apartman + 1 szoba</div>
 					<div class="apartman_div wid hei">
 						<div id="garazs_szoba_div" class="apartman_div_tav flex a-i-center hei">
-							<div class="apartman_div_box flex j-center a-i-center relat wid">
+							<div class="apartman_div_box flex  relat wid">
 								<button class="bal_nyil">&#10094;</button>
 								<div id="garazs_szoba_kep" class="mozgo_kep accent_hide point" style="display:none;">
 									<img src="apartman_3_kepek/chill_plus_1.svg" class="chill_plus_kep">
@@ -336,13 +365,16 @@ function setupArrowListeners(id) {
 								</div>
 								<button class="jobb_nyil">&#10095;</button>
 							</div>
-							<div class="apartman_div_box flex j-center a-i-center relat wid">
+							<div class="apartman_div_leir_mobil flex a-i-center hei">
+							
+							</div>
+							<div class="apartman_div_box flex  relat wid">
 								<div id="garazs_szoba_naptar" class="naptar relat accent_hide" style="display:none;">
 									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
 								</div>
 							</div>
 						</div>
-						<div class="apartman_div_tav flex a-i-center hei">
+						<div class="apartman_div_leir flex a-i-center hei">
 							
 						</div>
 					</div>	
@@ -352,9 +384,10 @@ function setupArrowListeners(id) {
 
 			<!-- Elérhetőségek -->
 			<div id="informacio" class="scroll_pont flex relat wid hei-vh">
-				<div id="belso_eler" class="flex wid">
+				<img src="cool-background_2.png" class="wid hei absol" style="z-index:0;">
+				<div id="belso_eler" style="z-index:1;" class="flex wid">
 					<div id="info_felirat" class="flex j-center a-i-center wid">
-						<h1 style="color:white; font-size:60px;">Az apartmanokról</h1>
+						<h1 style="color: rgba(255, 255, 255, 0.8); font-size:60px;">Az apartmanokról</h1>
 					</div>
 					<div id="informaciok" class="flex wid">
 						<div id="teszt_1" class="flex j-center a-i-center hei">
@@ -364,14 +397,14 @@ function setupArrowListeners(id) {
 						</div>
 						<div  id="teszt_2" class="flex j-center a-i-center hei">
 							<div class="info_apart flex relat hei">
-								<div class="info_hatter absol wid hei" style="background-color:rgba(232,89,217,1.0);"></div>
+								<div class="info_hatter absol wid hei" style="background-color:rgba(232,89,217,1.0);	border-radius: 50px 0 0 50px;filter: drop-shadow(-2mm 1mm 4mm rgba(232,89,217,1.0))"></div>
 								<div class="info_apart_felirat flex j-center a-i-center wid">
 									<h4>Tinódi Apartman</h4>
 								</div>
 								<div class="info_apart_elerheto wid"></div>
 							</div>
 							<div class="info_apart flex relat hei">
-								<div class="info_hatter absol wid hei" style="background-color: rgba(77,98,180,1.0);"></div>
+								<div class="info_hatter absol wid hei" style="background-color: rgba(77,98,180,1.0);	border-radius: 0 50px 50px 0;filter: drop-shadow(2mm 1mm 4mm rgba(77,98,180,1.0))"></div>
 								<div class="info_apart_felirat flex j-center a-i-center wid">
 									<h4>Chill Apartman</h4>
 								</div>
@@ -382,12 +415,14 @@ function setupArrowListeners(id) {
 				</div>
 			</div>
 			<div id="galeria" class="scroll_pont flex relat wid hei-vh">
+
 				<div style="width: 100%;height: 100%;display: flex;justify-content: center;">
+					<img src="cool-background.png" class="wid hei absol" style="filter: blur(2px);">
 					<div id="galeria_body" class="j-center a-i-center flex">
 						<div id="galeria_felirat" class="j-center a-i-center flex wid">
-							<h1>Galéria</h1>
+							<h1 style="font-size: 50px;color:white;">Galéria</h1>
 						</div>
-						<div id="galeria_scroll" class="flex">
+						<div id="galeria_scroll" class="flex" style="z-index:2;">
 
 							
 								<div class="galeria_container">
@@ -419,6 +454,8 @@ function setupArrowListeners(id) {
 									<img  class="galeria_img lazy_toltes wid" src="apartman_2_kepek/chill_10.svg">
 									<img  class="galeria_img lazy_toltes wid" src="apartman_3_kepek/chill_plus_2.svg">
 								</div>
+
+
 								<div class="galeria_mobile_container">
 									<img  class="galeria_img lazy_toltes wid" src="apartman_1_kepek/tinodi_1.svg"></img>
 									<img  class="galeria_img lazy_toltes wid" src="apartman_1_kepek/tinodi_3.svg"></img>
@@ -452,26 +489,11 @@ function setupArrowListeners(id) {
 				<div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
 					<h1>Értékelések</h1>
 					<div id="ertekeles_body" class="flex  a-c-center j-center wid">
-						<div id="ertekeles_nyilak" class="flex wid">
-							<span style="margin-left: 10px">&#8678;</span>
-							<span style="margin-right: 10px">&#8680;</span>
-						</div>
+						
 						<div id="ertekeles_sor" class="flex j-center a-i-center wid">
-
-							<div class="ertekeles_elem">
-
-								<div class="ertekeles_fejlec flex wid">
-									<span class="ertekeles_nev ertekeles_margin">Név</span>
-									<span class="ertekeles_date ertekeles_margin">Dátum</span>
-								</div>
-								<div class="ertekeles_rate flex wid j-center a-i-center">
-									csillagok
-								</div>
-								<div class="ertekeles_szoveg flex wid j-center a-i-center">
-									<span>szöveg</span>
-								</div>
-							</div>
-							<div class="ertekeles_elem">
+							
+						
+							<div class="ertekeles_elem" id="ertekeles_1">
 
 								<div class="ertekeles_fejlec flex wid">
 									<span class="ertekeles_nev ertekeles_margin">Név</span>
@@ -484,7 +506,7 @@ function setupArrowListeners(id) {
 									<span>szöveg</span>
 								</div>
 							</div>
-							<div class="ertekeles_elem">
+							<div class="ertekeles_elem" id="ertekeles_2">
 
 								<div class="ertekeles_fejlec flex wid">
 									<span class="ertekeles_nev ertekeles_margin">Név</span>
@@ -496,6 +518,20 @@ function setupArrowListeners(id) {
 								<div class="ertekeles_szoveg flex wid j-center a-i-center">
 									<span>szöveg</span>
 								</div>
+							</div>
+							<div class="ertekeles_elem" id="ertekeles_3">
+
+								<div class="ertekeles_fejlec flex wid">
+									<span class="ertekeles_nev ertekeles_margin">Név</span>
+									<span class="ertekeles_date ertekeles_margin">Dátum</span>
+								</div>
+								<div class="ertekeles_rate flex wid j-center a-i-center">
+									csillagok
+								</div>
+								<div class="ertekeles_szoveg flex wid j-center a-i-center">
+									<span>szöveg</span>
+								</div>
+							</div>
 							</div>
 
 						</div>
