@@ -48,7 +48,7 @@ img{
 	margin-bottom: 250px;
 	width: 25px;
 	height: 25px;
-	z-index: 2;
+	z-index: 10;
 }
 
 #lenyulo{
@@ -128,6 +128,8 @@ html, body {
 	background-size: 100%;
 }
 #bemutat_hatter{
+	border-radius: 50px;
+	border:1px solid white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -135,7 +137,6 @@ html, body {
 	position: absolute;
 	width: 50%;
 	height: 20vh;
-	background-color: rgba(255, 255, 255, 0.5);
 }
 #bemutat{
 	text-shadow: white 0.5px 0 10px;
@@ -293,12 +294,14 @@ html, body {
 	width: 15px;
 }
 .background {
+	filter: blur(1px);
 	height: 100vh;
 	animation-duration: .3s;
 	animation-name: background-stretch;
 	width: 50% !important;
 }
 .foreground  {
+	border-radius: 50px;
 	width: 70vw !important;
 	height: 85vh !important;
 	position: absolute;
@@ -317,7 +320,7 @@ html, body {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	z-index: 3;
+	z-index: 4;
 	position: absolute;
 	animation-name: accent-bg-fade-in;
 	animation-duration: .3s;
@@ -349,9 +352,13 @@ html, body {
 	to {width: 50%}
 }
 
-
+#apartmanok-bg{
+	position: absolute;
+	filter: blur(2px);
+	z-index: -1;
+	background-image: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
+}
 #apartmanok{
-	background-color: rgba(0, 0, 0, 0.25);
 	flex-direction: row;
 	justify-content: space-between;
 }
@@ -360,15 +367,23 @@ html, body {
 	background-color: rgba(232,89,217,1.0);
 
 }
-#tinodi_fo_kep{
+.apartman_fo_kep{
 	max-height:100%; 
 	max-width:100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 #tinodi_kep_show img:first-child {
     left: 0; 
 }
+.mozgo_kep{
+	position: relative;
+	overflow: hidden;
+	aspect-ratio: 1/1;
+	width: 52.5%;
+	transition: transform 0.5s ease-in-out;
+}
 .mozgo_kep img{
+	transition: none;
 	image-rendering: auto;
 	position: absolute;
 	margin: 0;
@@ -381,10 +396,19 @@ html, body {
 	max-width:100%;
 	object-fit: cover;
 	background-size: 100%;
-	transition: transform 0.5s ease;
+	transition: transform 0.5s ease-in-out;
 }
 .mozgo_kep img.active {
-    display: block; /* Only show the active image */
+    display: block;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+.tinodi_kep {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.mozgo_kep img:first-child {
+    transition: none; 
 }
 .tinodi_kep.active{
 	display: block;
@@ -400,47 +424,52 @@ html, body {
 .apartman_div{
 	justify-content: left;
 }
+.apartman_div_leir{
+	display: none;
+	width: 50%;
+	flex-direction: column;
+}
+.apartman_div_leir_mobil{
+	display: none;
+}
 .apartman_div_tav{
 	width: 50%;
 	flex-direction: column;
 	justify-content: left;
 }
 .apartman_div_box{
-	box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
 	resize: horizontal;
 	max-width: 100%;
 	height: 50%;
 }
-.mozgo_kep{
-	position: relative;
+.terkep{
 	overflow: hidden;
-	width: 65%;
-	padding-top: 55%;
-	transition: transform 0.5s ease-in-out;
+	width: 52.5%;
+	aspect-ratio: 1/1;
 }
-.naptar{
-	overflow: hidden;
-	width: 55%;
-	padding-top: 55%;
-}
-.naptar iframe{
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+.terkep iframe{
 	width: 100%;
 	height: 100%;
 }
-
+.naptar_mobil{
+	display: none;
+}
+.naptar{
+	overflow: hidden;
+	width: 52.5%;
+	aspect-ratio: 1/1;
+}
 .accent-bg{
 	background-color: white;
 }
 .apartman{
+	filter: drop-shadow(1mm 1mm 6mm white);
 	overflow: hidden;
 	flex-wrap: wrap;
 	cursor: pointer;
-	height: 70%;
+	aspect-ratio: 1/1;
 	width: calc(100%/3);
 }
 .felirat{
@@ -448,32 +477,31 @@ html, body {
 	height: 60px;
 	border: 2px rgba(0,0,0,0.3) solid;
 }
-#informacio{
-	background-color: rgba(0,0,0,0.75);
-}
 #info_felirat{
-	background-color: darkgrey;
 	height: 15%;
 }
 #belso_eler{
 	flex-direction: column;
 	height: 92%;
 	margin:2% 2% 2% 2%;
-	background-color: rgba(0,0,0,0.8);
 }
 #informaciok{
 	height: 90%;
 }
 #teszt_1{
 	width:40%;
-	background-color: white;
 }
 #leiras{
+	padding-top: 10px;
+	padding-left: 30px;
+	filter: drop-shadow(1mm 1mm 6mm white);
+	border-radius: 50px;
 	background-color: grey;
 	width: 80%;
 	height: 85%;
 }
 #teszt_2{
+	border-radius: 50px;
 	width: 60%;
 	background-color: white;
 }
@@ -491,6 +519,7 @@ html, body {
 	height: 80%;
 }
 .info_hatter{
+
 	z-index: 0;
 	opacity: 60%;
 }
@@ -510,12 +539,13 @@ html, body {
 	flex-wrap: wrap;
 
 	width: 80%;
-	background-color: lightblue;
+	background-color: rgba(148, 207, 177, 0.5);
+	border: 2px solid rgba(148, 224, 177, 0.8);
 	height: 80%;
 	max-height: 700px;
 }
 .galeria_background{
-	position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -571,6 +601,10 @@ html, body {
 	flex-direction: row;
 	height:400px;
 }
+#ertekeles_2{
+	height: 600px;
+	width: 800px;
+}
 .ertekeles_elem{
 	flex-shrink: 0;
 	margin: 0px 160px 0px 160px;
@@ -600,6 +634,35 @@ html, body {
 
 
 @media only screen and (max-width: 1000px){
+	#fooldal,#apartmanok,#informacio,#galeria,#ertekeles{
+		scroll-snap-type: none;
+	}
+	button{
+		display: none;
+	}
+	.apartman_div{
+		border-radius: 0;
+	}
+	.apartman_div_box{
+		justify-content: space-evenly;
+		width: 100%;
+		height: calc(100% / 3);
+	}
+	.apartman_div_tav{
+		width: 100%;
+	}
+	.apartman_div_leir{
+		display: none;
+	}
+	.apartman_div_leir_mobil{
+		display: block;
+		width: 100%;
+		height: calc(100% / 3);
+		display: flex;
+	}
+	.apartman{
+		border-radius: 0;
+	}
 	.galeria_mobile_container{
 		display: block;
 	}
@@ -647,7 +710,7 @@ html, body {
 		height: calc(100%/3) !important;
 	}
 	.foreground{
-		z-index: 5;
+		z-index: 100;
 		width: 100vw !important;
 		height: 100vh !important;
 	}
@@ -655,7 +718,7 @@ html, body {
 		display: none;
 	}
 	.accent-bg-show{
-		z-index: 6;
+		z-index: 4;
 		position: fixed;
 		left: calc(100% - 105px);
 		top: 0;
@@ -666,29 +729,39 @@ html, body {
 		display: flex;
 		position: absolute;
 		top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
 		justify-content: center;
 		align-items: flex-end;
 		font-family: sans-serif;
 		content: "\0078"; 
-    font-size: 90px;
+    	font-size: 90px;
 	}
 
 	.mozgo_kep{
-	background-color: white;
-	overflow: hidden;
-	width: 90%;
-	padding-top: 90%;
+		background-color: white;
+		overflow: hidden;
+		aspect-ratio: 1/1;
+		width: 30%;
+	}
+	.naptar_mobil{
+		display: block;
+		overflow: hidden;
+		aspect-ratio: 1/1;
+		width: 30%;
 	}
 	.naptar{
-		overflow: hidden;
-		width: 90%;
-		padding-top: 90%;
+		display: none;
+		
 	}
-	.naptar iframe{
-		position: absolute;
+	.terkep{
+		position: static;
+		overflow: hidden;
+		aspect-ratio: 1/1;
+		width: 30%;
+	}
+	.terkep iframe{
 		top: 0;
 		left: 0;
 		right: 0;
@@ -725,9 +798,9 @@ html, body {
 		cursor: pointer;
 	}
 	@media only screen and (max-height: 800px){
-		.mozgo_kep, .naptar{
-			width: 60%;
-			padding-bottom: 60%;
+		.mozgo_kep, .naptar, .terkep{
+			width: 50%;
+			aspect-ratio: 1/1;
 		}
 	}
 }
