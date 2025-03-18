@@ -301,65 +301,62 @@
 						</div>
 						<div id="galeria_scroll" class="flex" style="z-index:2;">
 							<?php 
+								$galeria_oszlop = array(
+									0 => "<div class='galeria_container'>",
+									1 => "<div class='galeria_container'>",
+									2 => "<div class='galeria_container'>",
+									3 => "<div class='galeria_container'>"
+								);
+
+								$i = 0;
+
+								$apartman_dir_path_array = array($apartman_1_image_dir_path, $apartman_2_image_dir_path, $apartman_3_image_dir_path); // hogy ne külön kelljen 3 foreach
+																																					  // a 3 külön apartman mappának
+
+								foreach ($apartman_dir_path_array as $dir) {
+									foreach (list_images($dir) as $image) {
+										$i = $i % 4;
+										$galeria_oszlop[$i] .= "<img  class='galeria_img lazy_toltes wid' src='$image'>";
+										$i++;
+									}
+								}
 								
+								// div lezárás
+								$galeria_oszlop[0] .= "</div>";
+								$galeria_oszlop[1] .= "</div>";
+								$galeria_oszlop[2] .= "</div>";
+								$galeria_oszlop[3] .= "</div>";
+
+								foreach ($galeria_oszlop as $oszlop) {
+									echo $oszlop;
+								}
 
 							 ?>
 							
-								<!-- <div class="galeria_container">
+								<!-- <div class="galeria_mobile_container">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_1.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_5.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_3.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_7.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_1.svg">
-								</div>
-								<div class="galeria_container">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_2.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_6.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_4.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_8.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_3.svg">
-									
-								</div>
-								<div class="galeria_container">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_3.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_5.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_1.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_3.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_5.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_7.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_9.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_1.svg">
 									
 								</div>
-								<div class="galeria_container">
+								<div class="galeria_mobile_container">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_2.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_4.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_6.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_2.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_4.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_6.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_8.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_10.svg">
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_3.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_2.svg">
 								</div> -->
-
-
-								<div class="galeria_mobile_container">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_1.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_3.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_5.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_1.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_3.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_5.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_7.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_9.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_1.svg">
-									
-								</div>
-								<div class="galeria_mobile_container">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_2.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_4.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_6.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_2.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_4.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_6.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_8.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_10.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_3.svg">
-									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_3_kepek/chill_plus_2.svg">
-								</div>
 						</div>
 					</div>
 				</div>
