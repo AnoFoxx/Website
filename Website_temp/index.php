@@ -2,17 +2,17 @@
 <html lang="hu">
 <?php 
 	include "scripts/php/error_handeler.php";
-	define("SVG_ONLY", true);
+	define("SVG_ONLY", false);
 	try {
  ?>
  <!-- 
 	TODO: 
 	- szétszedni scriptek, képeket és mindent mi szely szájnak ingere :)  	✓
-	- preload meta generálás												✓
-	- keywords meta befejezése
+	- preload meta generálás						✓
+	- keywords meta befejezése						✓
 	- galéria automata feltöltés
-	- ferriswheel 1 automata feltöltés
-	- ferriswheel 2 automata feltöltés
+	- ferriswheel 1 automata feltöltés					✓
+	- ferriswheel 2 automata feltöltés					✓
 	- Értékelések
  -->
 <head>
