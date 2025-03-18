@@ -107,7 +107,7 @@
 			 ?>
 		</div>
 	</div>
-	<script>var url = <?php echo "'http://localhost/api/rest.php?year=$ev&month=$honap&apartman=$apartman'"; ?>
+	<script>var url = <?php echo "'http://localhost/public/api/rest.php?year=$ev&month=$honap&apartman=$apartman'"; ?>
 			// Itt kell a rest api-hoz az url, 
 			// hiszen js scripten belül nem lehet php scriptel
 			// bármit is csinálni 
