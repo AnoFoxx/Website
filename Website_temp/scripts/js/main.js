@@ -88,7 +88,7 @@ $(document).ready(function() {
 	        indices[id] = 0;
 	        $("#apartman_tinodi").css("cursor", "default");
 	        $("#apartman_tinodi .accent_hide").show();
-
+	        $("#apartman_tinodi .apartman_div_box").addClass("megnyomott");
 	        image = $(".tinodi_kep");
 	        parent_divId = "#tinodi_div";
 	        updateImage(id);
