@@ -45,6 +45,7 @@ fetch(url)
 		return response.json();
 	})
 	.then(data => {
+		console.log(data);
 		if (!data.success) throw new Error(data.message);
 
 		for (let i = 0; i < szamozottNaptarNap.length; i++) { 
