@@ -115,13 +115,13 @@
 								<a href="https://www.facebook.com/p/ChillOut-Apartman-100063457207712/" class="elerhet_vis"><img id="facebook" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/512px-Facebook_f_logo_%282021%29.svg.png?20210818083032">Facebook</a>
 							</div>
 						</div>
-						
-						<div id="foglal" class="hover_item menu_pont_hatter flex j-center a-i-center">
-							<div class="menu_pont_foglalas flex j-center a-i-center">
-								<span data-key="foglalas">Foglalás</span>
+						<div class="j-center flex">
+							<div id="foglal" class="hover_item menu_pont_hatter flex j-center a-i-center">
+								<div class="menu_pont_foglalas flex j-center a-i-center">
+									<span data-key="foglalas">Foglalás</span>
+								</div>
 							</div>
 						</div>
-						
 					</div>
 				</header>
 			</div>
