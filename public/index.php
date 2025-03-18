@@ -165,7 +165,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="apartman_div_box hei">
+								<div class="apartman_div_box hei j-center a-i-center">
 									<div class="flex a-i-center j-center">
 										<div class="naptar relat accent_hide">
 
