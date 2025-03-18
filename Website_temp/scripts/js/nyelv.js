@@ -1,4 +1,4 @@
-let nyelv = "en";
+let nyelv = "hu";
 
 const loadLang = lang => {
     fetch(`static/json/${lang}.json`)
@@ -30,6 +30,6 @@ const updateTextFromJson = jsonData => {
 
 window.onload = e => {
     console.log("nyelv betölés folyamatban");
-	loadLang("en");
+	loadLang(nyelv);
     console.log("nyelv betöltve");
 }
