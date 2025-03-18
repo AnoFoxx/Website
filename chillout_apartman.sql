@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 07. 12:02
--- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.0.30
+-- Létrehozás ideje: 2025. Már 18. 17:47
+-- Kiszolgáló verziója: 10.4.25-MariaDB
+-- PHP verzió: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `apartman` (
   `id` int(11) NOT NULL,
-  `nev` varchar(255) NOT NULL,
-  `cim` varchar(255) NOT NULL,
+  `nev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `cim` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `kapacitas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -51,7 +51,7 @@ INSERT INTO `apartman` (`id`, `nev`, `cim`, `kapacitas`) VALUES
 
 CREATE TABLE `ertekeles` (
   `idFoglalas` int(11) NOT NULL,
-  `tartalom` text DEFAULT NULL,
+  `tartalom` text COLLATE utf8_hungarian_ci DEFAULT NULL,
   `ertekeles` int(11) NOT NULL,
   `datum` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -66,7 +66,7 @@ CREATE TABLE `foglalas` (
   `id` int(11) NOT NULL,
   `mettol` date NOT NULL,
   `meddig` date NOT NULL,
-  `uzenet` text DEFAULT NULL,
+  `uzenet` text COLLATE utf8_hungarian_ci DEFAULT NULL,
   `verified` tinyint(4) NOT NULL,
   `gyerekSzam` int(11) NOT NULL,
   `felnottSzam` int(11) NOT NULL,
@@ -82,25 +82,14 @@ CREATE TABLE `foglalas` (
 
 CREATE TABLE `foglalo` (
   `id` int(11) NOT NULL,
-  `vezetekNev` varchar(255) NOT NULL,
-  `utoNev` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `telefonSzam` varchar(255) NOT NULL,
+  `vezetekNev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `utoNev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `telefonSzam` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `szuletesIdo` date NOT NULL,
-  `utca_hazSzam` varchar(255) NOT NULL,
+  `utca_hazSzam` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `idOrszag` int(11) NOT NULL,
   `idVaros` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `irsz`
---
-
-CREATE TABLE `irsz` (
-  `id` int(11) NOT NULL,
-  `irsz` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -111,7 +100,7 @@ CREATE TABLE `irsz` (
 
 CREATE TABLE `orszag` (
   `id` int(11) NOT NULL,
-  `nev` varchar(255) DEFAULT NULL
+  `nev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -122,18 +111,7 @@ CREATE TABLE `orszag` (
 
 CREATE TABLE `varos` (
   `id` int(11) NOT NULL,
-  `nev` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `varos_irsz`
---
-
-CREATE TABLE `varos_irsz` (
-  `idIrsz` int(11) NOT NULL,
-  `idVaros` int(11) NOT NULL
+  `nev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -169,12 +147,6 @@ ALTER TABLE `foglalo`
   ADD KEY `idVaros` (`idVaros`);
 
 --
--- A tábla indexei `irsz`
---
-ALTER TABLE `irsz`
-  ADD PRIMARY KEY (`id`);
-
---
 -- A tábla indexei `orszag`
 --
 ALTER TABLE `orszag`
@@ -185,13 +157,6 @@ ALTER TABLE `orszag`
 --
 ALTER TABLE `varos`
   ADD PRIMARY KEY (`id`);
-
---
--- A tábla indexei `varos_irsz`
---
-ALTER TABLE `varos_irsz`
-  ADD KEY `idIrsz` (`idIrsz`),
-  ADD KEY `idVaros` (`idVaros`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -207,12 +172,6 @@ ALTER TABLE `foglalas`
 -- AUTO_INCREMENT a táblához `foglalo`
 --
 ALTER TABLE `foglalo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT a táblához `irsz`
---
-ALTER TABLE `irsz`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -250,13 +209,6 @@ ALTER TABLE `foglalas`
 ALTER TABLE `foglalo`
   ADD CONSTRAINT `foglalo_ibfk_1` FOREIGN KEY (`idOrszag`) REFERENCES `orszag` (`id`),
   ADD CONSTRAINT `foglalo_ibfk_2` FOREIGN KEY (`idVaros`) REFERENCES `varos` (`id`);
-
---
--- Megkötések a táblához `varos_irsz`
---
-ALTER TABLE `varos_irsz`
-  ADD CONSTRAINT `varos_irsz_ibfk_1` FOREIGN KEY (`idIrsz`) REFERENCES `irsz` (`id`),
-  ADD CONSTRAINT `varos_irsz_ibfk_2` FOREIGN KEY (`idVaros`) REFERENCES `varos` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
