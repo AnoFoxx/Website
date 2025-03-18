@@ -469,6 +469,11 @@ html, body {
 #info_felirat{
 	height: 15%;
 }
+#info_felirat h1{
+	margin-top: 20px;
+	color: rgba(255, 255, 255, 0.8); 
+	font-size:60px;
+}
 #belso_eler{
 	flex-direction: column;
 	height: 92%;
@@ -519,9 +524,14 @@ html, body {
 	flex-direction: column;
 }
 #galeria_felirat{
-		position: absolute;
-		top: 0;
-	}
+	position: absolute;
+	top: 0;
+}
+#galeria_felirat h1{
+	margin-top: 20px;
+	font-size: 50px;
+	color:white;
+}
 #galeria_scroll{
 	overflow-x: scroll;
 	overflow-x: hidden;
