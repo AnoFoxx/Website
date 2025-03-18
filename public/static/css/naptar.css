@@ -6,6 +6,7 @@
 	--light-gray: #a2a2a2;
 	--black: #000;
 	--deep-blue: #006ce4;
+	--orange: #FABD2F;
 }
 
 body {
@@ -112,4 +113,51 @@ body {
 
 .date-end::after {
 	transform: rotate(-180deg);
+}
+
+.date-start::after, .date-end::after, .reserved-start::after, .reserved-end::after {
+	background-color: transparent;
+	opacity: .5;
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	border-left: calc(var(--naptar-nap-size) - 3px) solid transparent;
+	border-top: 0 solid transparent;
+	border-right: 0 solid transparent;
+	border-radius: 5px;
+}
+
+.date-full::after, .reserved-full::after {
+	
+	opacity: .5;
+	width: calc(var(--naptar-nap-size) - 3px);
+	height: calc(var(--naptar-nap-size) - 3px);
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	border-radius: 5px;
+}
+
+.date-end::after, .reserved-end::after {
+	transform: rotate(-180deg);
 } 
+
+.date-start::after, .date-end::after {
+	border-bottom: calc(var(--naptar-nap-size) - 3px) solid var(--deep-blue);
+}
+
+.date-full::after {
+	background-color: var(--deep-blue);
+}
+
+.reserved-start::after, .reserved-end::after {
+	border-bottom: calc(var(--naptar-nap-size) - 3px) solid var(--orange);
+}
+
+.reserved-full::after {
+	background-color: var(--orange);
+}
