@@ -3,6 +3,12 @@
 <?php 
 	include "scripts/php/error_handeler.php";
 	define("SVG_ONLY", false);
+
+	$apartman_1_image_dir_path = "static/images/apartman_1_kepek";
+	$apartman_2_image_dir_path = "static/images/apartman_2_kepek";
+	$apartman_3_image_dir_path = "static/images/apartman_3_kepek";
+	$images_dir = "static/images";
+
 	try {
  ?>
 <head>
@@ -14,18 +20,18 @@
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<!-- Pre load images START -->
 	<?php 
-		function listImages($dirPath) {
+		function list_images($dir_path) {
 
 			$images = [];
-			$recursiveIterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dirPath));
+			$recursive_iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir_path));
 
-			foreach ($recursiveIterator as $file) {
+			foreach ($recursive_iterator as $file) {
 				if ($file->isFile()) {
-					$filePath = $file->getPathname();
+					$file_path = $file->getPathname();
 					if (SVG_ONLY) {
-						if (strpos($filePath, ".svg")) $images[] = $filePath;
+						if (strpos($file_path, ".svg")) $images[] = $file_path;
 					} else {
-						$images[] = $filePath;
+						$images[] = $file_path;
 					}
 				}
 			}
@@ -33,12 +39,10 @@
 			return $images;
 		}
 
-		$imageDir = "static/images";
-		
-
-		foreach (listImages($imageDir) as $image) {
+		foreach (list_images($images_dir) as $image) {
 			echo "<link rel='preload' as='image' href='$image'>";
 		}
+	
 	
 	 ?>
 	<!-- Pre load images END -->
@@ -137,10 +141,7 @@
 									<button class="bal_nyil">&#10094;</button>
 									<div id="tinodi_kep_show" class="mozgo_kep accent_hide point">
 										<?php 
-											$imageDir = "static/images/apartman_1_kepek";
-											
-
-											foreach (listImages($imageDir) as $image) {
+											foreach (list_images($apartman_1_image_dir_path) as $image) {
 												echo "<img src='$image' class='tinodi_kep'>";
 											}
 										 ?>
@@ -185,10 +186,7 @@
 									<div id="garazs_kep" class="mozgo_kep accent_hide point">
 										<?php 
 										
-											$imageDir = "static/images/apartman_2_kepek";
-											
-
-											foreach (listImages($imageDir) as $image) {
+											foreach (list_images($apartman_2_image_dir_path) as $image) {
 												echo "<img src='$image' class='chill_kep'>";
 											}
 											
@@ -232,9 +230,8 @@
 								<button class="bal_nyil">&#10094;</button>
 								<div id="garazs_szoba_kep" class="mozgo_kep accent_hide point" style="display:none;">
 									<?php 
-										$imageDir = "static/images/apartman_3_kepek";
-
-										foreach (listImages($imageDir) as $image) {
+		
+										foreach (list_images($apartman_3_image_dir_path) as $image) {
 											echo "<img src='$image' class='chill_plus_kep'>";
 										}
 
