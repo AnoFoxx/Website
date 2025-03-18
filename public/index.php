@@ -69,8 +69,8 @@
 				<div class="menu relat flex a-i-center wid" id="menu_fooldal" data-key="menu-fooldal">Főoldal</div>
 				<div class="menu relat flex a-i-center wid" id="menu_apartmanok" data-key="menu-apartmanok">Apartmanok</div>
 				<div class="menu relat flex a-i-center wid" id="menu_informacio" data-key="menu-informacio">Informáicók</div>
-				<div class="menu relat flex a-i-center wid" id="menu_galeria" data-key="galeria">Galéria</div>
-				<div class="menu relat flex a-i-center wid" id="menu_ertekeles" data-key="ertekeles">Értékelések</div>
+				<div class="menu relat flex a-i-center wid" id="menu_galeria" data-key="menu-galeria">Galéria</div>
+				<div class="menu relat flex a-i-center wid" id="menu_ertekeles" data-key="menu-ertekeles">Értékelések</div>
 			</div>
 		</div>
 			
@@ -103,7 +103,7 @@
 								
 							</div>
 						</div>
-						<div id="lang-container" class="menu_pont_hatter hover_item flex j-center a-i-center"><div id="language" class="menu_pont flex j-center a-i-center"><img class="flag" src="static/images/Hungary.png"></div></div>
+						<div class="menu_pont_hatter hover_item flex j-center a-i-center"><div id="language" class="menu_pont flex j-center a-i-center"><img class="flag" src="static/images/Hungary.png"></div></div>
 
 						<!--Elerhetőségek-->
 						<div class="flex j-center">
@@ -122,6 +122,8 @@
 								</div>
 							</div>
 						</div>
+						
+						
 					</div>
 				</header>
 			</div>
@@ -132,9 +134,9 @@
 				<div id="apartmanok-bg" class="wid-vw hei-vh"></div>
 				<div id="apartman_tinodi" class="apartman flex j-center">
 					<!--<div style="display: block;background-color: rgba(0,0,0,0.3);" class="apartman_bg wid hei absol" ></div>Hover megoldása-->
-					<div class="felirat flex j-center a-i-center wid" style="z-index:2;" data-key="tinodi-felirat">Tinódi Apartman</div>
+					<div class="felirat flex j-center a-i-center wid" style="z-index:2;">Tinódi Apartman</div>
 					
-					<div style="background-image: url(static\\images\\apartman_1_kepek\\tinodi_1.svg);background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;" class="apartman_div wid hei">
+					<div style="background-image: url(static\\images\\apartman_1_kepek\\tinodi_0.svg);background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;" class="apartman_div wid hei">
 
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center wid hei">	
 							<div class="wid flex" style="height:50%;">
@@ -152,7 +154,7 @@
 
 								<div class="apartman_div_leir hei accent_hide">
 									<div style="width:100%;height: 50%;">
-										<span data-key="tinodi-leir">blu blu</span>
+										<span data-key="tinodi_leir">blu blu</span>
 									</div>
 								</div>
 							</div>
@@ -178,8 +180,8 @@
 				</div>
 
 				<div id="apartman_garazs" class="apartman flex j-center">
-					<div class="felirat flex j-center a-i-center wid"  data-key="chill-felirat">Chill Apartman</div>
-					<div style="background-image: url(static\\images\\apartman_2_kepek\\chill_1.svg);background-size: cover;background-repeat: no-repeat;background-position: 10%; display: flex;" class="apartman_div wid hei">
+					<div class="felirat flex j-center a-i-center wid">Chill Apartman</div>
+					<div style="background-image: url(static\\images\\apartman_2_kepek\\chill_0.svg);background-size: cover;background-repeat: no-repeat;background-position: 10%; display: flex;" class="apartman_div wid hei">
 						<div id="garazs_div" class="apartman_div_tav flex a-i-center wid hei">	
 							<div class="wid flex" style="height:50%;">
 								<div class="apartman_div_box flex relat hei a-i-center j-center accent_hide" style="display:none;">
@@ -198,7 +200,7 @@
 
 								<div class="apartman_div_leir hei accent_hide">
 									<div style="width:100%;height: 50%;">
-										<span data-key="chill-leir">blu blu</span>
+										<span data-key="chill_leir">blu blu</span>
 									</div>
 								</div>
 							</div>
@@ -222,38 +224,52 @@
 						</div>
 					</div>
 				</div>
-
-				<div id="apartman_garazs_szoba" class="apartman flex j-center">
-					<div class="felirat flex j-center a-i-center wid" data-key="chill-plus-felirat">Chill Apartman + 1 szoba</div>
-					<div class="apartman_div wid hei">
-						<div id="garazs_szoba_div" class="apartman_div_tav flex a-i-center hei">
-							<div class="apartman_div_box flex  relat wid">
-								<button class="bal_nyil">&#10094;</button>
-								<div id="garazs_szoba_kep" class="mozgo_kep accent_hide point" style="display:none;">
-									<?php 
-		
-										foreach (list_images($apartman_3_image_dir_path) as $image) {
-											echo "<img src='$image' class='chill_plus_kep'>";
-										}
-
-									 ?>
+				
+				<!--<div id="apartman_garazs_szoba" class="apartman flex j-center">
+					<div class="felirat flex j-center a-i-center wid" data-key="chillapart_plus_felirat">Chill Apartman + 1 szoba</div>
+					<div style="background-image: url(static\\images\\apartman_3_kepek\\chill_plus_1.svg);background-size: cover;background-repeat: no-repeat;background-position:left 55% top 45%; display: flex;" class="apartman_div wid hei">
+						<div id="garazs_szoba_div" class="apartman_div_tav wid flex a-i-center hei">	
+							<div class="wid flex" style="height:50%;">
+								<div class="apartman_div_box flex relat hei a-i-center j-center accent_hide" style="display:none;">
+									<button class="bal_nyil">&#10094;</button>
+									<div id="garazs_szoba_kep" class="mozgo_kep accent_hide point">
+										<?php 
+										
+											foreach (list_images($apartman_3_image_dir_path) as $image) {
+												echo "<img src='$image' class='chill_plus_kep'>";
+											}
+											
+										 ?>
+									</div>
+									<button class="jobb_nyil">&#10095;</button>
 								</div>
-								<button class="jobb_nyil">&#10095;</button>
+
+								<div class="apartman_div_leir hei accent_hide">
+									<div style="width:100%;height: 50%;">
+										<span data-key="chill_plus_leir">blu blu</span>
+									</div>
+								</div>
 							</div>
-							<div class="apartman_div_leir_mobil flex a-i-center hei">
-							
-							</div>
-							<div class="apartman_div_box flex  relat wid">
-								<div id="garazs_szoba_naptar" class="naptar relat accent_hide" style="display:none;">
-									<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+
+							<div style="height: 50%;" class="wid flex relat accent_hide">
+								<div class="apartman_div_box hei flex a-i-center j-center">
+									<div id="garazs_szoba_terkep" class="a-i-center j-center terkep flex relat accent_hide">
+										<div style="width:100%;aspect-ratio:1/1;">
+											<iframe loading="eager" src="http://maps.google.hu/maps?q=Magyarország, 4200 Hajdúszoboszló, Bartók Béla utca 14.&iwloc=A&output=embed"></iframe>
+										</div>
+									</div>
+								</div>
+								<div class="apartman_div_box hei">
+									<div class="flex a-i-center j-center">
+										<div class="naptar relat accent_hide">
+
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="apartman_div_leir flex a-i-center hei">
-							
-						</div>
-					</div>	
-				</div>
+					</div>
+				</div>-->
 			</div>
 
 
@@ -262,11 +278,11 @@
 				<img src="static/images/cool-background_2.png" class="wid hei absol" style="z-index:0;">
 				<div id="belso_eler" style="z-index:1;" class="flex wid">
 					<div id="info_felirat" class="flex j-center a-i-center wid">
-						<h1 data-key="info-felirat">Az apartmanokról</h1>
+						<h1 style="color: rgba(255, 255, 255, 0.8); font-size:60px;" data-key="info_felirat">Az apartmanokról</h1>
 					</div>
 					<div id="informaciok" class="flex wid">
 						<div id="teszt_1" class="flex j-center a-i-center hei">
-							<div id="leiras" data-key="ossz-informacio">
+							<div id="leiras" data-key="ossz_informacio">
 								bla bla bla bla bla bla
 							</div>
 						</div>
@@ -295,7 +311,7 @@
 					<img src="static/images/cool-background.png" class="wid hei absol" style="filter: blur(2px);">
 					<div id="galeria_body" class="j-center a-i-center flex">
 						<div id="galeria_felirat" class="j-center a-i-center flex wid">
-							<h1 data-key="galeria">Galéria</h1>
+							<h1 style="font-size: 50px;color:black;" data_key="galeria">Galéria</h1>
 						</div>
 						<div id="galeria_scroll" class="flex" style="z-index:2;">
 							<?php 
@@ -308,8 +324,8 @@
 
 								$i = 0;
 
-								// hogy ne külön kelljen 3 foreach a 3 külön apartman mappának
-								$apartman_dir_path_array = array($apartman_1_image_dir_path, $apartman_2_image_dir_path, $apartman_3_image_dir_path); 
+								$apartman_dir_path_array = array($apartman_1_image_dir_path, $apartman_2_image_dir_path, $apartman_3_image_dir_path); // hogy ne külön kelljen 3 foreach
+																																					  // a 3 külön apartman mappának
 
 								foreach ($apartman_dir_path_array as $dir) {
 									foreach (list_images($dir) as $image) {
@@ -329,32 +345,10 @@
 									echo $oszlop;
 								}
 
-
-								$mobil_galery = array(
-									0 => "<div class='galeria_mobile_container'>",
-									1 => "<div class='galeria_mobile_container'>"
-								);
-
-
-								foreach ($apartman_dir_path_array as $dir) {
-									foreach (list_images($dir) as $image) {
-										$i = $i % 2;
-										$mobil_galery[$i] .= "<img  class='galeria_img lazy_toltes wid' src='$image'>";
-										$i++;
-									}
-								}
-
-								$mobil_galery[0] .= "</div>";
-								$mobil_galery[1] .= "</div>";
-
-								foreach ($mobil_galery as $oszlop) {
-									echo $oszlop;
-								}
-
 							 ?>
 							
 								<!-- <div class="galeria_mobile_container">
-									
+									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_1.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_3.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_1_kepek/tinodi_5.svg">
 									<img  class="galeria_img lazy_toltes wid" src="static/images/apartman_2_kepek/chill_1.svg">
