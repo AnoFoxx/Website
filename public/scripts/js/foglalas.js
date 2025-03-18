@@ -40,8 +40,18 @@ $(document).ready(function(){
 				"flex-direction":"row"
 			});
 			$("#apartman_info").show();
+			if(selected.attr('id')=="apartman_1"){
+				$("#naptar").attr('src',"naptar.php?apartman=1");
+			}
+			if(selected.attr('id')=="apartman_2"){
+				$("#naptar").attr('src',"naptar.php?apartman=2");
+			}
+			if(selected.attr('id')=="apartman_2"){
+				$("#naptar").attr('src',"naptar.php?apartman=3");
+			}
 		}
 		else{
+			$("#naptar").attr('src',"");
 			$("#info_div").css({
 				"align-items":"center",
 				"flex-direction":"column"
