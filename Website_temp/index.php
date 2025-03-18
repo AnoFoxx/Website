@@ -18,6 +18,7 @@
 	<meta name="author" content="Papp Bence Attila, Hőzső Attila Pál">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="static/css/style_mobile.css">
 	<!-- Pre load images START -->
 	<?php 
 		function list_images($dir_path) {
