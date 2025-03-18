@@ -1,14 +1,6 @@
 @media only screen and (max-width: 1000px){
-	.mozgo_kep, .naptar, .terkep{
-		width: 65%;
-		aspect-ratio: 1/1;
-	}
 	#fooldal,#apartmanok,#informacio,#galeria,#ertekeles{
 		scroll-snap-type: none;
-	}
-	#felirat{
-		margin: 10px 30px 10px 0px;
-		font-size: 40px;
 	}
 	button{
 		display: none;
@@ -26,7 +18,7 @@
 	.apartman_div_box:not(.megnyomott){
 		justify-content: space-evenly;
 		width: 100%;
-		height: calc(100% / 3);
+		height: calc(100% / 2);
 	}
 	
 	.apartman_div_tav{
@@ -74,10 +66,9 @@
 	}
 	.apartman{
 		width: 100%;
-		height: calc(100%/3) !important;
+		height: calc(100%/2) !important;
 	}
 	.foreground{
-		position: fixed;
 		z-index: 100;
 		width: 100vw !important;
 		height: 100vh !important;
@@ -85,16 +76,20 @@
 	.background{
 		display: none;
 	}
+	.accent-bg{
+		z-index: 10;
+	}
 	.accent-bg-show{
-		z-index: 7;
+		z-index: 10;
 		position: fixed;
-		left: calc(100% - 105px);
+		left: calc(100% - 100px);
+		top: 0;
 		width: 90px;
 		height: 90px;
 	}
 	.accent-bg-show:after{
+		z-index: 10;
 		display: flex;
-		z-index: 7;
 		position: absolute;
 		top: 0;
     	bottom: 0;
@@ -105,6 +100,18 @@
 		font-family: sans-serif;
 		content: "\0078"; 
     	font-size: 90px;
+	}
+
+	.mozgo_kep{
+		background-color: white;
+		overflow: hidden;
+		aspect-ratio: 1/1;
+		width: 30%;
+	}
+	.terkep{
+		position: static;
+		overflow: hidden;
+		width: 30%;
 	}
 	.terkep iframe{
 		top: 0;
@@ -131,15 +138,7 @@
 	#info_felirat{
 		height: 10%;
 	}
-	#info_felirat h1{
-		font-size: 30px !important;
-	}
-	#galeria_felirat h1{
-		font-size: 30px;
-		color: white;
-	}
 	#galeria_felirat{
-		margin-top: 10px;
 		position: absolute;
 		top: 0;
 	}
@@ -150,16 +149,10 @@
 	#ertekeles_nyilak span{
 		cursor: pointer;
 	}
-	.ertekeles_elem{
-		flex-shrink: 0;
-		margin: 0px 160px 0px 160px;
-		aspect-ratio: 1/2;
-		width: 200px;
-		background-color: lightblue;
-	}
-	#ertekeles_2{
-		height: auto;
-		aspect-ratio:1/3 !important;
-		width: 70% !important;
+	@media only screen and (max-height: 800px){
+		.mozgo_kep, .naptar, .terkep{
+			width: 50%;
+			aspect-ratio: 1/1;
+		}
 	}
 }
