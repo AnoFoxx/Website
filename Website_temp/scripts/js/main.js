@@ -118,8 +118,8 @@ $(document).ready(function() {
 
 	$(".accent-bg").click(function() {
 	    $("#apartmanok-bg").show();
-	    $("#apartman_tinodi .apartman_div").css("background-image", "url(apartman_1_kepek/tinodi_1.svg)");
-	    $("#apartman_garazs .apartman_div").css("background-image", "url(apartman_2_kepek/chill_1.svg)");
+	    $("#apartman_tinodi .apartman_div").css("background-image", "url(static/images/apartman_1_kepek/tinodi_1.svg)");
+	    $("#apartman_garazs .apartman_div").css("background-image", "url(static/images/apartman_2_kepek/chill_1.svg)");
 	    $("#apartman_garazs_szoba .apartman_div").css("background-image", "url()");
 
 	    $(".apartman").css("height", "auto");
