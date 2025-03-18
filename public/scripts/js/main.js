@@ -67,7 +67,8 @@ $(document).ready(function() {
 	let image = null;
 	let indices = {
 	    'apartman_tinodi': 0,
-	    'apartman_garazs': 0
+	    'apartman_garazs': 0/*,
+	    'apartman_garazs_szoba': 0*/
 	};
 
 	$(".apartman").click(function() {
@@ -98,18 +99,20 @@ $(document).ready(function() {
 	        indices[id] = 0;
 	        $("#apartman_garazs").css("cursor", "default");
 	        $("#apartman_garazs .accent_hide").show();
+	        $("#apartman_garazs .apartman_div_box").addClass("megnyomott");
 	        image = $(".chill_kep");
 	        parent_divId = "#garazs_div";
 	        updateImage(id);
 	    }
 
-	    if (id === 'apartman_garazs_szoba' && indices[id] === 0) {
+	    /*if (id === 'apartman_garazs_szoba' && indices[id] === 0) {
 	        indices[id] = 0;
 	        $("#apartman_garazs_szoba").css("cursor", "default");
-	        $("#garazs_szoba_kep .accent_hide").show();
+	        $("#apartman_garazs_szoba .accent_hide").show();
+	        $("#apartman_garazs_szoba .apartman_div_box").addClass("megnyomott");
 	        image = $(".chill_plus_kep");
 	        parent_divId = "#garazs_szoba_div";
-	    }
+	    }*/
 
 	    $("#" + id + " .apartman_div").css("background-image", "url()");
 	    $("#apartmanok-bg").hide();
@@ -118,9 +121,9 @@ $(document).ready(function() {
 
 	$(".accent-bg").click(function() {
 	    $("#apartmanok-bg").show();
-	    $("#apartman_tinodi .apartman_div").css("background-image", "url(static/images/apartman_1_kepek/tinodi_1.svg)");
-	    $("#apartman_garazs .apartman_div").css("background-image", "url(static/images/apartman_2_kepek/chill_1.svg)");
-	    $("#apartman_garazs_szoba .apartman_div").css("background-image", "url()");
+	    $("#apartman_tinodi .apartman_div").css("background-image", "url(static/images/apartman_1_kepek/tinodi_0.svg)");
+	    $("#apartman_garazs .apartman_div").css("background-image", "url(static/images/apartman_2_kepek/chill_0.svg)");
+	    $("#apartman_garazs_szoba .apartman_div").css("background-image", "url(static/images/apartman_3_kepek/chill_plus_0.svg)");
 
 	    $(".apartman").css("height", "auto");
 	    $(".apartman_fo_kep").show();
@@ -181,5 +184,4 @@ $(document).ready(function() {
 	        }
 	    });
 	}
-    //chillout körhinta
 });
