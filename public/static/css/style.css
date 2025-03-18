@@ -370,7 +370,7 @@ html, body {
 	position: absolute;
 	filter: blur(2px);
 	z-index: -1;
-	background-image: linear-gradient(90deg, rgba(255,125,179,1) 50%, rgba(0,161,223,1) 50%);
+	background-image: linear-gradient(90deg, rgba(255,125,179,1) 49%, rgba(0,161,223,1) 50%);
 }
 #apartmanok{
 	flex-direction: row;
@@ -481,6 +481,10 @@ html, body {
 #info_felirat{
 	height: 15%;
 }
+#info_felirat h1{
+	color: rgba(255, 255, 255, 0.8); 
+	font-size:40px;
+}
 #belso_eler{
 	flex-direction: column;
 	height: 92%;
@@ -534,6 +538,10 @@ html, body {
 		position: absolute;
 		top: 0;
 	}
+#galeria_felirat h1{
+	font-size: 30px;
+	color:white;
+}
 #galeria_scroll{
 	overflow-x: scroll;
 	overflow-x: hidden;
