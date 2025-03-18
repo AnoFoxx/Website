@@ -5,20 +5,10 @@
 	define("SVG_ONLY", false);
 	try {
  ?>
- <!-- 
-	TODO: 
-	- szétszedni scriptek, képeket és mindent mi szely szájnak ingere :)  	✓
-	- preload meta generálás						✓
-	- keywords meta befejezése						✓
-	- galéria automata feltöltés
-	- ferriswheel 1 automata feltöltés					✓
-	- ferriswheel 2 automata feltöltés					✓
-	- Értékelések
- -->
 <head>
 	<meta charset="UTF-8">
 	<meta name="description" content="ChillOut Apartman's official website">
-	<meta name="keywords" content="chill, chillout, apartman, Hajdúszoboszló, ChillOut-Hajdúszoboszló">
+	<meta name="keywords" content="chill, chillout, apartman, Hajdúszoboszló, ChillOut-Hajdúszoboszló, Tinódi, Tinódi utca">
 	<meta name="author" content="Papp Bence Attila, Hőzső Attila Pál">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
@@ -33,7 +23,7 @@
 				if ($file->isFile()) {
 					$filePath = $file->getPathname();
 					if (SVG_ONLY) {
-						if (str_contains($filePath, ".svg")) $images[] = $filePath;
+						if (strpos($filePath, ".svg")) $images[] = $filePath;
 					} else {
 						$images[] = $filePath;
 					}
@@ -271,6 +261,7 @@
 
 			<!-- Elérhetőségek -->
 			<div id="informacio" class="scroll_pont flex relat wid hei-vh">
+				<img src="static/images/cool-background_2.png" class="wid hei absol" style="z-index:0;">
 				<div id="belso_eler" style="z-index:1;" class="flex wid">
 					<div id="info_felirat" class="flex j-center a-i-center wid">
 						<h1 style="color: rgba(255, 255, 255, 0.8); font-size:60px;">Az apartmanokról</h1>
@@ -303,6 +294,7 @@
 			<div id="galeria" class="scroll_pont flex relat wid hei-vh">
 
 				<div style="width: 100%;height: 100%;display: flex;justify-content: center;">
+					<img src="static/images/cool-background.png" class="wid hei absol" style="filter: blur(2px);">
 					<div id="galeria_body" class="j-center a-i-center flex">
 						<div id="galeria_felirat" class="j-center a-i-center flex wid">
 							<h1 style="font-size: 50px;color:black;">Galéria</h1>
