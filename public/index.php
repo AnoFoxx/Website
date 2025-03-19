@@ -87,7 +87,9 @@
 					<div id="bc" class="absol wid"></div>
 
 					<div id="first_half" class="flex a-i-center">
-						<div id="logo"></div>
+						<div id="logo">
+							<div style="background-image: url(static\\images\\madar_logo.svg);background-color: none;background-repeat: no-repeat;background-position: center;background-size: cover;width: 100%;height: 100%;transform: rotate(20deg) scaleX(-1);"></div>
+						</div>
 						<div id="felirat" class="j-center a-i-center">ChillOut.hu</div>
 					</div>
 
