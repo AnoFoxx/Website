@@ -612,10 +612,6 @@ html, body {
 	flex-direction: row;
 	height:400px;
 }
-#ertekeles_2{
-	height: 600px;
-	width: 800px;
-}
 .ertekeles_elem{
 	flex-shrink: 0;
 	margin: 0px 160px 0px 160px;
