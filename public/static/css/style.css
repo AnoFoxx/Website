@@ -604,7 +604,6 @@ html, body {
 }
 
 #ertekeles_sor {
-    background-color: white;
     display: flex;
     justify-content: flex-start;
     align-items: center;
