@@ -18,7 +18,7 @@ const isSet = sessionId => sessionStorage.getItem(sessionId) != "null";
 
 const isValidDate = element => {
 	validateDate = getDateFromDOM(element).getTime();
-	currentDate = new Date()
+	currentDate = new Date();
 	currentDate.setHours(0, 0, 0, 0);
 
 	return validateDate >= currentDate.getTime();
@@ -47,14 +47,33 @@ fetch(url)
 	.then(data => {
 		console.log(data);
 		if (!data.success) throw new Error(data.message);
+		if (Object.keys(data).length == 1) console.log("aa");
+		console.log(Object.keys(data).length);
 
-		for (let i = 0; i < szamozottNaptarNap.length; i++) { 
-			if (szamozottNaptarNap[i].firstElementChild.getAttribute("status") == "enabled") {
-				// This is where the magic happens
+		for (let i = 0; i < Object.keys(data).length - 1; i++) {
+			// A kezdő- és végdátum be van állítva
+			console.log(data[i]);
+			if (data[i]["mettol"] != null && data[i]["meddig"] != null) {
+				console.log(new Date(data[i]["mettol"]).getTime())
+				for (let i = 0; i < szamozottNaptarNap.length; i++) {
+					let nap = szamozottNaptarNap[i].firstElementChild;
+
+					if (isValidDate(nap)) {
+						if (getDateFromDOM(nap).getTime() == data[i]["mettol"].getTime()) {
+							nap.classList.add("reserved-start");
+						} else if (getDateFromDOM(nap).getTime() == data[i]["meddig"].getTime()) {
+							nap.classList.add("reserved-end");
+						} else if (getDateFromDOM(nap).getTime() > data[i]["mettol"].getTime() && getDateFromDOM(nap).getTime() < data[i]["meddig"].getTime()) {
+							nap.classList.add("reserved-full");
+						}
+					}
+				}
+			} else if (data[i]["mettol"] != null && data[i]["meddig"] == null) { // Csak a kezdődátum van beállítva
+																		   		 // AKA: a kezdő dátum egy másik hónapban van
 			}
 		}
 	})
-	.catch(err => console.error(`There was a problem with the fetch operation: ${err.message}`))
+	// .catch(err => console.error(`There was a problem with the fetch operation: ${err.message}`))
 
 // A kezdő- és végdátum be van állítva
 if (isSet("starterDate") && isSet("endingDate")) { 
@@ -67,7 +86,7 @@ if (isSet("starterDate") && isSet("endingDate")) {
 	for (let i = 0; i < szamozottNaptarNap.length; i++) {
 		let nap = szamozottNaptarNap[i].firstElementChild;
 
-		if (isValidDate(nap) ) {
+		if (isValidDate(nap)) {
 			if (getDateFromDOM(nap).getTime() == selectionStarterDate.getTime()) {
 				nap.classList.add("date-start");
 			} else if (getDateFromDOM(nap).getTime() == selectionEndingDate.getTime()) {
@@ -78,7 +97,7 @@ if (isSet("starterDate") && isSet("endingDate")) {
 		}
 	}
 } else if (isSet("starterDate") && !isSet("endingDate")) { // Csak a kezdődátum van beállítva
-	dateSelectionInProgress = true;						   // AKA: a kezdő dátum egy másik hónapban van
+	dateSelectionInProgress = true;						   // AKA: a kezdő dátum egy másik hónapban LESZ
 	selectionStarterDate = new Date(sessionStorage.getItem("starterDate"));
 
 	clearDateFull();
