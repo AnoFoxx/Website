@@ -67,7 +67,7 @@
 					<div class="option">Vezetéknév:<input type="text" name="vez_name"></div>
 					<div class="option">Utónév:<input type="text" name="uto_name"></div>
 					<div class="option">Email:<input type="email" name="email" placeholder="youremail@gmail.com"></div>
-					<div class="option">Telefonszám:<input type="tel" name="phone_number" placeholder="Add meg a telefonszámod"></div>
+					<div class="option">Telefonszám:<input type="tel" name="phone_number"></div>
 					<div class="option">Ország:<input type="text" name="orszag"></div>
 					<div>
 						<div class="option">Ir.szám:<input type="text" name="irszam"></div>
