@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$("#felirat").click(function(){
-		window.location.href="index.html";
+		window.location.href="index.php";
 	})
 	$("#dark_mode").change(function(){
 		if($(this).is(":checked")){
