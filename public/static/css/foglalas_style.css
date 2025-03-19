@@ -69,9 +69,10 @@ header{
 	height: 375px;
 	width: 375px;
 }
-#apartman_naptar{
+#apartman_naptar, iframe{
 	height: 375px;
 	width: 375px;
+	background-color: white;
 }
 #apartman_select{
 	width: 200px;
