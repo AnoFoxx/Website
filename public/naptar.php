@@ -25,9 +25,10 @@
 			$honap = isset($_GET["honap"])
 				? $_GET["honap"]
 				: date("m");
-			$apartman = isset($_GET["apartman"])
-				? $_GET["apartman"]
-				: throw new Exception("No apartman was given");
+			if (isset($_GET["apartman"]))
+				$apartman = $_GET["apartman"];
+			else 
+				throw new Exception("No apartman was given");
 
 			$kov_honap = date("m", strtotime("01.$honap.$ev +1 month"));
 			$kov_ev = date("Y", strtotime("01.$honap.$ev +1 month"));
