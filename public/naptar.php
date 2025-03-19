@@ -25,6 +25,7 @@
 			$honap = isset($_GET["honap"])
 				? $_GET["honap"]
 				: date("m");
+			
 			if (isset($_GET["apartman"]))
 				$apartman = $_GET["apartman"];
 			else 
@@ -110,8 +111,8 @@
 	</div>
 	<script>var url = <?php echo "'http://localhost/public/api/rest.php?year=$ev&month=$honap&apartman=$apartman'"; ?>
 			// Itt kell a rest api-hoz az url, 
-			// hiszen js scripten belül nem lehet php scriptel
-			// bármit is csinálni 
+			// hiszen js scripten belül nem lehet 
+			// php scriptel bármit is csinálni 
 	</script>
 	<script src="scripts/js/naptar.js"></script>
 </body>
