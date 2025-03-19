@@ -1,0 +1,158 @@
+@media only screen and (max-width: 1000px){
+	#fooldal,#apartmanok,#informacio,#galeria,#ertekeles{
+		scroll-snap-type: none;
+	}
+	button{
+		display: none;
+	}
+	.apartman_div{
+		border-radius: 0;
+	}
+	.apartman_div_box:has(.megnyomott){
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center !important;
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.apartman_div_box:not(.megnyomott){
+		justify-content: space-evenly;
+		width: 100%;
+		height: calc(100% / 2);
+	}
+	
+	.apartman_div_tav{
+		width: 100%;
+	}
+	.apartman_div_leir{
+		display: none;
+	}
+	.apartman{
+		border-radius: 0;
+	}
+	.galeria_mobile_container{
+		display: block;
+	}
+	.galeria_container{
+		display: none;
+	}
+	#oldalso, #logo, .menu_pont_hatter{
+		display: none;
+	}
+	#settings{
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		color: lightgrey;
+		margin: 0 20px 0 20px;
+	}
+
+	#kerek{
+		height: 100%;
+		width: 100%;
+	}
+	#kerek img{
+		width: 100%;
+	}
+	#kerek:hover{
+		animation: rotation 4s infinite linear;
+	}
+
+	#apartmanok{
+		display:block;
+
+	}
+	.apartman{
+		width: 100%;
+		height: calc(100%/2) !important;
+	}
+	.foreground{
+		z-index: 100;
+		width: 100vw !important;
+		height: 100vh !important;
+	}
+	.background{
+		display: none;
+	}
+	.accent-bg{
+		z-index: 10;
+	}
+	.accent-bg-show{
+		z-index: 10;
+		position: fixed;
+		left: calc(100% - 100px);
+		top: 0;
+		width: 90px;
+		height: 90px;
+	}
+	.accent-bg-show:after{
+		z-index: 10;
+		display: flex;
+		position: absolute;
+		top: 0;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
+		justify-content: center;
+		align-items: flex-end;
+		font-family: sans-serif;
+		content: "\0078"; 
+    	font-size: 90px;
+	}
+
+	.mozgo_kep{
+		background-color: white;
+		overflow: hidden;
+		aspect-ratio: 1/1;
+		width: 30%;
+	}
+	.terkep{
+		position: static;
+		overflow: hidden;
+		width: 30%;
+	}
+	.terkep iframe{
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+	}
+	#belso_eler{
+		height: 96%;
+	}
+	#informaciok{
+		display: block;
+	}
+	#teszt_1, #teszt_2{
+		width: 100%;
+		height: 50%;
+	}
+	#leiras{
+		width: 95%;
+		height: 85%;
+	}
+	#info_felirat{
+		height: 10%;
+	}
+	#galeria_felirat{
+		position: absolute;
+		top: 0;
+	}
+	#ertekeles_nyilak{
+		font-size: 150px;
+		justify-content: space-evenly;
+	}
+	#ertekeles_nyilak span{
+		cursor: pointer;
+	}
+	@media only screen and (max-height: 800px){
+		.mozgo_kep, .naptar, .terkep{
+			width: 50%;
+			aspect-ratio: 1/1;
+		}
+	}
+}
