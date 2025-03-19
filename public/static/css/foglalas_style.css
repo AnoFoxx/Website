@@ -12,6 +12,11 @@ header{
 	width: 100vw;
 	height: 100px;
 }
+iframe{
+	width: 375px;
+	height: 375px;
+	background-color: white;
+}
 #varos_irsz{
 	margin: 0;
 }
