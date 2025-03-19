@@ -358,8 +358,6 @@
 				</div>
 			</div>
 		</div>
-		
-	</div>
 
 <?php 
 	} catch(Exeption $err) {
