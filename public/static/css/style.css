@@ -590,53 +590,64 @@ html, body {
 	height: auto;
 	margin: 2px 0 2px 0;
 }
-#ertekeles{
-	background-color: #d29df2;
+#ertekeles {
+    background-color: #d29df2;
 }
-#ertekeles_body{
-	background-color: lightgrey;
-	overflow: hidden;
-	flex-wrap: wrap;
-	height: 80%;
-	margin-bottom: 15%;
+
+#ertekeles_body {
+    background-color: lightgrey;
+    overflow: hidden;
+    flex-wrap: wrap;
+    height: 80%;
+    margin-bottom: 15%;
+    position: relative; 
 }
-#ertekeles_nyilak{
-	font-size: 120px;
-	justify-content: space-evenly;
+
+#ertekeles_sor {
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 400px;
+    position: relative;
+    transition: transform 0.5s ease;
+    width: 600px;
 }
-#ertekeles_nyilak span{
-	margin: 0 -35px 0 -35px;
-}
-#ertekeles_sor{
-	background-color: white;
-	flex-direction: row;
-	height:400px;
-}
-.ertekeles_elem{
-	flex-shrink: 0;
-	margin: 0px 160px 0px 160px;
-	height: 400px;
-	width: 600px;
-	background-color: lightblue;
+.ertekeles_elem {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+    flex-shrink: 0;
+    margin: 0 20px;
+    height: 400px;
+    width: 600px;
+    background-color: lightblue;
 }
 .ertekeles_fejlec{
 	justify-content: space-between;
-	height: 20%;
 }
-.ertekeles_nev{
-
-}
-.ertekeles_date{
- color: rgba(0,0,0,0.4);
-}
-.ertekeles_rate{
- height: 40%;
-}
-.ertekeles_szoveg{
-	height: 40%;
-}
-.ertekeles_margin{
-	margin: 10px 10px 10px 10px;
+.arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 10;
+    transform: translateY(-50%);
 }
 
+.nyil {
+    cursor: pointer;
+    color: black;
+    font-size: 50px;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
 
+.nyil:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
