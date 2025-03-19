@@ -306,10 +306,45 @@
 			<div id="ertekeles" class="scroll_pont flex wid hei-vh">
 			    <div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
 			        <h1 data-key="ertekeles">Értékelések</h1>
+
 			        <div id="ertekeles_body" class="flex a-c-center j-center wid">
 			            <div id="ertekeles_sor" class="flex j-center a-i-center wid">
-			                <!-- Review 1 (centered) -->
-			                <div class="ertekeles_elem" id="ertekeles_1">
+			            <!--
+			            	<div class="ertekeles_elem">
+			            		<div class="ertekeles_fejlec flex wid">
+			            			<span class="ertekeles_nev ertekeles_margin">Név</span>
+			            			<span class="ertekeles_datedate ertekeles_margin">Dátum</span>
+			            		</div>
+			            		<div class="ertekeles_rate flex wid j-center a-i-center">
+			            			Ide lesz behúzva a csillagok
+			            		</div>
+			            		<div class="ertekeles_szoveg flex wid j-center a-i-center">
+			            			<span>Szöveg</span>
+			            		</div>
+			            	</div>
+			            -->
+
+			                <div class="ertekeles_elem">
+
+			                    <div class="ertekeles_fejlec flex wid">
+			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
+			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
+			                    </div>
+
+			                    <div class="ertekeles_rate flex wid j-center a-i-center">
+			                        csillagok
+			                    </div>
+
+			                    <div class="ertekeles_szoveg flex wid j-center a-i-center">
+			                        <span>szöveg</span>
+			                    </div>
+
+			                </div>
+
+
+
+
+			                <div class="ertekeles_elem">
 			                    <div class="ertekeles_fejlec flex wid">
 			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
 			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
@@ -322,8 +357,7 @@
 			                    </div>
 			                </div>
 
-			                <!-- Review 2 -->
-			                <div class="ertekeles_elem" id="ertekeles_2">
+			                <div class="ertekeles_elem">
 			                    <div class="ertekeles_fejlec flex wid">
 			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
 			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
@@ -335,9 +369,7 @@
 			                        <span>szöveg</span>
 			                    </div>
 			                </div>
-
-			                <!-- Review 3 -->
-			                <div class="ertekeles_elem" id="ertekeles_3">
+			                <div class="ertekeles_elem">
 			                    <div class="ertekeles_fejlec flex wid">
 			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
 			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
