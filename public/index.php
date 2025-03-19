@@ -309,7 +309,7 @@
 
 			        <div id="ertekeles_body" class="flex a-c-center j-center wid">
 			            <div id="ertekeles_sor" class="flex j-center a-i-center wid">
-			            <!--
+			            <!-- SABLON
 			            	<div class="ertekeles_elem">
 			            		<div class="ertekeles_fejlec flex wid">
 			            			<span class="ertekeles_nev ertekeles_margin">Név</span>
