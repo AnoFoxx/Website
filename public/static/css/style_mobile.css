@@ -2,6 +2,9 @@
 	#fooldal,#apartmanok,#informacio,#galeria,#ertekeles{
 		scroll-snap-type: none;
 	}
+	#felirat{
+		font-size: 	40px;
+	}
 	button{
 		display: none;
 	}
@@ -20,7 +23,9 @@
 		width: 100%;
 		height: calc(100% / 2);
 	}
-	
+	.foreground{
+		position: fixed;
+	}
 	.apartman_div_tav{
 		width: 100%;
 	}
@@ -92,26 +97,26 @@
 		display: flex;
 		position: absolute;
 		top: 0;
-    	bottom: 0;
-    	left: 0;
-    	right: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 		justify-content: center;
 		align-items: flex-end;
 		font-family: sans-serif;
 		content: "\0078"; 
-    	font-size: 90px;
+		font-size: 90px;
 	}
 
 	.mozgo_kep{
 		background-color: white;
 		overflow: hidden;
 		aspect-ratio: 1/1;
-		width: 30%;
+		width: 80%;
 	}
 	.terkep{
 		position: static;
 		overflow: hidden;
-		width: 30%;
+		width: 80%;
 	}
 	.terkep iframe{
 		top: 0;
