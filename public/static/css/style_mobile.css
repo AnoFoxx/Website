@@ -64,7 +64,6 @@
 	#kerek:hover{
 		animation: rotation 4s infinite linear;
 	}
-
 	#apartmanok{
 		display:block;
 
@@ -72,6 +71,20 @@
 	.apartman{
 		width: 100%;
 		height: calc(100%/2) !important;
+	}
+	.left_top{
+		flex-direction: column;
+		height: 50%;
+		width: 100%;
+	}
+	.right_bottom{
+		flex-direction: column;
+		height: 50%;
+		width: 100%;
+	}
+	.apartman_div_leir div{
+		width: 100%;
+		height: 100%;
 	}
 	.foreground{
 		z-index: 100;
@@ -147,17 +160,32 @@
 		position: absolute;
 		top: 0;
 	}
-	#ertekeles_nyilak{
-		font-size: 150px;
-		justify-content: space-evenly;
+	.arrows{
+		display: none;
 	}
-	#ertekeles_nyilak span{
-		cursor: pointer;
-	}
-	@media only screen and (max-height: 800px){
-		.mozgo_kep, .naptar, .terkep{
-			width: 50%;
-			aspect-ratio: 1/1;
-		}
-	}
+    #ertekeles_sor {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        padding: 0;
+        transition: transform 0.5s ease;
+    }
+
+    .ertekeles_slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ertekeles_elem {
+        width: 95%;
+        height: 35vh;
+        background-color: lightblue;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
 }
