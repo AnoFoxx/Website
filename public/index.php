@@ -417,6 +417,7 @@
 
 
 			<script src="scripts/js/carousel.js"></script>
+			<script src="scripts/js/carousel_mobile.js"></script>
 			</div>
 		</div>
 <?php 
