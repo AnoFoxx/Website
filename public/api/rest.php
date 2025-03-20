@@ -4,7 +4,7 @@
 		// header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");  // Allowed HTTP methods
 		header("Access-Control-Allow-Headers: Content-Type, Authorization");  // Allowed headers
 		
-		$connection = mysqli_connect("localhost", "root", "", "chillout_apartman");
+		include "../scripts/php/error_handeler.php";
 
 		if (mysqli_connect_errno())
 			throw new Exception("Unable to connect to db");

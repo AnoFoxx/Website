@@ -60,7 +60,7 @@
 	</header>
 	
 	<div id="full" style="overflow-x: scroll;">
-		<form action="save.php" method="get" enctype="multipart/form-data">
+		<form action="save.php" method="post" enctype="multipart/form-data">
 			<div style="width:100%;height:70px;display:flex;justify-content: center;">
 				<h1>Foglalás</h1>
 			</div>
@@ -116,7 +116,7 @@
 						<input type="text" name="orszag" required></div>
 					<div class="option">
 						Ir.szám:
-						<input type="text" name="irszam" required></div>
+						<input type="text" name="irsz" required></div>
 					<div class="option">
 						Település:
 						<input type="text" name="telepules" required></div>
