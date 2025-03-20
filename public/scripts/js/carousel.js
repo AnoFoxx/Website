@@ -5,17 +5,17 @@ const container = document.getElementById('ertekeles_sor');
 let currentIndex = 0;
 
 function updateCarousel() {
-    container.style.transform = `translateX(-${currentIndex * 640}px)`;
+	container.style.transform = `translateX(-${currentIndex * 640}px)`;
 }
 
 nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % reviews.length;
-    updateCarousel();
+	currentIndex = (currentIndex + 1) % reviews.length;
+	updateCarousel();
 });
 
 prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-    updateCarousel();
+	currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+	updateCarousel();
 });
 
 updateCarousel();
