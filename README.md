@@ -1,6 +1,9 @@
 # TODO:
-* foglalás hidden double input
 * rest api naptar befejezese
 * cookie policy hu/en
-* mobil galéria auto feltöltés
+* admin panel
+* sql log
+* error log
+* insert delete trigger
+
 
