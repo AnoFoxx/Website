@@ -36,7 +36,7 @@ img{
 }
 .lazy_toltes{
 	opacity: 0;
-    transition: opacity 1s ease-in-out;
+		transition: opacity 1s ease-in-out;
 }
 .lazy_toltes.betoltott{
 	opacity: 1;
@@ -75,22 +75,22 @@ img{
 	height: calc(100%/5);
 	cursor: pointer;
 	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
-  -webkit-background-clip: text;
-  color: transparent;
+	-webkit-background-clip: text;
+	color: transparent;
 	font-size: 36px;
 }
 .menu::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: lightgrey;
-  transition: width 0.3s ease;
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	background-color: lightgrey;
+	transition: width 0.3s ease;
 }
 .menu:hover::after {
-  width: 100%;
+	width: 100%;
 }
 .foscroll{
 	overflow-x: hidden;
@@ -117,7 +117,7 @@ html, body {
 	margin: 0;
 }
 #fo_kep{
-  object-fit: cover;
+	object-fit: cover;
 	opacity: 95%;
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -173,8 +173,8 @@ html, body {
 }
 #felirat{
 	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
-  -webkit-background-clip: text;
-  color: transparent;
+	-webkit-background-clip: text;
+	color: transparent;
 	font-family: Berlin Sans FB, Helvetica, sans-serif;
 	margin:10px 30px 10px 30px;
 	font-size: 55px;
@@ -312,7 +312,7 @@ html, body {
 	animation-name: background-stretch;
 	width: 100% !important;
 }
-.foreground  {
+.foreground	{
 	border-radius: 50px;
 	width: 70vw !important;
 	height: 85vh !important;
@@ -387,7 +387,7 @@ html, body {
 	object-fit: contain;
 }
 #tinodi_kep_show img:first-child {
-    left: 0; 
+		left: 0; 
 }
 .mozgo_kep{
 	position: relative;
@@ -413,16 +413,16 @@ html, body {
 	transition: transform 0.5s ease-in-out;
 }
 .mozgo_kep img.active {
-    display: block;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 1;
+		display: block;
+		transition: opacity 0.5s ease-in-out;
+		opacity: 1;
 }
 .tinodi_kep {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
 }
 .mozgo_kep img:first-child {
-    transition: none; 
+		transition: none; 
 }
 .tinodi_kep.active{
 	display: block;
@@ -555,20 +555,20 @@ html, body {
 	margin-top: 30px;
 }
 .galeria_background{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .galeria_background img {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
+		max-width: 80%;
+		max-height: 80%;
+		border-radius: 10px;
 }
 .galeria_container{
 	flex: 25%;
@@ -590,62 +590,62 @@ html, body {
 	margin: 2px 0 2px 0;
 }
 #ertekeles {
-    background-color: #d29df2;
+		background-color: #d29df2;
 }
 
 #ertekeles_body {
-    background-color: lightgrey;
-    overflow: hidden;
-    flex-wrap: wrap;
-    height: 80%;
-    margin-bottom: 15%;
-    position: relative; 
+		background-color: lightgrey;
+		overflow: hidden;
+		flex-wrap: wrap;
+		height: 80%;
+		margin-bottom: 15%;
+		position: relative; 
 }
 
 #ertekeles_sor {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 400px;
-    position: relative;
-    transition: transform 0.5s ease;
-    width: 600px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		height: 400px;
+		position: relative;
+		transition: transform 0.5s ease;
+		width: 600px;
 }
 .ertekeles_elem {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-    flex-shrink: 0;
-    margin: 0 20px;
-    height: 400px;
-    width: 600px;
-    background-color: lightblue;
+		flex-shrink: 0;
+		margin: 0 20px;
+		height: 400px;
+		width: 600px;
+		background-color: lightblue;
 }
 .ertekeles_fejlec{
 	justify-content: space-between;
 }
 .arrows {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    z-index: 10;
-    transform: translateY(-50%);
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		z-index: 10;
+		transform: translateY(-50%);
 }
 
 .nyil {
-    cursor: pointer;
-    color: black;
-    font-size: 50px;
-    padding: 0 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+		cursor: pointer;
+		color: black;
+		font-size: 50px;
+		padding: 0 20px;
+		background-color: rgba(255, 255, 255, 0.7);
+		border-radius: 50%;
+		transition: background-color 0.3s ease;
 }
 
 .nyil:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.2);
 }
