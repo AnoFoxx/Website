@@ -299,6 +299,27 @@
 									echo $oszlop;
 								}
 
+								$galeria_mobil = array(
+									0 => "<div class='galeria_mobile_container'>",
+									1 => "<div class='galeria_mobile_container'>"
+								);
+
+								foreach ($apartman_dir_path_array as $dir) {
+									foreach (list_images($dir) as $image) {
+										$i = $i % 2;
+										$galeria_mobil[$i] .= "<img  class='galeria_img lazy_toltes wid' src='$image'>";
+										$i++;
+									}
+								}
+
+								$galeria_mobil[0] .= "</div>";
+								$galeria_mobil[1] .= "</div>";
+
+								foreach ($galeria_mobil as $oszlop) {
+									echo $oszlop;
+								}
+		
+
 							 ?>
 						</div>
 					</div>
