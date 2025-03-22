@@ -41,7 +41,12 @@ img{
 .lazy_toltes.betoltott{
 	opacity: 1;
 }
-
+#settings_full{
+	display: none !important;
+}
+#settings{
+	display: none;
+}
 #oldalso{
 	left: 0;
 	position: fixed;
