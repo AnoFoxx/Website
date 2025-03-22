@@ -30,7 +30,11 @@ $(document).ready(function() {
 			document.body.appendChild(script);
 		}
 	}
+	$("#settings").click(function(){
+		$("#settings").css("display","none");
+		$("#settings_full").show(500);
 
+	})
 	
 	//side-bar lenyitás és becsukás
 	$("#lenyulo").click(function(){
