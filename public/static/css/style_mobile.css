@@ -54,6 +54,32 @@
 		scroll-snap-align: unset;
 		scroll-snap-stop: normal;
 	}
+	#settings_full{
+		z-index: 10;
+		position: fixed;
+		flex-direction: column;
+		background-color: transparent;
+	}
+	#settings_header{
+		width: 50%;
+		height: 100px;
+	}
+	#settings_iksz{
+		margin-right: 10px;
+		background-color: rgba(0,0,0,0.6);
+		right: 0;
+		position: fixed;
+		z-index:3;
+		width: 100px;
+		height: 100px;
+		font-size: 90px;
+		font-family: sans-serif;
+		color: white;
+	}
+	#settings_iksz:after{
+		margin-top: -12px;
+		content: "\0078"; 
+	}
 	#felirat{
 		font-size: 	40px;
 	}
@@ -100,9 +126,7 @@
 		display: none;
 	}
 	#settings{
-		display: flex !important;
-		justify-content: center;
-		align-items: center;
+		display: flex;
 		width: 80px;
 		height: 80px;
 		color: lightgrey;
