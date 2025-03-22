@@ -61,6 +61,14 @@
 	<div class="galeria_background" style="display:none; z-index: 3;">
 		<img src="" class="galeria_big_img" style="z-index:3;">
 	</div>
+	<div id="settings_full" style="display:none;" class="wid-vw hei-vh flex">
+		<div id="settings_header">
+			<div class="j-center a-i-center flex" id="settings_iksz"></div>
+		</div>
+		<div id="settings_body">
+			
+		</div>
+	</div>
 	<div id="full" style="z-index: 1;" class="flex j-center a-i-center wid-vw hei-vh">
 		<div id="oldalso">
 			<div id="lenyulo" class="flex j-center a-i-center">
@@ -97,7 +105,7 @@
 					<div id="second_half" class="flex a-i-center">
 
 						<div>
-							<div id="settings" style="display: none;">
+							<div id="settings" class="j-cetner a-i-center">
 								<span id="kerek">
 									<img src="static/images/settings_gear.png">
 								</span>
