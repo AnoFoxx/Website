@@ -234,9 +234,9 @@
 		height: 50%;
 		transition: height 0.3s ease;
 	}
-	#galeria_scroll .nyomott{
+	#galeria_scroll.nyomott{
 		height: 80% !important;
-		transition: height 0.3s ease;
+		transition: rotate() 0.3s ease;
 	}
 	#galeria_nyil{
 		width: 100%;
@@ -251,12 +251,12 @@
 	#galeria_nyil span{
 		color: white;
 		font-size: 40px;
-		transform: scaleX(3) rotate(90deg);
+		transform: translateX(8px) scaleX(3) rotate(90deg) !important;
 	}
-	#galeria_nyil .nyomott span{
+	#galeria_nyil.nyomott span{
 		color: white;
 		font-size: 40px;
-		transform: scaleX(3) rotate(-90deg);
+		transform: translateX(-8px) scaleX(3) rotate(-90deg) !important;
 	}
 	.arrows{
 		display: none;
