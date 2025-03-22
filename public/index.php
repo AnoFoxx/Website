@@ -16,7 +16,7 @@
 	<meta name="description" content="ChillOut Apartman's official website">
 	<meta name="keywords" content="chill, chillout, apartman, Hajdúszoboszló, ChillOut-Hajdúszoboszló, Tinódi, Tinódi utca">
 	<meta name="author" content="Papp Bence Attila, Hőzső Attila Pál">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style_mobile.css">
 	<!-- Pre load images START -->
@@ -51,6 +51,7 @@
 	<script src="scripts/js/img_load.js"></script>
 	<script src="scripts/js/main.js"></script>
 	<script src="scripts/js/nyelv.js"></script>
+	<script src="scripts/js/carousel_image.js"></script>
 	<title>ChillOut</title>
 <script>
 
@@ -87,7 +88,7 @@
 					<div id="bc" class="absol wid"></div>
 
 					<div id="first_half" class="flex a-i-center">
-						<div id="logo">
+						<div id="logo" style="background-color: rgba(0, 0, 0, 0);">
 							<div style="background-image: url(static\\images\\madar_logo.svg);background-color: none;background-repeat: no-repeat;background-position: center;background-size: cover;width: 100%;height: 100%;transform: rotate(20deg) scaleX(-1);"></div>
 						</div>
 						<div id="felirat" class="j-center a-i-center">ChillOut.hu</div>
@@ -135,13 +136,12 @@
 				<div class="accent-bg"></div>
 				<div id="apartmanok-bg" class="wid-vw hei-vh"></div>
 				<div id="apartman_tinodi" class="apartman flex j-center">
-					<!--<div style="display: block;background-color: rgba(0,0,0,0.3);" class="apartman_bg wid hei absol" ></div>Hover megoldása-->
 					<div class="felirat flex j-center a-i-center wid" style="z-index:2;"data-key="tinodi-felirat">Tinódi Apartman</div>
 					
 					<div style="background-image: url(static\\images\\apartman_1_kepek\\tinodi_0.svg);background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;" class="apartman_div wid hei">
 
 						<div id="tinodi_div" class="apartman_div_tav flex a-i-center wid hei">	
-							<div class="wid flex" style="height:50%;">
+							<div class="left_top flex">
 								<div class="apartman_div_box flex relat hei a-i-center j-center accent_hide" style="display:none;">
 									<button class="bal_nyil">&#10094;</button>
 									<div id="tinodi_kep_show" class="mozgo_kep accent_hide point">
@@ -155,13 +155,13 @@
 								</div>
 
 								<div class="apartman_div_leir hei accent_hide">
-									<div style="width:100%;height: 50%;">
+									<div class="leiras">
 										<span data-key="tinodi-leir">blu blu</span>
 									</div>
 								</div>
 							</div>
 
-							<div style="height: 50%;" class="wid flex relat accent_hide">
+							<div class="right_bottom flex relat accent_hide">
 								<div class="apartman_div_box hei flex a-i-center j-center">
 									<div id="tinodi_terkep" class="a-i-center j-center terkep flex relat accent_hide">
 										<div style="width:100%;aspect-ratio:1/1;">
@@ -177,6 +177,9 @@
 									</div>
 								</div>
 							</div>
+							<div class="apartman_gomb" id="tinodi_gomb" style="width:100%;height:15%">
+								<input type="button">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -185,7 +188,7 @@
 					<div class="felirat flex j-center a-i-center wid"data-key="chill-felirat">Chill Apartman</div>
 					<div style="background-image: url(static\\images\\apartman_2_kepek\\chill_0.svg);background-size: cover;background-repeat: no-repeat;background-position: 10%; display: flex;" class="apartman_div wid hei">
 						<div id="garazs_div" class="apartman_div_tav flex a-i-center wid hei">	
-							<div class="wid flex" style="height:50%;">
+							<div class="left_top flex">
 								<div class="apartman_div_box flex relat hei a-i-center j-center accent_hide" style="display:none;">
 									<button class="bal_nyil">&#10094;</button>
 									<div id="garazs_kep" class="mozgo_kep accent_hide point">
@@ -201,13 +204,13 @@
 								</div>
 
 								<div class="apartman_div_leir hei accent_hide">
-									<div style="width:100%;height: 50%;">
+									<div class="leiras">
 										<span data-key="chill-leir">blu blu</span>
 									</div>
 								</div>
 							</div>
 
-							<div style="height: 50%;" class="wid flex relat accent_hide">
+							<div class="right_bottom flex relat accent_hide">
 								<div class="apartman_div_box hei flex a-i-center j-center">
 									<div id="chill_terkep" class="a-i-center j-center terkep flex relat accent_hide">
 										<div style="width:100%;aspect-ratio:1/1;">
@@ -223,6 +226,9 @@
 									</div>
 								</div>
 							</div>
+							<div class="apartman_gomb" id="chill_gomb" style="width:100%;height:15%">
+								<input type="button">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -231,7 +237,7 @@
 
 			<!-- Elérhetőségek -->
 			<div id="informacio" class="scroll_pont flex relat wid hei-vh">
-				<img src="static/images/cool-background_2.png" class="wid hei absol" style="z-index:0;">
+				<img src="static/images/info-bg.png" class="wid hei absol" style="z-index:0;">
 				<div id="belso_eler" style="z-index:1;" class="flex wid">
 					<div id="info_felirat" class="flex j-center a-i-center wid">
 						<h1 data-key="info-felirat">Az apartmanokról</h1>
@@ -242,16 +248,16 @@
 								bla bla bla bla bla bla
 							</div>
 						</div>
-						<div  id="teszt_2" class="flex j-center a-i-center hei">
-							<div class="info_apart flex relat hei">
-								<div class="info_hatter absol wid hei" style="background-color:rgba(232,89,217,1.0);	border-radius: 50px 0 0 50px;filter: drop-shadow(-2mm 1mm 4mm rgba(232,89,217,1.0))"></div>
+						<div	id="teszt_2" class="j-center a-i-center">
+							<div class="info_apart flex relat">
+								<div id="tinodi_info" class="info_hatter absol wid hei"></div>
 								<div class="info_apart_felirat flex j-center a-i-center wid">
 									<h4 data-key="tinodi-info-leir">Tinódi Apartman</h4>
 								</div>
 								<div class="info_apart_elerheto wid"></div>
 							</div>
 							<div class="info_apart flex relat hei">
-								<div class="info_hatter absol wid hei" style="background-color: rgba(77,98,180,1.0);	border-radius: 0 50px 50px 0;filter: drop-shadow(2mm 1mm 4mm rgba(77,98,180,1.0))"></div>
+								<div id="chill_info" class="info_hatter absol wid hei"></div>
 								<div class="info_apart_felirat flex j-center a-i-center wid">
 									<h4 data-key="chill-info-leir">Chill Apartman</h4>
 								</div>
@@ -264,7 +270,7 @@
 			<div id="galeria" class="scroll_pont flex relat wid hei-vh">
 
 				<div style="width: 100%;height: 100%;display: flex;justify-content: center;">
-					<img src="static/images/cool-background.png" class="wid hei absol" style="filter: blur(2px);">
+					<img src="static/images/galeria-bg.png" class="wid hei absol" style="filter: blur(2px);">
 					<div id="galeria_body" class="j-center a-i-center flex">
 						<div id="galeria_felirat" class="j-center a-i-center flex wid">
 							<h1 data-key="galeria">Galéria</h1>
@@ -284,7 +290,7 @@
 								foreach ($apartman_dir_path_array as $dir) {
 									foreach (list_images($dir) as $image) {
 										$i = $i % 4;
-										$galeria_oszlop[$i] .= "<img  class='galeria_img lazy_toltes wid' src='$image'>";
+										$galeria_oszlop[$i] .= "<img	class='galeria_img lazy_toltes wid' src='$image'>";
 										$i++;
 									}
 								}
@@ -307,7 +313,7 @@
 								foreach ($apartman_dir_path_array as $dir) {
 									foreach (list_images($dir) as $image) {
 										$i = $i % 2;
-										$galeria_mobil[$i] .= "<img  class='galeria_img lazy_toltes wid' src='$image'>";
+										$galeria_mobil[$i] .= "<img	class='galeria_img lazy_toltes wid' src='$image'>";
 										$i++;
 									}
 								}
@@ -322,102 +328,102 @@
 
 							 ?>
 						</div>
+						<div id="galeria_nyil">
+							<span>&#10148;</span>
+						</div>
 					</div>
 				</div>
 				
 			</div>
-			<div id="ertekeles" class="scroll_pont flex wid hei-vh">
-			    <div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
-			        <h1 data-key="ertekeles">Értékelések</h1>
+			<div id="ertekeles" class="scroll_pont flex wid hei-vh" style="background-image:url(static/images/ertekeles-bg.jpg);">
+					<div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
+							<h1 data-key="ertekeles">Értékelések</h1>
 
-			        <div id="ertekeles_body" class="flex a-c-center j-center wid">
-			            <div id="ertekeles_sor" class="flex j-center a-i-center wid">
-			            <!-- SABLON
-			            	<div class="ertekeles_elem">
-			            		<div class="ertekeles_fejlec flex wid">
-			            			<span class="ertekeles_nev ertekeles_margin">Név</span>
-			            			<span class="ertekeles_datedate ertekeles_margin">Dátum</span>
-			            		</div>
-			            		<div class="ertekeles_rate flex wid j-center a-i-center">
-			            			Ide lesz behúzva a csillagok
-			            		</div>
-			            		<div class="ertekeles_szoveg flex wid j-center a-i-center">
-			            			<span>Szöveg</span>
-			            		</div>
-			            	</div>
-			            -->
+							<div id="ertekeles_body" class="flex a-c-center wid">
+									<div id="ertekeles_sor" class="flex j-center a-i-center wid">
+									<!-- SABLON
+										<div class="ertekeles_elem">
+											<div class="ertekeles_fejlec flex wid">
+												<span class="ertekeles_nev ertekeles_margin">Név</span>
+												<span class="ertekeles_datedate ertekeles_margin">Dátum</span>
+											</div>
+											<div class="ertekeles_rate flex wid j-center a-i-center">
+												Ide lesz behúzva a csillagok
+											</div>
+											<div class="ertekeles_szoveg flex wid j-center a-i-center">
+												<span>Szöveg</span>
+											</div>
+										</div>
+									-->
 
-			                <div class="ertekeles_elem">
+											<div class="ertekeles_elem">
 
-			                    <div class="ertekeles_fejlec flex wid">
-			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
-			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
-			                    </div>
+													<div class="ertekeles_fejlec flex wid">
+															<span class="ertekeles_nev ertekeles_margin">Név</span>
+															<span class="ertekeles_date ertekeles_margin">Dátum</span>
+													</div>
 
-			                    <div class="ertekeles_rate flex wid j-center a-i-center">
-			                        csillagok
-			                    </div>
+													<div class="ertekeles_rate flex wid j-center a-i-center">
+															csillagok
+													</div>
 
-			                    <div class="ertekeles_szoveg flex wid j-center a-i-center">
-			                        <span>szöveg</span>
-			                    </div>
+													<div class="ertekeles_szoveg flex wid j-center a-i-center">
+															<span>szöveg</span>
+													</div>
 
-			                </div>
-
-
+											</div>
 
 
-			                <div class="ertekeles_elem">
-			                    <div class="ertekeles_fejlec flex wid">
-			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
-			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
-			                    </div>
-			                    <div class="ertekeles_rate flex wid j-center a-i-center">
-			                        csillagok
-			                    </div>
-			                    <div class="ertekeles_szoveg flex wid j-center a-i-center">
-			                        <span>szöveg</span>
-			                    </div>
-			                </div>
 
-			                <div class="ertekeles_elem">
-			                    <div class="ertekeles_fejlec flex wid">
-			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
-			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
-			                    </div>
-			                    <div class="ertekeles_rate flex wid j-center a-i-center">
-			                        csillagok
-			                    </div>
-			                    <div class="ertekeles_szoveg flex wid j-center a-i-center">
-			                        <span>szöveg</span>
-			                    </div>
-			                </div>
-			                <div class="ertekeles_elem">
-			                    <div class="ertekeles_fejlec flex wid">
-			                        <span class="ertekeles_nev ertekeles_margin">Név</span>
-			                        <span class="ertekeles_date ertekeles_margin">Dátum</span>
-			                    </div>
-			                    <div class="ertekeles_rate flex wid j-center a-i-center">
-			                        csillagok
-			                    </div>
-			                    <div class="ertekeles_szoveg flex wid j-center a-i-center">
-			                        <span>szöveg</span>
-			                    </div>
-			                </div>
-			            </div>
 
-			            <!-- Arrows for navigation -->
-			            <div id="ertekeles_nyilak" class="arrows">
-			                <span id="prev_review" class="nyil">←</span>
-			                <span id="next_review" class="nyil">→</span>
-			            </div>
-			        </div>
-			    </div>
+											<div class="ertekeles_elem">
+													<div class="ertekeles_fejlec flex wid">
+															<span class="ertekeles_nev ertekeles_margin">Név</span>
+															<span class="ertekeles_date ertekeles_margin">Dátum</span>
+													</div>
+													<div class="ertekeles_rate flex wid j-center a-i-center">
+															csillagok
+													</div>
+													<div class="ertekeles_szoveg flex wid j-center a-i-center">
+															<span>szöveg</span>
+													</div>
+											</div>
+
+											<div class="ertekeles_elem">
+													<div class="ertekeles_fejlec flex wid">
+															<span class="ertekeles_nev ertekeles_margin">Név</span>
+															<span class="ertekeles_date ertekeles_margin">Dátum</span>
+													</div>
+													<div class="ertekeles_rate flex wid j-center a-i-center">
+															csillagok
+													</div>
+													<div class="ertekeles_szoveg flex wid j-center a-i-center">
+															<span>szöveg</span>
+													</div>
+											</div>
+											<div class="ertekeles_elem">
+													<div class="ertekeles_fejlec flex wid">
+															<span class="ertekeles_nev ertekeles_margin">Név</span>
+															<span class="ertekeles_date ertekeles_margin">Dátum</span>
+													</div>
+													<div class="ertekeles_rate flex wid j-center a-i-center">
+															csillagok
+													</div>
+													<div class="ertekeles_szoveg flex wid j-center a-i-center">
+															<span>szöveg</span>
+													</div>
+											</div>
+									</div>
+
+									<!-- Arrows for navigation -->
+									<div id="ertekeles_nyilak" class="arrows">
+											<span id="prev_review" class="nyil">←</span>
+											<span id="next_review" class="nyil">→</span>
+									</div>
+							</div>
+					</div>
 			</div>
 
-
-			<script src="scripts/js/carousel.js"></script>
-			<script src="scripts/js/carousel_mobile.js"></script>
 			</div>
 		</div>
 <?php 
