@@ -328,7 +328,7 @@
 
 							 ?>
 						</div>
-						<div id="galeria_nyil">
+						<div id="galeria_nyil" class="flex wid j-center a-i-center">
 							<span>&#10148;</span>
 						</div>
 					</div>
