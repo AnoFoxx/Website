@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 20. 13:01
--- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 7.3.31
+-- Létrehozás ideje: 2025. Már 22. 17:30
+-- Kiszolgáló verziója: 10.4.25-MariaDB
+-- PHP verzió: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,6 +43,25 @@ INSERT INTO `apartman` (`id`, `nev`, `cim`, `kapacitas`) VALUES
 (2, 'apartman2', 'Bartók Béla utca 14.', 8),
 (3, 'apartman3', 'Tinódi utca 9.', 6);
 
+--
+-- Eseményindítók `apartman`
+--
+DELIMITER $$
+CREATE TRIGGER `log_apartman_delete` AFTER DELETE ON `apartman` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "apartman", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_apartman_insert` AFTER INSERT ON `apartman` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "apartman", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_apartman_update` AFTER UPDATE ON `apartman` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "apartman", NOW())
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +74,25 @@ CREATE TABLE `ertekeles` (
   `ertekeles` int(11) NOT NULL,
   `datum` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- Eseményindítók `ertekeles`
+--
+DELIMITER $$
+CREATE TRIGGER `log_ertekeles_delete` AFTER DELETE ON `ertekeles` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "ertekeles", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_ertekeles_insert` AFTER INSERT ON `ertekeles` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "ertekeles", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_ertekeles_update` AFTER UPDATE ON `ertekeles` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "ertekeles", NOW())
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -83,6 +121,25 @@ INSERT INTO `foglalas` (`id`, `mettol`, `meddig`, `uzenet`, `verified`, `gyerekS
 (234234, '2025-03-10', '2025-03-15', 'asdasd', 0, 0, 1, 1, 1),
 (345345, '2025-03-29', '2025-04-02', 'asdasd', 0, 0, 1, 1, 1);
 
+--
+-- Eseményindítók `foglalas`
+--
+DELIMITER $$
+CREATE TRIGGER `log_foglalas_delete` AFTER DELETE ON `foglalas` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "foglalas", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_foglalas_insert` AFTER INSERT ON `foglalas` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "foglalas", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_foglalas_update` AFTER UPDATE ON `foglalas` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "foglalas", NOW())
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +165,25 @@ CREATE TABLE `foglalo` (
 INSERT INTO `foglalo` (`id`, `vezetekNev`, `utoNev`, `email`, `telefonSzam`, `szuletesIdo`, `utca_hazSzam`, `idOrszag`, `idVaros`) VALUES
 (1, 'asd', 'asd', 'asd', 'asd', '0000-00-00', 'asd', 1, 1);
 
+--
+-- Eseményindítók `foglalo`
+--
+DELIMITER $$
+CREATE TRIGGER `log_foglalo_delete` AFTER DELETE ON `foglalo` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "foglalo", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_foglalo_insert` AFTER INSERT ON `foglalo` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "foglalo", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_foglalo_update` AFTER UPDATE ON `foglalo` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "foglalo", NOW())
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +195,32 @@ CREATE TABLE `irsz` (
   `irsz` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
+--
+-- A tábla adatainak kiíratása `irsz`
+--
+
+INSERT INTO `irsz` (`id`, `irsz`) VALUES
+(1, '4150');
+
+--
+-- Eseményindítók `irsz`
+--
+DELIMITER $$
+CREATE TRIGGER `log_irsz_delete` AFTER DELETE ON `irsz` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "irsz", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_irsz_insert` AFTER INSERT ON `irsz` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "irsz", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_irsz_update` AFTER UPDATE ON `irsz` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "irsz", NOW())
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -127,10 +229,18 @@ CREATE TABLE `irsz` (
 
 CREATE TABLE `log` (
   `id` int(11) NOT NULL,
-  `message` text COLLATE utf8_hungarian_ci NOT NULL,
+  `action` text COLLATE utf8_hungarian_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `name` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
+  `user` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `table_name` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `log`
+--
+
+INSERT INTO `log` (`id`, `action`, `timestamp`, `user`, `table_name`) VALUES
+(1, 'INSERT', '2025-03-22 16:24:55', 'root@localhost', 'irsz');
 
 -- --------------------------------------------------------
 
@@ -150,6 +260,25 @@ CREATE TABLE `orszag` (
 INSERT INTO `orszag` (`id`, `nev`) VALUES
 (1, 'asd');
 
+--
+-- Eseményindítók `orszag`
+--
+DELIMITER $$
+CREATE TRIGGER `log_orszag_delete` AFTER DELETE ON `orszag` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "orszag", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_orszag_insert` AFTER INSERT ON `orszag` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "orszag", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_orszag_update` AFTER UPDATE ON `orszag` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "orszag", NOW())
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -168,6 +297,25 @@ CREATE TABLE `varos` (
 INSERT INTO `varos` (`id`, `nev`) VALUES
 (1, 'asd');
 
+--
+-- Eseményindítók `varos`
+--
+DELIMITER $$
+CREATE TRIGGER `log_varos_delete` AFTER DELETE ON `varos` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "varos", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_varos_insert` AFTER INSERT ON `varos` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "varos", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_varos_update` AFTER UPDATE ON `varos` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "varos", NOW())
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -178,6 +326,25 @@ CREATE TABLE `varos_irsz` (
   `idIrsz` int(11) NOT NULL,
   `idVaros` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- Eseményindítók `varos_irsz`
+--
+DELIMITER $$
+CREATE TRIGGER `log_varos_irsz_delete` AFTER DELETE ON `varos_irsz` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "DELETE", "varos_irsz", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_varos_irsz_insert` AFTER INSERT ON `varos_irsz` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "INSERT", "varos_irsz", NOW())
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `log_varos_irsz_update` AFTER UPDATE ON `varos_irsz` FOR EACH ROW INSERT INTO log (user, action, table_name, timestamp)
+VALUES (USER(), "UPDATE", "varos_irsz", NOW())
+$$
+DELIMITER ;
 
 --
 -- Indexek a kiírt táblákhoz
@@ -262,13 +429,13 @@ ALTER TABLE `foglalo`
 -- AUTO_INCREMENT a táblához `irsz`
 --
 ALTER TABLE `irsz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `orszag`
