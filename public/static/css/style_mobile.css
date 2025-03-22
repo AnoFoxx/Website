@@ -1,191 +1,296 @@
-@media only screen and (max-width: 1000px){
-	#fooldal,#apartmanok,#informacio,#galeria,#ertekeles{
-		scroll-snap-type: none;
+@media only screen and (max-width:900px){
+	#oldalso{
+	display: none;
+	}
+	#first_half{
+	margin-left: 0px;
+	}
+	#logo{
+	height: 80px;
+	width: 80px;
+	margin: 0px 10px 0px 0px;
 	}
 	#felirat{
-		font-size: 	40px;
+	font-size: 40px;
+	margin: 0;
 	}
-	button{
-		display: none;
+	#menu_pont_hatter{
+	width: 70px;
+	height: 70px; 
+	} 
+	#foglal{
+	width: 120px;
+	height: 80px;
+	}
+	.menu_pont_foglalas{
+	height: 60px;
+	width: 100px;
+	}
+	#teszt_2{
+	display: block;
+	}	
+	#tinodi_info{
+	border-radius: 50px 50px 0 0;
+	}
+	#chill_info{
+	border-radius: 0 0 50px 50px;
+	}
+	.info_apart{
+	width: 100%;
+	height: 50%;
+	}
+	#ertekeles_sor{
+	width: 500px;
+	}
+	#ertekeles_elem{
+	width: 500px;
+	}
+}
+@media only screen and (max-width: 600px){
+	#fooldal,#apartmanok,#informacio,#galeria,#ertekeles{
+	scroll-snap-type: initial;
+	}
+	.scroll_pont{
+	scroll-snap-align: unset;
+	scroll-snap-stop: normal;
+	}
+	#felirat{
+	font-size: 	40px;
 	}
 	.apartman_div{
-		border-radius: 0;
-	}
-	.apartman_div_box:has(.megnyomott){
-		display: flex !important;
-		justify-content: center !important;
-		align-items: center !important;
-		width: 100% !important;
-		height: 100% !important;
-	}
-	.apartman_div_box:not(.megnyomott){
-		justify-content: space-evenly;
-		width: 100%;
-		height: calc(100% / 2);
-	}
-	.foreground{
-		position: fixed;
+	border-radius: 0;
 	}
 	.apartman_div_tav{
-		width: 100%;
+	justify-content: flex-end;
+	}
+	.apartman_div_box:has(.megnyomott){
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	width: 100% !important;
+	height: 100% !important;
+	}
+	.apartman_div_box:not(.megnyomott){
+	justify-content: space-evenly;
+	width: 100%;
+	height: calc(100% / 2);
+	}
+	.foreground{
+	position: fixed;
 	}
 	.apartman_div_leir{
-		display: none;
+	height: 100%;
+	display: none;
+	width: 100%;
+	}
+	.apartman_div_leir .leiras{
+	width: 100%;
+	height: 100%;
 	}
 	.apartman{
-		border-radius: 0;
+	border-radius: 0;
 	}
 	.galeria_mobile_container{
-		display: block;
+	display: block;
 	}
 	.galeria_container{
-		display: none;
+	display: none;
 	}
 	#oldalso, #logo, .menu_pont_hatter{
-		display: none;
+	display: none;
 	}
 	#settings{
-		display: flex !important;
-		justify-content: center;
-		align-items: center;
-		width: 80px;
-		height: 80px;
-		color: lightgrey;
-		margin: 0 20px 0 20px;
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	width: 80px;
+	height: 80px;
+	color: lightgrey;
+	margin: 0 20px 0 20px;
 	}
 
 	#kerek{
-		height: 100%;
-		width: 100%;
+	height: 100%;
+	width: 100%;
 	}
 	#kerek img{
-		width: 100%;
+	width: 100%;
 	}
 	#kerek:hover{
-		animation: rotation 4s infinite linear;
+	animation: rotation 4s infinite linear;
+	}
+	.apartman_gomb{
+	display: flex;
+	background-color: rgba(0, 0, 0, 0);
 	}
 	#apartmanok{
-		display:block;
+	display:block;
 
 	}
 	.apartman{
-		width: 100%;
-		height: calc(100%/2) !important;
+	width: 100%;
+	height: calc(100%/2) !important;
+	}
+	.jobb_nyil, .bal_nyil{
+	color: gray;
+	font-size: 55px;
+	border: 0 solid transparent;
+	background-color: transparent;
+	width: 10%;
+	height: 100%;
 	}
 	.left_top{
-		flex-direction: column;
-		height: 50%;
-		width: 100%;
+	flex-direction: column;
+	height: 55%;
+	width: 100%;
+	}
+	.left_top .apartman_div_box{
+	width: 70%
 	}
 	.right_bottom{
-		flex-direction: column;
-		height: 50%;
-		width: 100%;
-	}
-	.apartman_div_leir div{
-		width: 100%;
-		height: 100%;
+	height: 30%;
+	width: 100%;
 	}
 	.foreground{
-		z-index: 100;
-		width: 100vw !important;
-		height: 100vh !important;
+	z-index: 100;
+	width: 100vw !important;
+	height: 100vh !important;
 	}
 	.background{
-		display: none;
-	}
-	.accent-bg{
-		z-index: 10;
+	display: none;
 	}
 	.accent-bg-show{
-		z-index: 10;
-		position: fixed;
-		left: calc(100% - 100px);
-		top: 0;
-		width: 90px;
-		height: 90px;
+	position: fixed;
+	left: calc(100% - 90px);
+	top: 0;
+	width: 90px;
+	height: 90px;
 	}
 	.accent-bg-show:after{
-		z-index: 10;
-		display: flex;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		justify-content: center;
-		align-items: flex-end;
-		font-family: sans-serif;
-		content: "\0078"; 
-		font-size: 90px;
+	display: flex;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	justify-content: center;
+	align-items: flex-end;
+	font-family: sans-serif;
+	content: "\0078"; 
+	font-size: 90px;
 	}
 
 	.mozgo_kep{
-		background-color: white;
-		overflow: hidden;
-		aspect-ratio: 1/1;
-		width: 80%;
+	background-color: white;
+	overflow: hidden;
+	aspect-ratio: 1/1;
+	width: 50%;
 	}
 	.terkep{
-		position: static;
-		overflow: hidden;
-		width: 80%;
+	max-height: 100%;
+	max-width: 100%;
+	position: static;
+	overflow: hidden;
+	width: 80%;
 	}
 	.terkep iframe{
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		width: 100%;
-		height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
 	}
 	#belso_eler{
-		height: 96%;
+	height: 96%;
 	}
 	#informaciok{
-		display: block;
+	display: block;
 	}
-	#teszt_1, #teszt_2{
-		width: 100%;
-		height: 50%;
+	#teszt_1{
+	width: 100%;
+	height: 45%;
+	} 
+	#teszt_2{
+	width: 100%;
+	height: 55%;
 	}
 	#leiras{
-		width: 95%;
-		height: 85%;
+	width: 95%;
+	height: 85%;
 	}
 	#info_felirat{
-		height: 10%;
+	height: 10%;
+	}
+	#info_felirat h1{
+	color: rgba(255, 255, 255, 0.8); 
+	font-size:30px;
 	}
 	#galeria_felirat{
-		position: absolute;
-		top: 0;
+	position: absolute;
+	top: 0;
+	}
+	#galeria_scroll{
+	height: 50%;
+	transition: height 0.3s ease;
+	}
+	#galeria_scroll .nyomott{
+	height: 80% !important;
+	transition: height 0.3s ease;
+	}
+	#galeria_nyil{
+	width: 100%;
+	height: 5%;
+	cursor: pointer;
+	margin-top: 20px;
+	z-index: 2;
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	}
+	#galeria_nyil span{
+	color: white;
+	font-size: 40px;
+	transform: scaleX(3) rotate(90deg);
+	}
+	#galeria_nyil .nyomott span{
+	color: white;
+	font-size: 40px;
+	transform: scaleX(3) rotate(-90deg);
 	}
 	.arrows{
-		display: none;
+	display: none;
 	}
-    #ertekeles_sor {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-        padding: 0;
-        transition: transform 0.5s ease;
-    }
+	#ertekeles h1{
+	transform: translateX(0px) !important;
+	}
+	#ertekeles_body{
+	height: 60%;
+	}
+	#ertekeles_sor {
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		height: 100vh;
+		width: 100%;
+		padding: 0;
+		transition: transform 0.5s ease;
+	}
 
-    .ertekeles_slide {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+	.ertekeles_slide {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .ertekeles_elem {
-        width: 95%;
-        height: 35vh;
-        background-color: lightblue;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-    }
+	.ertekeles_elem {
+		width: 95%;
+		height: 40vh;
+		background-color: lightblue;
+		margin-bottom: 10px;
+		box-sizing: border-box;
+		margin: 10px 10px;
+	}
 
 }
