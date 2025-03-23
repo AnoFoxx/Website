@@ -61,12 +61,19 @@
 	<div class="galeria_background" style="display:none; z-index: 3;">
 		<img src="" class="galeria_big_img" style="z-index:3;">
 	</div>
-	<div id="settings_full" style="display:none;" class="wid-vw hei-vh flex">
+	<div id="settings_full" class="wid-vw hei-vh flex">
 		<div id="settings_header">
 			<div class="j-center a-i-center flex" id="settings_iksz"></div>
 		</div>
-		<div id="settings_body">
-			
+		<div id="settings_body" class="hei">
+			<div style="position: relative;display: flex;justify-content: center;">
+				<div id="lang-container-mobile" class="wid j-center">
+					<div class="flex a-i-center">
+						<div style="width: 60px;height: 60px;"><img src="static/images/Hungary.png" class="flag-mobile"></div>
+						<span>Nyelv változtatása</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div id="full" style="z-index: 1;" class="flex j-center a-i-center wid-vw hei-vh">
@@ -109,9 +116,6 @@
 								<span id="kerek">
 									<img src="static/images/settings_gear.png">
 								</span>
-							</div>
-							<div style="display: none;">
-								
 							</div>
 						</div>
 						<div id="lang-container" class="menu_pont_hatter hover_item flex j-center a-i-center"><div id="language" class="menu_pont flex j-center a-i-center"><img class="flag" src="static/images/Hungary.png"></div></div>
