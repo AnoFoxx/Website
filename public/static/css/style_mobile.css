@@ -3,7 +3,7 @@
 		display: none;
 	}
 	#first_half{
-		margin-left: 0px;
+		margin-left: 10px;
 	}
 	#logo{
 		height: 80px;
@@ -54,13 +54,25 @@
 		scroll-snap-align: unset;
 		scroll-snap-stop: normal;
 	}
+	#settings{
+		display: flex;
+	}
 	#settings_full{
+		display: none;
+	}
+	#settings_full.act{
+		display: flex;
+		right: 0;
 		z-index: 10;
 		position: fixed;
-		flex-direction: column;
+		align-items: flex-end;
 		background-color: transparent;
 	}
 	#settings_header{
+		z-index: 10;
+		position: fixed;
+		top: 0;
+		right: 0;
 		width: 50%;
 		height: 100px;
 	}
@@ -69,7 +81,7 @@
 		background-color: rgba(0,0,0,0.6);
 		right: 0;
 		position: fixed;
-		z-index:3;
+		z-index:10;
 		width: 100px;
 		height: 100px;
 		font-size: 90px;
@@ -79,6 +91,24 @@
 	#settings_iksz:after{
 		margin-top: -12px;
 		content: "\0078"; 
+	}
+	#settings_body{
+		position: fixed;
+		padding-top: 100px;
+		top: 0;
+		right: 0;
+		width: 50%;
+		background-color: rgba(0,0,0,0.6);
+	}
+	#lang-container-mobile{
+		color: white;
+		display: flex;
+		height: 80px;
+	}
+	.flag-mobile{
+		border-radius: 60%;
+		max-width: 50px;
+		max-height: 50px;
 	}
 	#felirat{
 		font-size: 	40px;
