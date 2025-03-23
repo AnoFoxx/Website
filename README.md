@@ -5,6 +5,5 @@
 * szöveg megírása, beillesztése
 * nyelv változtatás settings
 * Képek beillesztése.
-* köszönős weboldal. 
 
 
