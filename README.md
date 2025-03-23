@@ -6,6 +6,5 @@
 * nyelv változtatás settings
 * Képek beillesztése.
 * köszönős weboldal. 
-* confimation weboldal 
 
 
