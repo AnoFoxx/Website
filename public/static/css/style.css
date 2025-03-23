@@ -42,9 +42,10 @@ img{
 	opacity: 1;
 }
 #settings_full{
-	display: none !important;
+	display: none;
 }
 #settings{
+	cursor: pointer;
 	display: none;
 }
 #oldalso{
@@ -288,9 +289,6 @@ html, body {
 	border-radius: 60%;
 	max-width: 50px;
 	max-height: 50px;
-}
-#language{
-	
 }
 #elerheto{
 	justify-content: space-evenly;
