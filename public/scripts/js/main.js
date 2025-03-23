@@ -10,31 +10,56 @@ $(document).ready(function() {
 	}
 	})
 	window.addEventListener('resize',function(){
-	if(window.innerWidth<=600){
-		$(".accent-bg").css("z-index","1000000000000");
-		$(".accent-bg-show").css("z-index","1000000000000");
-	}
-	else{
-		$(".accent-bg").css("z-index","3");
-		$(".accent-bg-show").css("z-index","3");
-	}
-	})
-
-	loadUnifiedCarousel();
-
-	// No more dynamic loading/unloading scripts
-	function loadUnifiedCarousel() {
-		if (!document.querySelector('script[src="scripts/js/carousel_ertekeles_combined.js"]')) {
-			var script = document.createElement('script');
-			script.src = 'scripts/js/carousel_ertekeles_combined.js';
-			document.body.appendChild(script);
+		if(window.innerWidth<=600){
+			$(".accent-bg").css("z-index","1000000000000");
+			$(".accent-bg-show").css("z-index","1000000000000");
 		}
-	}
-	$("#settings").click(function(){
-		$("#settings").css("display","none");
-		$("#settings_full").show(500);
-
+		else{
+			$(".accent-bg").css("z-index","3");
+			$(".accent-bg-show").css("z-index","3");
+		}
 	})
+
+	window.addEventListener('load', function () {
+
+		function updateSettingsDisplay() {
+			if ($(window).innerWidth() >= 600) {
+				$("#settings").hide();
+				$("#settings_full").hide();
+			} else {
+				if ($("#settings_full").hasClass('act')) {
+					$("#settings").hide();
+					$("#settings_full").show();
+				} else {
+					$("#settings").show();
+					$("#settings_full").hide();
+				}
+			}
+		}
+
+		updateSettingsDisplay();
+
+		if ($(window).innerWidth() < 600) {
+			$("#settings").click(function () {
+				$("#settings_full").addClass("act");
+				$(this).hide();
+				$("#settings_full").show();
+			});
+
+			$("#settings_iksz").click(function () {
+				$("#settings").show();
+				$("#settings_full").removeClass("act");
+				$("#settings_full").hide();
+			});
+		}
+
+		window.addEventListener('resize', function () {
+				updateSettingsDisplay();
+		});
+	});
+
+	
+	
 	
 	//side-bar lenyitás és becsukás
 	$("#lenyulo").click(function(){
