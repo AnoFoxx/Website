@@ -14,7 +14,7 @@
 		font-size: 40px;
 		margin: 0;
 	}
-	#menu_pont_hatter{
+	.menu_pont_hatter{
 		width: 70px;
 		height: 70px; 
 	} 
@@ -56,6 +56,10 @@
 	}
 	#settings{
 		display: flex;
+		width: 80px;
+		height: 80px;
+		color: lightgrey;
+		margin: 0 20px 0 20px;
 	}
 	#settings_full{
 		display: none;
@@ -99,16 +103,6 @@
 		right: 0;
 		width: 50%;
 		background-color: rgba(0,0,0,0.6);
-	}
-	#lang-container-mobile{
-		color: white;
-		display: flex;
-		height: 80px;
-	}
-	.flag-mobile{
-		border-radius: 60%;
-		max-width: 50px;
-		max-height: 50px;
 	}
 	#felirat{
 		font-size: 	40px;
@@ -155,14 +149,6 @@
 	#oldalso, #logo, .menu_pont_hatter{
 		display: none;
 	}
-	#settings{
-		display: flex;
-		width: 80px;
-		height: 80px;
-		color: lightgrey;
-		margin: 0 20px 0 20px;
-	}
-
 	#kerek{
 		height: 100%;
 		width: 100%;
