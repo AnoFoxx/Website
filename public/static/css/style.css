@@ -45,6 +45,7 @@ img{
 	display: none;
 }
 #settings{
+	z-index: 3;
 	cursor: pointer;
 	display: none;
 }
