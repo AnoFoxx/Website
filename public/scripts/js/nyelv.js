@@ -11,7 +11,10 @@ const loadLang = lang => {
 		})
 		.then(data => {
 			updateTextFromJson(data.content);
-            document.querySelector(".flag").src = `static/images/${data.img}`;
+            let flags = document.querySelectorAll(".flag");
+
+            for (const flag of flags) 
+            	flag.src = `static/images/${data.img}`;
 		})
 		.catch(error => {
 			console.error(`Fetch error: ${error}`);
