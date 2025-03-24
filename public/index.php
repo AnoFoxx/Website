@@ -67,10 +67,10 @@
 		</div>
 		<div id="settings_body" class="hei">
 			<div style="position: relative;display: flex;justify-content: center;">
-				<div id="lang-container-mobile" class="wid j-center">
+				<div id="lang-container" class="wid j-center">
 					<div class="flex a-i-center">
-						<div style="width: 60px;height: 60px;"><img src="static/images/Hungary.png" class="flag-mobile"></div>
-						<span>Nyelv változtatása</span>
+						<div style="width: 60px;height: 60px;display: flex;justify-content: center;align-items: center;"><img src="static/images/Hungary.png" class="flag"></div>
+						<span style="color:white;">Nyelv változtatása / Change language</span>
 					</div>
 				</div>
 			</div>
