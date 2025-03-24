@@ -1,4 +1,13 @@
 $(document).ready(function() {
+
+	$.getScript("scripts/js/carousel_ertekeles_combined.js")
+		.done(function(script, textStatus) {
+			
+		})
+		.fail(function(jqxhr, settings, exception) {
+			console.log("Failed to load carousel script.");
+		});
+
 	window.addEventListener('load',function(){
 	if(window.innerWidth<=600){
 		$(".accent-bg").css("z-index","1000000000000");
