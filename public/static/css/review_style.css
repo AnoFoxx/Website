@@ -1,0 +1,110 @@
+body{
+	margin: 0px;
+}
+header{
+	display: flex;
+	justify-content: left;
+	margin: 0;
+	position: fixed;
+	width: 100%;
+	height: 100px;
+}
+#logo{
+	flex-shrink: 0;
+	margin:10px 30px 10px 30px;
+	width: 90px;
+	height: 90px;
+}
+#felirat{
+	background: linear-gradient(90deg, rgba(255,125,179,1) 20%, rgba(0,161,223,1) 50%, rgba(123,191,13,1) 80%);
+	-webkit-background-clip: text;
+	color: transparent;
+	font-family: Berlin Sans FB, Helvetica, sans-serif;
+	margin:10px 30px 10px 30px;
+	font-size: 55px;
+}
+.szoveg{
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	color:black;
+}
+#name{
+	padding-left: 10px;
+	height: 60px;
+	border-radius: 25px;
+	width: 70%;
+}
+.elem{
+	font-size: 20px;
+	margin: 10px 10px 50px 10px;
+}
+#rating{
+	display: flex;
+	width: 100%;
+	height: 100px;
+}
+.review_box{
+	display: flex;
+}
+input[type="radio"] {
+  display: none;
+}
+.review_box{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+.star-label{
+  display: flex;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  aspect-ratio:1;
+  background: grey;
+  clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%); 
+  position: relative;
+  overflow: hidden;
+}
+
+.review_box:not(:checked)>label{
+  background-color:grey;
+}
+.review_box>input:checked ~ label{
+  background-color: rgba(242,195,0);
+}
+.review_box:not(:checked) > label:hover,
+.review_box:not(:checked) > label:hover ~ label {
+    background-color: #deb217;  
+}
+.review_box > input:checked + label:hover,
+.review_box > input:checked + label:hover ~ label,
+.review_box > input:checked ~ label:hover,
+.review_box > input:checked ~ label:hover ~ label,
+.review_box > label:hover ~ input:checked ~ label {
+    background-color: #c59b08;
+}
+
+.elem_megjegyzes{
+	height:50%; 
+	width: 100%;
+	font-size: 20px;
+	margin: 10px 10px 0 10px;
+}
+.elem_megjegyzes input[type="text"]{
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 0;
+	box-sizing: border-box;
+	border-radius: 25px;
+	line-height: 1.4;
+	height: 100%;
+	width: 100%;
+
+}
+input[type="text"]:focus {
+	outline: none;
+	border: 2px solid cyan;
+}
