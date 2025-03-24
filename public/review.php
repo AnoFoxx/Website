@@ -44,7 +44,7 @@
  					<div class="elem_megjegyzes">
  						<span>Szívesen meghallgatnánk a véleményét!</span>
  						<span>/ We would love to hear your thoughts!</span><br>
- 						<input type="text" name="comment">
+ 						<textarea id="comment"></textarea>
  					</div>
  				</form>
  			</div>
