@@ -93,18 +93,15 @@ input[type="radio"] {
 	font-size: 20px;
 	margin: 10px 10px 0 10px;
 }
-.elem_megjegyzes input[type="text"]{
+.elem_megjegyzes textarea{
+	padding-top: 10px;
 	text-align: left;
+	vertical-align: top;
 	padding-left: 10px;
-	padding-top: 0;
 	box-sizing: border-box;
 	border-radius: 25px;
 	line-height: 1.4;
 	height: 100%;
 	width: 100%;
 
-}
-input[type="text"]:focus {
-	outline: none;
-	border: 2px solid cyan;
 }
