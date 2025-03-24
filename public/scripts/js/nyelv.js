@@ -31,13 +31,16 @@ const updateTextFromJson = jsonData => {
 }
 
 window.onload = e => {
-	document.getElementById("lang-container").addEventListener("click", e => {
-		if (nyelv == nyelvek.length - 1) nyelv = 0;
-        else nyelv++;
+	let elements = document.getElementsByClassName("lang-container");
+	for (const e of elements) {
+		e.addEventListener("click", e => {
+			if (nyelv == nyelvek.length - 1) nyelv = 0;
+	        else nyelv++;
 
-        loadLang(nyelvek[nyelv]);
+	        loadLang(nyelvek[nyelv]);
 
-	});
+		})
+	}
 
 
 	loadLang(nyelvek[nyelv]);
