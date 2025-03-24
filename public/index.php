@@ -372,63 +372,59 @@
 										</div>
 									-->
 
-											<div class="ertekeles_elem">
+										<div class="ertekeles_elem">
 
-													<div class="ertekeles_fejlec flex wid">
-															<span class="ertekeles_nev ertekeles_margin">Név</span>
-															<span class="ertekeles_date ertekeles_margin">Dátum</span>
-													</div>
-
-													<div class="ertekeles_rate flex wid j-center a-i-center">
-															csillagok
-													</div>
-
-													<div class="ertekeles_szoveg flex wid j-center a-i-center">
-															<span>szöveg</span>
-													</div>
-
+											<div class="ertekeles_fejlec flex wid">
+												<span class="ertekeles_nev ertekeles_margin">Név</span>
+												<span class="ertekeles_date ertekeles_margin">Dátum</span>
 											</div>
 
-
-
-
-											<div class="ertekeles_elem">
-													<div class="ertekeles_fejlec flex wid">
-															<span class="ertekeles_nev ertekeles_margin">Név</span>
-															<span class="ertekeles_date ertekeles_margin">Dátum</span>
-													</div>
-													<div class="ertekeles_rate flex wid j-center a-i-center">
-															csillagok
-													</div>
-													<div class="ertekeles_szoveg flex wid j-center a-i-center">
-															<span>szöveg</span>
-													</div>
+											<div class="ertekeles_rate flex wid j-center a-i-center">
+												csillagok
 											</div>
 
-											<div class="ertekeles_elem">
-													<div class="ertekeles_fejlec flex wid">
-															<span class="ertekeles_nev ertekeles_margin">Név</span>
-															<span class="ertekeles_date ertekeles_margin">Dátum</span>
-													</div>
-													<div class="ertekeles_rate flex wid j-center a-i-center">
-															csillagok
-													</div>
-													<div class="ertekeles_szoveg flex wid j-center a-i-center">
-															<span>szöveg</span>
-													</div>
+											<div class="ertekeles_szoveg flex wid j-center a-i-center">
+												<span>szöveg</span>
 											</div>
-											<div class="ertekeles_elem">
-													<div class="ertekeles_fejlec flex wid">
-															<span class="ertekeles_nev ertekeles_margin">Név</span>
-															<span class="ertekeles_date ertekeles_margin">Dátum</span>
-													</div>
-													<div class="ertekeles_rate flex wid j-center a-i-center">
-															csillagok
-													</div>
-													<div class="ertekeles_szoveg flex wid j-center a-i-center">
-															<span>szöveg</span>
-												</div>
+										</div>
+
+										<div class="ertekeles_elem">
+											<div class="ertekeles_fejlec flex wid">
+												<span class="ertekeles_nev ertekeles_margin">Név</span>
+												<span class="ertekeles_date ertekeles_margin">Dátum</span>
 											</div>
+											<div class="ertekeles_rate flex wid j-center a-i-center">
+												csillagok
+											</div>
+											<div class="ertekeles_szoveg flex wid j-center a-i-center">
+												<span>szöveg</span>
+											</div>
+										</div>
+
+										<div class="ertekeles_elem">
+											<div class="ertekeles_fejlec flex wid">
+												<span class="ertekeles_nev ertekeles_margin">Név</span>
+												<span class="ertekeles_date ertekeles_margin">Dátum</span>
+											</div>
+											<div class="ertekeles_rate flex wid j-center a-i-center">
+												csillagok
+											</div>
+											<div class="ertekeles_szoveg flex wid j-center a-i-center">
+												<span>szöveg</span>
+											</div>
+										</div>
+										<div class="ertekeles_elem">
+											<div class="ertekeles_fejlec flex wid">
+												<span class="ertekeles_nev ertekeles_margin">Név</span>
+												<span class="ertekeles_date ertekeles_margin">Dátum</span>
+											</div>
+											<div class="ertekeles_rate flex wid j-center a-i-center">
+												csillagok
+											</div>
+											<div class="ertekeles_szoveg flex wid j-center a-i-center">
+												<span>szöveg</span>
+											</div>
+										</div>
 									</div>
 
 									<!-- Arrows for navigation -->
