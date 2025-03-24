@@ -31,46 +31,46 @@ $(document).ready(function() {
 
 	window.addEventListener('load', function(){
 
-			function updateSettingsDisplay(){
-					if ($(window).innerWidth() >= 600){
-							$("#settings").hide();
-							$("#settings_full").hide();
-					} else {
-							if ($("#settings_full").hasClass('act')){
-									$("#settings").hide();
-									$("#settings_full").show();
-							} else {
-									$("#settings").show();
-									$("#settings_full").hide();
-							}
-					}
+		function updateSettingsDisplay(){
+			if ($(window).innerWidth() >= 600){
+					$("#settings").hide();
+					$("#settings_full").hide();
+			} else {
+				if ($("#settings_full").hasClass('act')){
+					$("#settings").hide();
+					$("#settings_full").show();
+				} else {
+					$("#settings").show();
+					$("#settings_full").hide();
+				}
 			}
+		}
 
+		updateSettingsDisplay();
+
+		function updateMobileSettings(){
+			if ($(window).innerWidth() < 600){
+				// Kattintás csak egyszer legyenek hozzáadva
+				$("#settings").off("click").on("click", function(){
+					$("#settings_full").addClass('act');
+					$(this).hide();
+					$("#settings_full").show();
+				});
+
+				$("#settings_iksz").off("click").on("click", function(){
+					$("#settings").show();
+					$("#settings_full").removeClass('act');
+					$("#settings_full").hide();
+				});
+			}
+		}
+
+		window.addEventListener('resize', function(){
 			updateSettingsDisplay();
+			updateMobileSettings();
+		});
 
-			function updateMobileSettings(){
-					if ($(window).innerWidth() < 600){
-							// Kattintás csak egyszer legyenek hozzáadva
-							$("#settings").off("click").on("click", function(){
-									$("#settings_full").addClass('act');
-									$(this).hide();
-									$("#settings_full").show();
-							});
-
-							$("#settings_iksz").off("click").on("click", function(){
-									$("#settings").show();
-									$("#settings_full").removeClass('act');
-									$("#settings_full").hide();
-							});
-					}
-			}
-
-			window.addEventListener('resize', function(){
-					updateSettingsDisplay();
-					updateMobileSettings();
-			});
-
-		 updateMobileSettings();
+		updateMobileSettings();
 
 	});
 
