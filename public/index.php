@@ -67,7 +67,7 @@
 		</div>
 		<div id="settings_body" class="hei">
 			<div style="position: relative;display: flex;justify-content: center;">
-				<div id="lang-container" class="wid j-center">
+				<div class="lang-container wid j-center">
 					<div class="flex a-i-center">
 						<div style="width: 60px;height: 60px;display: flex;justify-content: center;align-items: center;"><img src="static/images/Hungary.png" class="flag"></div>
 						<span style="color:white;">Nyelv változtatása / Change language</span>
@@ -118,7 +118,11 @@
 								</span>
 							</div>
 						</div>
-						<div id="lang-container" class="menu_pont_hatter hover_item flex j-center a-i-center"><div id="language" class="menu_pont flex j-center a-i-center"><img class="flag" src="static/images/Hungary.png"></div></div>
+						<div class="lang-container menu_pont_hatter hover_item flex j-center a-i-center">
+							<div id="language" class="menu_pont flex j-center a-i-center">
+								<img class="flag" src="static/images/Hungary.png">
+							</div>
+						</div>
 
 						<!--Elerhetőségek-->
 						<div class="flex j-center">
@@ -347,7 +351,7 @@
 				</div>
 				
 			</div>
-			<div id="ertekeles" class="scroll_pont flex wid hei-vh" style="background-image:url(static/images/ertekeles-bg.jpg);">
+			<div id="ertekeles" class="scroll_pont flex wid hei-vh" style="background-image:url(static/images/.png);">
 					<div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
 							<h1 data-key="ertekeles">Értékelések</h1>
 
@@ -423,7 +427,7 @@
 													</div>
 													<div class="ertekeles_szoveg flex wid j-center a-i-center">
 															<span>szöveg</span>
-													</div>
+												</div>
 											</div>
 									</div>
 
