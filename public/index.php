@@ -352,7 +352,7 @@
 				</div>
 				
 			</div>
-			<div id="ertekeles" class="scroll_pont flex wid hei-vh" style="background-image:url(static/images/ertekeles-bg.png);">
+			<div id="ertekeles" class="scroll_pont flex wid hei-vh" style="background-image:url(static/images/ertekeles-bg.jpg);">
 				<div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
 						<h1 data-key="ertekeles">Értékelések</h1>
 
