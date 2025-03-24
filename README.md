@@ -3,7 +3,6 @@
 * cookie policy hu/en
 * admin panel
 * szöveg megírása, beillesztése
-* nyelv változtatás settings
 * Képek beillesztése.
 
 
