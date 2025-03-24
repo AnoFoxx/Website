@@ -52,6 +52,7 @@
 	<script src="scripts/js/main.js"></script>
 	<script src="scripts/js/nyelv.js"></script>
 	<script src="scripts/js/carousel_image.js"></script>
+	
 	<title>ChillOut</title>
 <script>
 
@@ -351,90 +352,89 @@
 				</div>
 				
 			</div>
-			<div id="ertekeles" class="scroll_pont flex wid hei-vh" style="background-image:url(static/images/.png);">
-					<div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
-							<h1 data-key="ertekeles">Értékelések</h1>
+			<div id="ertekeles" class="scroll_pont flex wid hei-vh" style="background-image:url(static/images/info-bg.png);">
+				<div class="flex j-center a-i-center" style="width: 100%; height: 100%; flex-wrap: wrap;">
+						<h1 data-key="ertekeles">Értékelések</h1>
 
-							<div id="ertekeles_body" class="flex a-c-center wid">
-									<div id="ertekeles_sor" class="flex j-center a-i-center wid">
-									<!-- SABLON
-										<div class="ertekeles_elem">
-											<div class="ertekeles_fejlec flex wid">
-												<span class="ertekeles_nev ertekeles_margin">Név</span>
-												<span class="ertekeles_datedate ertekeles_margin">Dátum</span>
-											</div>
-											<div class="ertekeles_rate flex wid j-center a-i-center">
-												Ide lesz behúzva a csillagok
-											</div>
-											<div class="ertekeles_szoveg flex wid j-center a-i-center">
-												<span>Szöveg</span>
-											</div>
-										</div>
-									-->
+						<div id="ertekeles_body" class="flex a-c-center wid">
+							<div id="ertekeles_sor" class="flex j-center a-i-center wid">
+							<!-- SABLON
+								<div class="ertekeles_elem">
+									<div class="ertekeles_fejlec flex wid">
+										<span class="ertekeles_nev ertekeles_margin">Név</span>
+										<span class="ertekeles_datedate ertekeles_margin">Dátum</span>
+									</div>
+									<div class="ertekeles_rate flex wid j-center a-i-center">
+										Ide lesz behúzva a csillagok
+									</div>
+									<div class="ertekeles_szoveg flex wid j-center a-i-center">
+										<span>Szöveg</span>
+									</div>
+								</div>
+							-->
 
-										<div class="ertekeles_elem">
-
-											<div class="ertekeles_fejlec flex wid">
-												<span class="ertekeles_nev ertekeles_margin">Név</span>
-												<span class="ertekeles_date ertekeles_margin">Dátum</span>
-											</div>
-
-											<div class="ertekeles_rate flex wid j-center a-i-center">
-												csillagok
-											</div>
-
-											<div class="ertekeles_szoveg flex wid j-center a-i-center">
-												<span>szöveg</span>
-											</div>
-										</div>
-
-										<div class="ertekeles_elem">
-											<div class="ertekeles_fejlec flex wid">
-												<span class="ertekeles_nev ertekeles_margin">Név</span>
-												<span class="ertekeles_date ertekeles_margin">Dátum</span>
-											</div>
-											<div class="ertekeles_rate flex wid j-center a-i-center">
-												csillagok
-											</div>
-											<div class="ertekeles_szoveg flex wid j-center a-i-center">
-												<span>szöveg</span>
-											</div>
-										</div>
-
-										<div class="ertekeles_elem">
-											<div class="ertekeles_fejlec flex wid">
-												<span class="ertekeles_nev ertekeles_margin">Név</span>
-												<span class="ertekeles_date ertekeles_margin">Dátum</span>
-											</div>
-											<div class="ertekeles_rate flex wid j-center a-i-center">
-												csillagok
-											</div>
-											<div class="ertekeles_szoveg flex wid j-center a-i-center">
-												<span>szöveg</span>
-											</div>
-										</div>
-										<div class="ertekeles_elem">
-											<div class="ertekeles_fejlec flex wid">
-												<span class="ertekeles_nev ertekeles_margin">Név</span>
-												<span class="ertekeles_date ertekeles_margin">Dátum</span>
-											</div>
-											<div class="ertekeles_rate flex wid j-center a-i-center">
-												csillagok
-											</div>
-											<div class="ertekeles_szoveg flex wid j-center a-i-center">
-												<span>szöveg</span>
-											</div>
-										</div>
+								<div class="ertekeles_elem">
+									<div class="ertekeles_fejlec flex wid">
+										<span class="ertekeles_nev ertekeles_margin">Név</span>
+										<span class="ertekeles_date ertekeles_margin">Dátum</span>
 									</div>
 
-									<!-- Arrows for navigation -->
-									<div id="ertekeles_nyilak" class="arrows">
-											<span id="prev_review" class="nyil">←</span>
-											<span id="next_review" class="nyil">→</span>
+									<div class="ertekeles_rate flex wid j-center a-i-center">
+										csillagok
 									</div>
+
+									<div class="ertekeles_szoveg flex wid j-center a-i-center">
+										<span>szöveg</span>
+									</div>
+								</div>
+
+								<div class="ertekeles_elem">
+									<div class="ertekeles_fejlec flex wid">
+										<span class="ertekeles_nev ertekeles_margin">Név</span>
+										<span class="ertekeles_date ertekeles_margin">Dátum</span>
+									</div>
+									<div class="ertekeles_rate flex wid j-center a-i-center">
+										csillagok
+									</div>
+									<div class="ertekeles_szoveg flex wid j-center a-i-center">
+										<span>szöveg</span>
+									</div>
+								</div>
+
+								<div class="ertekeles_elem">
+									<div class="ertekeles_fejlec flex wid">
+										<span class="ertekeles_nev ertekeles_margin">Név</span>
+										<span class="ertekeles_date ertekeles_margin">Dátum</span>
+									</div>
+									<div class="ertekeles_rate flex wid j-center a-i-center">
+										csillagok
+									</div>
+									<div class="ertekeles_szoveg flex wid j-center a-i-center">
+										<span>szöveg</span>
+									</div>
+								</div>
+								<div class="ertekeles_elem">
+									<div class="ertekeles_fejlec flex wid">
+										<span class="ertekeles_nev ertekeles_margin">Név</span>
+										<span class="ertekeles_date ertekeles_margin">Dátum</span>
+									</div>
+									<div class="ertekeles_rate flex wid j-center a-i-center">
+										csillagok
+									</div>
+									<div class="ertekeles_szoveg flex wid j-center a-i-center">
+										<span>szöveg</span>
+									</div>
+								</div>
 							</div>
+
+							<!-- Arrows for navigation -->
+							<div id="ertekeles_nyilak" class="arrows">
+								<span id="prev_review" class="nyil">←</span>
+								<span id="next_review" class="nyil">→</span>
+							</div>
+						</div>
 					</div>
-			</div>
+				</div>
 
 			</div>
 		</div>
