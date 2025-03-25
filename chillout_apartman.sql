@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 22. 17:30
--- Kiszolgáló verziója: 10.4.25-MariaDB
--- PHP verzió: 8.1.10
+-- Létrehozás ideje: 2025. Már 25. 10:36
+-- Kiszolgáló verziója: 10.4.21-MariaDB
+-- PHP verzió: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -152,7 +152,6 @@ CREATE TABLE `foglalo` (
   `utoNev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `telefonSzam` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `szuletesIdo` date NOT NULL,
   `utca_hazSzam` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `idOrszag` int(11) NOT NULL,
   `idVaros` int(11) NOT NULL
@@ -162,8 +161,8 @@ CREATE TABLE `foglalo` (
 -- A tábla adatainak kiíratása `foglalo`
 --
 
-INSERT INTO `foglalo` (`id`, `vezetekNev`, `utoNev`, `email`, `telefonSzam`, `szuletesIdo`, `utca_hazSzam`, `idOrszag`, `idVaros`) VALUES
-(1, 'asd', 'asd', 'asd', 'asd', '0000-00-00', 'asd', 1, 1);
+INSERT INTO `foglalo` (`id`, `vezetekNev`, `utoNev`, `email`, `telefonSzam`, `utca_hazSzam`, `idOrszag`, `idVaros`) VALUES
+(1, 'asd', 'asd', 'asd', 'asd', 'asd', 1, 1);
 
 --
 -- Eseményindítók `foglalo`
@@ -250,14 +249,14 @@ INSERT INTO `log` (`id`, `action`, `timestamp`, `user`, `table_name`) VALUES
 
 CREATE TABLE `orszag` (
   `id` int(11) NOT NULL,
-  `nev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
+  `orszagNev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `orszag`
 --
 
-INSERT INTO `orszag` (`id`, `nev`) VALUES
+INSERT INTO `orszag` (`id`, `orszagNev`) VALUES
 (1, 'asd');
 
 --
@@ -287,14 +286,14 @@ DELIMITER ;
 
 CREATE TABLE `varos` (
   `id` int(11) NOT NULL,
-  `nev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
+  `varosNev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `varos`
 --
 
-INSERT INTO `varos` (`id`, `nev`) VALUES
+INSERT INTO `varos` (`id`, `varosNev`) VALUES
 (1, 'asd');
 
 --
@@ -382,7 +381,8 @@ ALTER TABLE `foglalo`
 -- A tábla indexei `irsz`
 --
 ALTER TABLE `irsz`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `irsz` (`irsz`);
 
 --
 -- A tábla indexei `log`
@@ -394,13 +394,15 @@ ALTER TABLE `log`
 -- A tábla indexei `orszag`
 --
 ALTER TABLE `orszag`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nev` (`orszagNev`);
 
 --
 -- A tábla indexei `varos`
 --
 ALTER TABLE `varos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nev` (`varosNev`);
 
 --
 -- A tábla indexei `varos_irsz`
