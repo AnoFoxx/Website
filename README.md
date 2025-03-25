@@ -3,6 +3,6 @@
 * cookie policy hu/en
 * admin panel
 * szöveg megírása, beillesztése
-* Képek beillesztése.
-*foglalas megjegyzés
+* Képek beillesztése
+* foglalas megjegyzés
 
