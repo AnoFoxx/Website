@@ -15,12 +15,12 @@
  		</div>
  	</header>
  	<div style="width:100%;height: calc(100% - 100px);position: fixed;margin-top: 100px;display: flex;justify-content: center;align-items: center;">
- 		<div style="width:70%;height: 90%;border-radius: 50px; border: 2px solid grey;background-color: rgba(0,0,0,0.3);display: flex;align-items: center;flex-direction: column;">
- 			<div style="width: 70%;height: 25%;">
+ 		<div id="review-body">
+ 			<div id="szoveg-body">
  				<span class="szoveg">Köszönjük, hogy a ChillOut-ot választotta!<br>Reméljük, hogy élvezte az élményt.<br>Kérjük, ossza meg velünk véleményét, hogy még jobbá tegyük szolgáltatásainkat!</span><br>
  				<span class="szoveg">Thank you for choosing ChillOut!<br>We hope you enjoyed your experience.<br>Please share your feedback with us so we can make our services even better!</span>
  			</div>
- 			<div style="width:70%;height: 50%;">
+ 			<div id="rate-com-body">
  				<form style="width:100%;height: 100%;">
  					<div class="elem" style="width:100%;">Név/Name	<input id="name" type="text" name="name"></div>
  					<div id="rating">
