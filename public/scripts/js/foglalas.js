@@ -32,31 +32,60 @@ $(document).ready(function(){
 	})
 
 	$("#apartman_select").change(function(){
-
+		
 		var selected= $("#apartman_select option:selected");
-		if(selected.attr('id')!="default_option"){
-			$("#info_div").css({
-				"align-items":"stretch",
-				"flex-direction":"row"
-			});
-			$("#apartman_info").show();
-			if(selected.attr('id')=="apartman_1"){
-				$("#naptar").attr('src',"naptar.php?apartman=1");
-			}
-			if(selected.attr('id')=="apartman_2"){
-				$("#naptar").attr('src',"naptar.php?apartman=2");
-			}
-			if(selected.attr('id')=="apartman_2"){
-				$("#naptar").attr('src',"naptar.php?apartman=3");
+		var width=$(window).innerWidth();
+
+		function updateInfoDiv() {
+			var width = $(window).innerWidth();
+
+			if (selected.attr('id') != "default_option") {
+				$("#apartman_info").show();
+
+				if (width > 950) {
+					$("#info_div").css({
+							"align-items": "stretch",
+							"flex-direction": "row"
+					});
+
+					if (selected.attr('id') == "apartman_1") {
+							$("#naptar").attr('src', "naptar.php?apartman=1");
+					} else if (selected.attr('id') == "apartman_2") {
+							$("#naptar").attr('src', "naptar.php?apartman=2");
+					} else if (selected.attr('id') == "apartman_3") {
+							$("#naptar").attr('src', "naptar.php?apartman=3");
+					}
+				} 
+				else {
+					$("#info_div").css({
+							"align-items": "center",
+							"flex-direction": "column"
+					});
+
+					if (selected.attr('id') == "apartman_1") {
+							$("#naptar").attr('src', "naptar.php?apartman=1");
+					} else if (selected.attr('id') == "apartman_2") {
+							$("#naptar").attr('src', "naptar.php?apartman=2");
+					} else if (selected.attr('id') == "apartman_3") {
+							$("#naptar").attr('src', "naptar.php?apartman=3");
+					}
+				}
+			} 
+			else {
+				$("#naptar").attr('src', "");
+				$("#info_div").css({
+						"align-items": "center",
+						"flex-direction": "column"
+				});
+				$("#apartman_info").hide();
 			}
 		}
-		else{
-			$("#naptar").attr('src',"");
-			$("#info_div").css({
-				"align-items":"center",
-				"flex-direction":"column"
-			});
-			$("#apartman_info").hide();
-		}
+
+		updateInfoDiv();
+
+		$(window).resize(function () {
+				updateInfoDiv();
+		});
+
 	})
 })
