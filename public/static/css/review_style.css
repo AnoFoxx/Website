@@ -186,6 +186,9 @@ input[type="radio"] {
 		width:100%;
 		height: 50%;
 	}
+	.elem_megjegyzes span{
+		font-size: 15px;
+	}
 	.elem_megjegyzes textarea{
 		width: 90%;
 	}
