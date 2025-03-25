@@ -137,9 +137,9 @@
 					<div style="display:flex; justify-content:center;align-items: center;">
 						Apartman:
 						<select id="apartman_select">
-							<option id="default_option" value="-1">--Válasz apartmant--</option>
-							<option id="apartman_1" value="6">Tinódi apartman</option>
-							<option id="apartman_2" value="6">Chill apartman</option>
+							<option id="default_option" value="0">--Válasz apartmant--</option>
+							<option id="apartman_1" value="1">Tinódi apartman</option>
+							<option id="apartman_2" value="2">Chill apartman</option>
 						</select>
 					</div>
 				</div>
