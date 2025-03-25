@@ -9,7 +9,7 @@
 			$this->connection = mysqli_connect("localhost", $user, $password, "chillout_apartman");
 			$this->user = $user;
 			if (mysqli_connect_errno()) {
-				throw new Exception("Database connection error: ". mysqli_connect_errno());
+				throw new Exception("Database connection error: ". mysqli_connect_error());
 			}
 			mysqli_set_charset($this->connection, "utf8");
 		}
@@ -40,7 +40,7 @@
 				
 				foreach ($params as $key => $value) {
 					$paramTypes .= $this->get_param_type($value);
-					$paramValues[] = &$params[$key]; // reference-kell az stmt bind_param-nak
+					$paramValues[] = &$params[$key]; // reference-kell az stmt bind_param-nak azért kell a & karakter
 				}
 
 				$bindParams = array_merge([$paramTypes], $paramValues);
@@ -49,19 +49,44 @@
 
 			// Query futtatás
 			if (!$stmt->execute()) {
-				throw new Exception("Error executing query: " . $stmt->error . " (" . $this->name . ")");
+				throw new Exception("Error executing query: " . $stmt->error . " (" . $this->user . ")");
 			}
 
 			// Fetch results
-			$result = $stmt->get_result();
-			if ($result->num_rows > 0) {
-				return $result->fetch_all(MYSQLI_ASSOC);
-			} else {
-				return null;
+			if ($stmt->field_count > 0) {  // SELECT query
+				$result = $stmt->get_result();
+				if ($result && $result->num_rows > 0) {
+					$stmt->close();
+					return $result->fetch_all(MYSQLI_ASSOC);
+				} else {
+					$stmt->close();
+					return null;
+				}
+			} else {  // Nem SELECT query (INSERT, UPDATE, DELETE)
+				$affected_rows = $stmt->affected_rows;
+				$stmt->close();
+				return $affected_rows;
+
 			}
 
-			$stmt->close();
+		}
 
+		function begin_transaction() {
+			if (!$this->connection->begin_transaction()) {
+				throw new Exception("Error starting transaction: " . $this->connection->error);
+			}
+		}
+
+		function commit() {
+			if (!$this->connection->commit()) {
+				throw new Exception("Error committing transaction: " . $this->connection->error);
+			}
+		}
+
+		function rollback() {
+			if (!$this->connection->rollback()) {
+				throw new Exception("Error rolling back transaction: " . $this->connection->error);
+			}
 		}
 
 		function __destruct() {
