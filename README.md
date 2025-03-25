@@ -4,5 +4,5 @@
 * admin panel
 * szöveg megírása, beillesztése
 * Képek beillesztése.
-
+*foglalas megjegyzés
 
