@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 25. 10:36
+-- Létrehozás ideje: 2025. Már 26. 09:43
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 7.3.31
 
@@ -119,7 +119,11 @@ CREATE TABLE `foglalas` (
 INSERT INTO `foglalas` (`id`, `mettol`, `meddig`, `uzenet`, `verified`, `gyerekSzam`, `felnottSzam`, `idApartman`, `idFoglalo`) VALUES
 (1, '2025-03-22', '2025-03-25', 'asdasd', 0, 0, 1, 1, 1),
 (234234, '2025-03-10', '2025-03-15', 'asdasd', 0, 0, 1, 1, 1),
-(345345, '2025-03-29', '2025-04-02', 'asdasd', 0, 0, 1, 1, 1);
+(345345, '2025-03-29', '2025-04-02', 'asdasd', 0, 0, 1, 1, 1),
+(345351, '2025-03-27', '2025-03-29', 'asdasd', 0, 1, 2, 2, 7),
+(345352, '2025-03-27', '2025-03-29', 'nem', 0, 0, 2, 2, 8),
+(345353, '2025-03-27', '2025-03-30', 'asdasd', 0, 0, 2, 2, 9),
+(345354, '2025-03-26', '2025-03-29', 'k', 0, 0, 2, 1, 11);
 
 --
 -- Eseményindítók `foglalas`
@@ -162,7 +166,11 @@ CREATE TABLE `foglalo` (
 --
 
 INSERT INTO `foglalo` (`id`, `vezetekNev`, `utoNev`, `email`, `telefonSzam`, `utca_hazSzam`, `idOrszag`, `idVaros`) VALUES
-(1, 'asd', 'asd', 'asd', 'asd', 'asd', 1, 1);
+(1, 'asd', 'asd', 'asd', 'asd', 'asd', 1, 1),
+(7, 'asdasd', 'asdasd', 'a@gmail.com', '123123', 'asdsadasdsda', 10, 10),
+(8, 'Papp', 'Bence Attila', 'bencebence@gmail.com', '06701234567', 'Dob utca 16.', 25, 25),
+(9, 'Papp', 'Bence Attila', 'bencebence@gmail.com', '123123', 'Dobó utca 16.', 35, 35),
+(11, 'jkASJKSDK', 'LDFJKfsjdsfdkl', 'a@gmail.com', '06701234567', 'Dobó utca 16.', 35, 35);
 
 --
 -- Eseményindítók `foglalo`
@@ -191,15 +199,16 @@ DELIMITER ;
 
 CREATE TABLE `irsz` (
   `id` int(11) NOT NULL,
-  `irsz` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
+  `irszam` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `irsz`
 --
 
-INSERT INTO `irsz` (`id`, `irsz`) VALUES
-(1, '4150');
+INSERT INTO `irsz` (`id`, `irszam`) VALUES
+(25, 4150),
+(10, 10210);
 
 --
 -- Eseményindítók `irsz`
@@ -239,7 +248,29 @@ CREATE TABLE `log` (
 --
 
 INSERT INTO `log` (`id`, `action`, `timestamp`, `user`, `table_name`) VALUES
-(1, 'INSERT', '2025-03-22 16:24:55', 'root@localhost', 'irsz');
+(1, 'INSERT', '2025-03-22 16:24:55', 'root@localhost', 'irsz'),
+(33, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'orszag'),
+(34, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'varos'),
+(35, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'irsz'),
+(36, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'varos_irsz'),
+(37, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'foglalo'),
+(38, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'foglalas'),
+(67, 'DELETE', '2025-03-26 07:57:28', 'root@localhost', 'irsz'),
+(68, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'orszag'),
+(69, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'varos'),
+(70, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'irsz'),
+(71, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'varos_irsz'),
+(72, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'foglalo'),
+(73, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'foglalas'),
+(80, 'INSERT', '2025-03-26 08:04:48', 'root@localhost', 'varos_irsz'),
+(93, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'orszag'),
+(94, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'varos'),
+(95, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'varos_irsz'),
+(96, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'foglalo'),
+(97, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'foglalas'),
+(99, 'INSERT', '2025-03-26 08:22:58', 'root@localhost', 'varos_irsz'),
+(100, 'INSERT', '2025-03-26 08:22:58', 'root@localhost', 'foglalo'),
+(101, 'INSERT', '2025-03-26 08:22:58', 'root@localhost', 'foglalas');
 
 -- --------------------------------------------------------
 
@@ -257,7 +288,10 @@ CREATE TABLE `orszag` (
 --
 
 INSERT INTO `orszag` (`id`, `orszagNev`) VALUES
-(1, 'asd');
+(1, 'asd'),
+(10, 'asdasd'),
+(35, 'Magyarország'),
+(25, 'Magyarorszg');
 
 --
 -- Eseményindítók `orszag`
@@ -294,7 +328,10 @@ CREATE TABLE `varos` (
 --
 
 INSERT INTO `varos` (`id`, `varosNev`) VALUES
-(1, 'asd');
+(1, 'asd'),
+(10, 'asdasd'),
+(25, 'Pspkladny'),
+(35, 'Püspökladány');
 
 --
 -- Eseményindítók `varos`
@@ -325,6 +362,17 @@ CREATE TABLE `varos_irsz` (
   `idIrsz` int(11) NOT NULL,
   `idVaros` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `varos_irsz`
+--
+
+INSERT INTO `varos_irsz` (`idIrsz`, `idVaros`) VALUES
+(10, 10),
+(25, 25),
+(25, 25),
+(25, 35),
+(25, 35);
 
 --
 -- Eseményindítók `varos_irsz`
@@ -382,7 +430,7 @@ ALTER TABLE `foglalo`
 --
 ALTER TABLE `irsz`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `irsz` (`irsz`);
+  ADD UNIQUE KEY `irsz` (`irszam`);
 
 --
 -- A tábla indexei `log`
@@ -419,37 +467,37 @@ ALTER TABLE `varos_irsz`
 -- AUTO_INCREMENT a táblához `foglalas`
 --
 ALTER TABLE `foglalas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345346;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345355;
 
 --
 -- AUTO_INCREMENT a táblához `foglalo`
 --
 ALTER TABLE `foglalo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT a táblához `irsz`
 --
 ALTER TABLE `irsz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT a táblához `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT a táblához `orszag`
 --
 ALTER TABLE `orszag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT a táblához `varos`
 --
 ALTER TABLE `varos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Megkötések a kiírt táblákhoz
