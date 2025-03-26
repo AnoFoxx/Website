@@ -50,10 +50,13 @@ $(document).ready(function(){
 
 					if (selected.attr('id') == "apartman_1") {
 							$("#naptar").attr('src', "naptar.php?apartman=1");
+							$("apartman").val("1");
 					} else if (selected.attr('id') == "apartman_2") {
 							$("#naptar").attr('src', "naptar.php?apartman=2");
+							$("apartman").val("2");
 					} else if (selected.attr('id') == "apartman_3") {
 							$("#naptar").attr('src', "naptar.php?apartman=3");
+							$("apartman").val("3");
 					}
 				} 
 				else {
@@ -64,10 +67,13 @@ $(document).ready(function(){
 
 					if (selected.attr('id') == "apartman_1") {
 							$("#naptar").attr('src', "naptar.php?apartman=1");
+							$("apartman").val("1");
 					} else if (selected.attr('id') == "apartman_2") {
 							$("#naptar").attr('src', "naptar.php?apartman=2");
+							$("apartman").val("2");
 					} else if (selected.attr('id') == "apartman_3") {
 							$("#naptar").attr('src', "naptar.php?apartman=3");
+							$("apartman").val("3");
 					}
 				}
 			} 
