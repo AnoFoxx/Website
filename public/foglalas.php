@@ -141,6 +141,7 @@
 							<option id="apartman_1" value="1">Tinódi apartman</option>
 							<option id="apartman_2" value="2">Chill apartman</option>
 						</select>
+						<input type="hidden" name="apartman" id="apartman">
 					</div>
 				</div>
 			</div>
