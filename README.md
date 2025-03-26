@@ -5,4 +5,5 @@
 * szöveg megírása, beillesztése
 * Képek beillesztése
 * foglalas megjegyzés
-
+* foglalas utan thanks
+* arazas (brutto/netto)
