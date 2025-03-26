@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 26. 09:43
--- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 7.3.31
+-- Létrehozás ideje: 2025. Már 26. 12:20
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `apartman` (
   `id` int(11) NOT NULL,
-  `nev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `cim` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `nev` varchar(255) NOT NULL,
+  `cim` varchar(255) NOT NULL,
   `kapacitas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -70,7 +70,7 @@ DELIMITER ;
 
 CREATE TABLE `ertekeles` (
   `idFoglalas` int(11) NOT NULL,
-  `tartalom` text COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `tartalom` text DEFAULT NULL,
   `ertekeles` int(11) NOT NULL,
   `datum` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -104,26 +104,13 @@ CREATE TABLE `foglalas` (
   `id` int(11) NOT NULL,
   `mettol` date NOT NULL,
   `meddig` date NOT NULL,
-  `uzenet` text COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `uzenet` text DEFAULT NULL,
   `verified` tinyint(4) NOT NULL,
   `gyerekSzam` int(11) NOT NULL,
   `felnottSzam` int(11) NOT NULL,
   `idApartman` int(11) NOT NULL,
   `idFoglalo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `foglalas`
---
-
-INSERT INTO `foglalas` (`id`, `mettol`, `meddig`, `uzenet`, `verified`, `gyerekSzam`, `felnottSzam`, `idApartman`, `idFoglalo`) VALUES
-(1, '2025-03-22', '2025-03-25', 'asdasd', 0, 0, 1, 1, 1),
-(234234, '2025-03-10', '2025-03-15', 'asdasd', 0, 0, 1, 1, 1),
-(345345, '2025-03-29', '2025-04-02', 'asdasd', 0, 0, 1, 1, 1),
-(345351, '2025-03-27', '2025-03-29', 'asdasd', 0, 1, 2, 2, 7),
-(345352, '2025-03-27', '2025-03-29', 'nem', 0, 0, 2, 2, 8),
-(345353, '2025-03-27', '2025-03-30', 'asdasd', 0, 0, 2, 2, 9),
-(345354, '2025-03-26', '2025-03-29', 'k', 0, 0, 2, 1, 11);
 
 --
 -- Eseményindítók `foglalas`
@@ -152,25 +139,14 @@ DELIMITER ;
 
 CREATE TABLE `foglalo` (
   `id` int(11) NOT NULL,
-  `vezetekNev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `utoNev` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `telefonSzam` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `utca_hazSzam` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `vezetekNev` varchar(255) NOT NULL,
+  `utoNev` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefonSzam` varchar(255) NOT NULL,
+  `utca_hazSzam` varchar(255) NOT NULL,
   `idOrszag` int(11) NOT NULL,
   `idVaros` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `foglalo`
---
-
-INSERT INTO `foglalo` (`id`, `vezetekNev`, `utoNev`, `email`, `telefonSzam`, `utca_hazSzam`, `idOrszag`, `idVaros`) VALUES
-(1, 'asd', 'asd', 'asd', 'asd', 'asd', 1, 1),
-(7, 'asdasd', 'asdasd', 'a@gmail.com', '123123', 'asdsadasdsda', 10, 10),
-(8, 'Papp', 'Bence Attila', 'bencebence@gmail.com', '06701234567', 'Dob utca 16.', 25, 25),
-(9, 'Papp', 'Bence Attila', 'bencebence@gmail.com', '123123', 'Dobó utca 16.', 35, 35),
-(11, 'jkASJKSDK', 'LDFJKfsjdsfdkl', 'a@gmail.com', '06701234567', 'Dobó utca 16.', 35, 35);
 
 --
 -- Eseményindítók `foglalo`
@@ -203,14 +179,6 @@ CREATE TABLE `irsz` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
--- A tábla adatainak kiíratása `irsz`
---
-
-INSERT INTO `irsz` (`id`, `irszam`) VALUES
-(25, 4150),
-(10, 10210);
-
---
 -- Eseményindítók `irsz`
 --
 DELIMITER $$
@@ -237,40 +205,11 @@ DELIMITER ;
 
 CREATE TABLE `log` (
   `id` int(11) NOT NULL,
-  `action` text COLLATE utf8_hungarian_ci NOT NULL,
+  `action` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
-  `table_name` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
+  `user` varchar(255) NOT NULL,
+  `table_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `log`
---
-
-INSERT INTO `log` (`id`, `action`, `timestamp`, `user`, `table_name`) VALUES
-(1, 'INSERT', '2025-03-22 16:24:55', 'root@localhost', 'irsz'),
-(33, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'orszag'),
-(34, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'varos'),
-(35, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'irsz'),
-(36, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'varos_irsz'),
-(37, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'foglalo'),
-(38, 'INSERT', '2025-03-26 07:41:19', 'root@localhost', 'foglalas'),
-(67, 'DELETE', '2025-03-26 07:57:28', 'root@localhost', 'irsz'),
-(68, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'orszag'),
-(69, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'varos'),
-(70, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'irsz'),
-(71, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'varos_irsz'),
-(72, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'foglalo'),
-(73, 'INSERT', '2025-03-26 07:57:34', 'root@localhost', 'foglalas'),
-(80, 'INSERT', '2025-03-26 08:04:48', 'root@localhost', 'varos_irsz'),
-(93, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'orszag'),
-(94, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'varos'),
-(95, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'varos_irsz'),
-(96, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'foglalo'),
-(97, 'INSERT', '2025-03-26 08:20:54', 'root@localhost', 'foglalas'),
-(99, 'INSERT', '2025-03-26 08:22:58', 'root@localhost', 'varos_irsz'),
-(100, 'INSERT', '2025-03-26 08:22:58', 'root@localhost', 'foglalo'),
-(101, 'INSERT', '2025-03-26 08:22:58', 'root@localhost', 'foglalas');
 
 -- --------------------------------------------------------
 
@@ -280,18 +219,8 @@ INSERT INTO `log` (`id`, `action`, `timestamp`, `user`, `table_name`) VALUES
 
 CREATE TABLE `orszag` (
   `id` int(11) NOT NULL,
-  `orszagNev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
+  `orszagNev` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `orszag`
---
-
-INSERT INTO `orszag` (`id`, `orszagNev`) VALUES
-(1, 'asd'),
-(10, 'asdasd'),
-(35, 'Magyarország'),
-(25, 'Magyarorszg');
 
 --
 -- Eseményindítók `orszag`
@@ -320,18 +249,8 @@ DELIMITER ;
 
 CREATE TABLE `varos` (
   `id` int(11) NOT NULL,
-  `varosNev` varchar(255) COLLATE utf8_hungarian_ci DEFAULT NULL
+  `varosNev` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `varos`
---
-
-INSERT INTO `varos` (`id`, `varosNev`) VALUES
-(1, 'asd'),
-(10, 'asdasd'),
-(25, 'Pspkladny'),
-(35, 'Püspökladány');
 
 --
 -- Eseményindítók `varos`
@@ -362,17 +281,6 @@ CREATE TABLE `varos_irsz` (
   `idIrsz` int(11) NOT NULL,
   `idVaros` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `varos_irsz`
---
-
-INSERT INTO `varos_irsz` (`idIrsz`, `idVaros`) VALUES
-(10, 10),
-(25, 25),
-(25, 25),
-(25, 35),
-(25, 35);
 
 --
 -- Eseményindítók `varos_irsz`
@@ -467,37 +375,37 @@ ALTER TABLE `varos_irsz`
 -- AUTO_INCREMENT a táblához `foglalas`
 --
 ALTER TABLE `foglalas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345355;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345357;
 
 --
 -- AUTO_INCREMENT a táblához `foglalo`
 --
 ALTER TABLE `foglalo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT a táblához `irsz`
 --
 ALTER TABLE `irsz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT a táblához `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT a táblához `orszag`
 --
 ALTER TABLE `orszag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT a táblához `varos`
 --
 ALTER TABLE `varos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Megkötések a kiírt táblákhoz
