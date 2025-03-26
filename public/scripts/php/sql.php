@@ -63,10 +63,9 @@
 					return null;
 				}
 			} else {  // Nem SELECT query (INSERT, UPDATE, DELETE)
-				$affected_rows = $stmt->affected_rows;
+				$last_insert_id = mysqli_insert_id($this->connection);
 				$stmt->close();
-				return $affected_rows;
-
+				return $last_insert_id;
 			}
 
 		}
