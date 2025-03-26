@@ -9,9 +9,9 @@
 
 		// Ha email, megengedjük @ szimbólumt
 		if ($is_email)
-			$data = preg_replace("/[^a-zA-Z0-9\s\.,!?\-@]/", "", $data);
+			$data = preg_replace("/[^a-zA-Z0-9\s\.,!?\-@öüóőúéáűíÖÜÓŐÚÁÉŰÍ]/", "", $data);
 		else
-			$data = preg_replace("/[^a-zA-Z0-9\s\.,!?\-]/", "", $data);
+			$data = preg_replace("/[^a-zA-Z0-9\s\.,!?\-öüóőúéáűíÖÜÓŐÚÉÁŰÍ]]/", "", $data);
 
 		return $data;
 	}
@@ -92,36 +92,74 @@
 		$sql_query->begin_transaction();
 
 		// Insert ország
-		$sql = "INSERT INTO orszag (orszagNev) VALUES (?) ON DUPLICATE KEY UPDATE nev = nev;";
-		$params = [ $adatok['orszag'] ];
-		$sql_query->query($sql, $params);
+		$sql = "INSERT INTO orszag (orszagNev) VALUES (?) ON DUPLICATE KEY UPDATE orszagNev = orszagNev;";
+		$params = [ $adatok["orszag"] ];
+		$last_id_orszag = $sql_query->query($sql, $params);
+
+		if ($last_id_orszag == 0) { // Ha létezik utolsó insert id 0 lesz
+			$check_query = "SELECT id FROM orszag WHERE orszagNev = ?";
+			$check_params = [ $adatok["orszag"] ];
+			$existing_row = $sql_query->query($check_query, $check_params);
+			
+			if ($existing_row) {
+				$last_id_orszag = $existing_row[0]["id"];
+			}
+		}
 
 		// Insert város
-		$sql = "INSERT INTO varos (varosNev) VALUES (?) ON DUPLICATE KEY UPDATE nev = nev;";
-		$params = [ $adatok['telepules'] ];
-		$sql_query->query($sql, $params);
+		$sql = "INSERT INTO varos (varosNev) VALUES (?) ON DUPLICATE KEY UPDATE varosNev = varosNev;";
+		$params = [ $adatok["telepules"] ];
+		$last_varos_id = $sql_query->query($sql, $params);
+
+		if ($last_varos_id == 0) { // Ha létezik utolsó insert id 0 lesz
+			$check_query = "SELECT id FROM varos WHERE varosNev = ?";
+			$check_params = [ $adatok["telepules"] ];
+			$existing_row = $sql_query->query($check_query, $check_params);
+			
+			if ($existing_row) {
+				$last_varos_id = $existing_row[0]["id"];
+			}
+		}
 
 		// Insert irányítószám
-		$sql = "INSERT INTO irsz (irsz) VALUES (?) ON DUPLICATE KEY UPDATE irsz = irsz;";
-		$params = [ $adatok['irsz'] ];
-		$sql_query->query($sql, $params);
+		$sql = "INSERT INTO irsz (irszam) VALUES (?) ON DUPLICATE KEY UPDATE irszam = irszam;";
+		$params = [ $adatok["irsz"] ];
+		$last_irsz_id = $sql_query->query($sql, $params);
+
+		if ($last_irsz_id == 0) { // Ha létezik utolsó insert id 0 lesz
+			$check_query = "SELECT id FROM irsz WHERE irszam = ?";
+			$check_params = [ $adatok["irsz"] ];
+			$existing_row = $sql_query->query($check_query, $check_params);
+			
+			if ($existing_row) {
+				$last_irsz_id = $existing_row[0]["id"];
+			}
+		}
+
+		echo "$last_irsz_id, $last_varos_id";
 
 		// Insert varos_irsz kapcsoló tábla
-		$sql = "INSERT INTO varos_irsz (idIrsz, idVaros) VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());"; // Két városnak lehet uaz az irányítószáma
-		$sql_query->query($sql, []);
+		$sql = "INSERT INTO varos_irsz (idIrsz, idVaros) VALUES (?, ?);"; // Két városnak lehet uaz az irányítószáma
+		$sql_query->query($sql, [ $last_irsz_id, $last_varos_id ]);
 
 		// Insert foglalo adatok
 		$sql = "INSERT INTO foglalo (vezetekNev, utoNev, email, telefonSzam, utca_hazSzam, idOrszag, idVaros) 
-				VALUES (?, ?, ?, ?, ?, LAST_INSERT_ID(), LAST_INSERT_ID());";
-		$params = [$adatok['vez-name'], $adatok['uto-name'], $adatok['email'], $adatok['phone-number'], $adatok['lakcim']];
+				VALUES (?, ?, ?, ?, ?, ?, ?);";
+		$params = [ 
+					$adatok["vez-name"], $adatok["uto-name"], 
+					$adatok["email"],    $adatok["phone-number"], 
+					$adatok["lakcim"],   $last_id_orszag,
+				    $last_varos_id
+		];
+		
 		$sql_query->query($sql, $params);
 
 		// Insert foglalas adatok
 		$sql = "INSERT INTO foglalas (mettol, meddig, uzenet, verified, gyerekSzam, felnottSzam, idApartman, idFoglalo) 
 				VALUES (?, ?, ?, 0, ?, ?, ?, LAST_INSERT_ID());";
 		$params = [
-			$adatok['mettol'], $adatok['meddig'],  $adatok['uzenet'], 
-			$adatok['gyerek'], $adatok['felnott'], $adatok['apartman']
+			$adatok["mettol"], $adatok["meddig"],  $adatok["uzenet"], 
+			$adatok["gyerek"], $adatok["felnott"], $adatok["apartman"]
 		];
 		$sql_query->query($sql, $params);
 		
