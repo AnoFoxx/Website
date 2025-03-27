@@ -15,9 +15,23 @@
 		"chill-leir": "asd",
 		"info-felirat": "About the apartments",
 		"ossz-informacio": "bla bla bla bla bla bla",
-		"tinodi-info-leir":"Tinódi Apartment",
-		"Chill-info-leir":"Chill Apartment",
+		"tinodi-info-leir": "Tinódi Apartment",
+		"Chill-info-leir": "Chill Apartment",
 		"galeria": "Gallery",
-		"ertekeles": "Reviews"
+		"ertekeles": "Reviews",
+		"vezeteknev": "Last Name:",
+		"utonev": "First Name:",
+		"telefonszam": "Phone Number:",
+		"orszag": "Country:",
+		"iranyitoszam": "Postal Code:",
+		"telepules": "City/Town:",
+		"utca-hazszam": "Street, House Number:",
+		"felnott": "Adult:",
+		"gyerek": "Child:",
+		"apartman": "Apartment:",
+		"def-apartman-option":"--Choose apartment--",
+		"apartman-1":"Tinódi apartment",
+		"apartman-2":"Chill apartment",
+		"uzenet": "Message:"
 	}
 }
