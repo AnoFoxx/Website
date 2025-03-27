@@ -168,6 +168,7 @@
 		$sql_query->query($sql, $params);
 		
 		$sql_query->commit(); // Ha nincs hiba az INSERT-ben commit
+		header("Location: index.php");
 
 	} catch (Exception $error) {
 
