@@ -4,8 +4,6 @@
 * admin panel
 * szöveg megírása, beillesztése
 * Képek beillesztése
-* foglalas megjegyzés
 * foglalas utan thanks
 * arazas (brutto/netto)
-* foglalas nyelváltás
 * update db email verification
