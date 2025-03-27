@@ -7,6 +7,8 @@
 * foglalas utan thanks
 * arazas (brutto/netto)
 * update db email verification
+* üdvözlés felirat
+
 
 
 # Bugs to fix:
