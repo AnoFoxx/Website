@@ -1,8 +1,11 @@
 body, html{
-	overflow: hidden;
 	margin: 0;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
+}
+html{
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 header{
 	flex-shrink: 0;
@@ -18,27 +21,24 @@ iframe{
 	background-color: white;
 }
 .option{
-	padding
 	flex-direction: row;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 70px;
-	width: 450px;
+	width: 100%;
 	margin-bottom: 10px;
 }
 .option input{
 	padding-left: 10px;
-	font-size: 20px;
+	font-size: 15px;
 	width: 300px;
 	height: 50px;
 	border-radius: 50px;
 }
 form {
-	width: 100%;
-	height: 1050px; 
+	width: 60%;
 	background-color: rgba(0, 0, 0, 0.3); 
-	margin-top: 30px; 
 	display: flex;
 	justify-content: flex-start; 
 	flex-direction: column; 
@@ -48,11 +48,13 @@ form {
 	margin: 0;
 }
 #full{
+	flex-wrap: wrap;
 	display: flex;
 	height: 100%;
 	width: 100%;
 	justify-content: center;
 	align-content: center;
+	flex-direction: column;
 }
 #option_div{
 	width:500px;height:750px ;
@@ -69,6 +71,22 @@ form {
 	border-radius: 30px;
 	height: 50px;
 	width: 100px;
+}
+.option-plus{
+	justify-content: center;
+	flex-direction: row;
+	display: flex;
+	align-items: center;
+	height: 140px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.uzenet{
+	padding-left: 10px;
+	font-size: 15px;
+	width: 300px;
+	height: 100px;
+	border-radius: 25px;
 }
 #info_div{
 	width:100%;
@@ -115,7 +133,6 @@ form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 30px;
 	width: 100%;
 	height: 80px;
 }
@@ -231,21 +248,41 @@ html{
 	overflow-y: scroll;
 }
 form{
+	height: 100%;
 	width: 100%;
 	margin-top: 0;
 	border-radius: 0;
 }
+#menu{
+	width: 50vw;
+}
+#full{
+	height: 140%;
+	justify-content: normal;
+}
 #info_div{
+	height: 80%;
 	align-items:center;
 	flex-direction:column;
+}
+.age input{
+	height: 40px;
+	width: 40px;
+}
+.option input{
+	height: 40px;
+	width: 95%;
 }
 #option_div{
 	width: 100%;
 	height: 100%;
 }
 .option{
-	width: 100%;
-	justify-content: center;
+	margin: 0 5% 0 5%;
+	flex-direction: column;
+	width: 90%;
+	align-items: baseline;
+	justify-content: space-between;
 }
 #felirat{
 	margin-left: 0;
