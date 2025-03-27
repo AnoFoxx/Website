@@ -7,3 +7,4 @@
 * foglalas megjegyzés
 * foglalas utan thanks
 * arazas (brutto/netto)
+* foglalas nyelváltás
