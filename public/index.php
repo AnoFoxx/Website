@@ -358,73 +358,57 @@
 
 						<div id="ertekeles_body" class="flex a-c-center wid">
 							<div id="ertekeles_sor" class="flex j-center a-i-center wid">
-							<!-- SABLON
-								<div class="ertekeles_elem">
-									<div class="ertekeles_fejlec flex wid">
-										<span class="ertekeles_nev ertekeles_margin">Név</span>
-										<span class="ertekeles_datedate ertekeles_margin">Dátum</span>
+								<!-- SABLON
+									<div class="ertekeles_elem">
+										<div class="ertekeles_fejlec flex wid">
+											<span class="ertekeles_nev ertekeles_margin">Név</span>
+											<span class="ertekeles_datedate ertekeles_margin">Dátum</span>
+										</div>
+										<div class="ertekeles_rate flex wid j-center a-i-center">
+											Ide lesz behúzva a csillagok
+										</div>
+										<div class="ertekeles_szoveg flex wid j-center a-i-center">
+											<span>Szöveg</span>
+										</div>
 									</div>
-									<div class="ertekeles_rate flex wid j-center a-i-center">
-										Ide lesz behúzva a csillagok
-									</div>
-									<div class="ertekeles_szoveg flex wid j-center a-i-center">
-										<span>Szöveg</span>
-									</div>
-								</div>
-							-->
+								-->
 
-								<div class="ertekeles_elem">
-									<div class="ertekeles_fejlec flex wid">
-										<span class="ertekeles_nev ertekeles_margin">Név</span>
-										<span class="ertekeles_date ertekeles_margin">Dátum</span>
-									</div>
+								<?php 
 
-									<div class="ertekeles_rate flex wid j-center a-i-center">
-										csillagok
-									</div>
+									$sql_query = new SQL_Query();
+									$sql = "SELECT vezetekNev, utoNev, tartalom, ertekeles, datum 
+											FROM ertekeles 
+											INNER JOIN foglalas 
+												ON ertekeles.idFoglalas = foglalas.id 
+											INNER JOIN foglalo 
+												ON foglalo.id = foglalas.idFoglalo;";
+									$result = $sql_query->query($sql, []);
 
-									<div class="ertekeles_szoveg flex wid j-center a-i-center">
-										<span>szöveg</span>
-									</div>
-								</div>
+									foreach ($result as $sor) {
+										echo "
+											<div class='ertekeles_elem'>
+												<div class='ertekeles_fejlec flex wid'>
+													<span class='ertekeles_nev ertekeles_margin'>
+														". $sor["vezetekNev"] ." ". $sor["utoNev"] ."
+													</span>
+													<span class='ertekeles_date ertekeles_margin'>
+														". date("Y.m.d.", strtotime($sor["datum"])) ."
+													</span>
+												</div>
 
-								<div class="ertekeles_elem">
-									<div class="ertekeles_fejlec flex wid">
-										<span class="ertekeles_nev ertekeles_margin">Név</span>
-										<span class="ertekeles_date ertekeles_margin">Dátum</span>
-									</div>
-									<div class="ertekeles_rate flex wid j-center a-i-center">
-										csillagok
-									</div>
-									<div class="ertekeles_szoveg flex wid j-center a-i-center">
-										<span>szöveg</span>
-									</div>
-								</div>
+												<div class='ertekeles_rate flex wid j-center a-i-center'>
+													". str_repeat("★", $sor["ertekeles"]) . str_repeat("☆", 5 - $sor["ertekeles"]) ."
+												</div>
 
-								<div class="ertekeles_elem">
-									<div class="ertekeles_fejlec flex wid">
-										<span class="ertekeles_nev ertekeles_margin">Név</span>
-										<span class="ertekeles_date ertekeles_margin">Dátum</span>
-									</div>
-									<div class="ertekeles_rate flex wid j-center a-i-center">
-										csillagok
-									</div>
-									<div class="ertekeles_szoveg flex wid j-center a-i-center">
-										<span>szöveg</span>
-									</div>
-								</div>
-								<div class="ertekeles_elem">
-									<div class="ertekeles_fejlec flex wid">
-										<span class="ertekeles_nev ertekeles_margin">Név</span>
-										<span class="ertekeles_date ertekeles_margin">Dátum</span>
-									</div>
-									<div class="ertekeles_rate flex wid j-center a-i-center">
-										csillagok
-									</div>
-									<div class="ertekeles_szoveg flex wid j-center a-i-center">
-										<span>szöveg</span>
-									</div>
-								</div>
+												<div class='ertekeles_szoveg flex wid j-center a-i-center'>
+													<span>
+														". $sor["tartalom"] ."
+													</span>
+												</div>
+											</div>
+										";	
+									}
+								 ?>
 							</div>
 
 							<!-- Arrows for navigation -->
