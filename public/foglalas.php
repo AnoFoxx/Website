@@ -7,35 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="static/css/foglalas_style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="scripts/js/foglalas.js"></script>
-	<style type="text/css">
-		.option{
-			padding
-			flex-direction: row;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			height: 70px;
-			width: 450px;
-			margin-bottom: 10px;
-		}
-		.option input{
-			padding-left: 10px;
-			font-size: 20px;
-			width: 300px;
-			height: 50px;
-			border-radius: 50px;
-		}
-		form {
-			width:1050px; 
-			height: 1050px; 
-			background-color: rgba(0, 0, 0, 0.3); 
-			margin-top: 30px; 
-			display: flex;
-			justify-content: flex-start; 
-			flex-direction: column; 
-				border-radius: 50px;
-		}
-	</style>
 </head>
 <body>
 	<div id="menu_hatter" style="display:none; "></div>
@@ -142,6 +113,10 @@
 							<option id="apartman_2" value="2">Chill apartman</option>
 						</select>
 						<input type="hidden" name="apartman" id="apartman">
+					</div>
+					<div class="option-plus">
+						Üzenet:<br>
+						<textarea class="uzenet"></textarea>
 					</div>
 				</div>
 			</div>
