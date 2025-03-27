@@ -15,6 +15,22 @@
 		"Chill-info-leir":"Chill Apartman",
 		"galeria": "Galéria",
 		"info-felirat": "Az apartmanokról",
-		"ossz-informacio": "bla bla bla bla bla bla"
+		"ossz-informacio": "bla bla bla bla bla bla",
+		"foglalas":"Foglalás",
+		"vezeteknev":"Vezetéknév:",
+		"utonev":"Utónév:",
+		"telefonszam":"Telefonszám:",
+		"orszag":"Ország:",
+		"iranyitoszam":"Irányítószám:",
+		"telepules":"Település:",
+		"utca-hazszam":"Utca, házszám:",
+		"felnott":"Felnőtt:",
+		"gyerek":"Gyerek:",
+		"apartman":"Apartman:",
+		"def-apartman-option":"--Válasz apartmant--",
+		"apartman-1":"Tinódi apartman",
+		"apartman-2":"Chill apartman",
+		"uzenet":"Üzenet:"
+
 	}
 }
