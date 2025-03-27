@@ -8,3 +8,4 @@
 * foglalas utan thanks
 * arazas (brutto/netto)
 * foglalas nyelváltás
+* update db email verification
