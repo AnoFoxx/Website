@@ -7,3 +7,7 @@
 * foglalas utan thanks
 * arazas (brutto/netto)
 * update db email verification
+
+
+# Bugs to fix:
+* nyíl kép megjelenítés
