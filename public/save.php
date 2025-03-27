@@ -96,6 +96,13 @@
 		$params = [ $adatok["orszag"] ];
 		$last_id_orszag = $sql_query->query($sql, $params);
 
+		/**
+		 * Ha már létezik a táblában az érték azaz DUPLICATE KEY
+		 * akkor az update nem rak be új A_I id-t ezért
+		 * a LAST_INSERT_ID() nem helyes id-t ad vissza
+		 * és csak így tudom megoldani az id-k megszerését
+		*/
+
 		if ($last_id_orszag == 0) { // Ha létezik utolsó insert id 0 lesz
 			$check_query = "SELECT id FROM orszag WHERE orszagNev = ?";
 			$check_params = [ $adatok["orszag"] ];
@@ -136,8 +143,6 @@
 			}
 		}
 
-		echo "$last_irsz_id, $last_varos_id";
-
 		// Insert varos_irsz kapcsoló tábla
 		$sql = "INSERT INTO varos_irsz (idIrsz, idVaros) VALUES (?, ?);"; // Két városnak lehet uaz az irányítószáma
 		$sql_query->query($sql, [ $last_irsz_id, $last_varos_id ]);
@@ -146,9 +151,8 @@
 		$sql = "INSERT INTO foglalo (vezetekNev, utoNev, email, telefonSzam, utca_hazSzam, idOrszag, idVaros) 
 				VALUES (?, ?, ?, ?, ?, ?, ?);";
 		$params = [ 
-					$adatok["vez-name"], $adatok["uto-name"], 
-					$adatok["email"],    $adatok["phone-number"], 
-					$adatok["lakcim"],   $last_id_orszag,
+					$adatok["vez-name"],     $adatok["uto-name"], $adatok["email"],
+					$adatok["phone-number"], $adatok["lakcim"],   $last_id_orszag,
 				    $last_varos_id
 		];
 		
