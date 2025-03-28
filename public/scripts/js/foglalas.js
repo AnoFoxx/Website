@@ -47,11 +47,6 @@ $(document).ready(function(){
 							"align-items": "stretch",
 							"flex-direction": "row"
 					});
-					$("#full").css("width","100%");
-					$("form").css({
-						"width":"calc(550px + 375px + 20px)",
-						"padding": "0 20px 0 0" 
-					});
 
 					if (selected.attr('id') == "apartman_1") {
 							$("#naptar").attr('src', "naptar.php?apartman=1");
@@ -71,10 +66,7 @@ $(document).ready(function(){
 							"flex-direction": "column"
 					});
 					$("#full").css("height","200%");
-					$("form").css({
-						"width":"100%",
-						"height": "130%" 
-					});
+					$("form").css("height","130%");
 
 					if (selected.attr('id') == "apartman_1") {
 							$("#naptar").attr('src', "naptar.php?apartman=1");
@@ -95,7 +87,7 @@ $(document).ready(function(){
 						"align-items": "center",
 						"flex-direction": "column"
 				});
-				$("#full").css("height","900px");
+				$("#full").css("height","100%");
 				$("form").css("height","100%");
 				$("#apartman_info").hide();
 			}
