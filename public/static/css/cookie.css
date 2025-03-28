@@ -1,0 +1,52 @@
+.cookie-accent-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	content: "asd";
+	z-index: 1;
+	background-color: rgba(0, 0, 0, .5);
+}
+
+.cookie-text {
+	margin-bottom: 50px;
+}
+
+.cookie-main {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-family: "Arial";
+	width: 50%;
+	z-index: 2;
+	padding: 5px 20px 20px 20px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.cookie-buttons {
+	display: flex;
+	width: 80%;
+	justify-content: space-between;
+	margin: auto;
+}
+
+.cookie-buttons button {
+	height: 50px;
+	width: 46%;
+	border: 3px solid blue;
+	font-family: "Arial";
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+.cookie-buttons button:first-child {
+	background-color: #fff;
+}
+
+.cookie-buttons button:last-child {
+	background-color: blue;
+	color: white;
+}
