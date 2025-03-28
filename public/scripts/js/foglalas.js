@@ -47,6 +47,7 @@ $(document).ready(function(){
 							"align-items": "stretch",
 							"flex-direction": "row"
 					});
+					$("#full").css("height","");
 
 					if (selected.attr('id') == "apartman_1") {
 							$("#naptar").attr('src', "naptar.php?apartman=1");
