@@ -19,6 +19,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style_mobile.css">
+	<link rel="stylesheet" type="text/css" href="static/css/cookie.css">
 	<!-- Pre load images START -->
 	<?php 
 		function list_images($dir_path) {
@@ -59,6 +60,23 @@
 </script>
 </head>
 <body>
+	<!-- COOKIE START -->
+	<div class="cookie-accent-bg cookie"></div>
+	<div class="cookie-main cookie">
+		<div class="cookie-x-container">
+			<div id="x1" class="cookie-x-button"></div>
+			<div id="x1" class="cookie-x-button"></div>
+		</div>
+		<div class="cookie-text">
+			<h1>This website uses cookies</h1>
+			<p>We use cookies to improve your experience. By accepting, you consent to our use of cookies.</p>
+		</div>
+		<div class="cookie-buttons">
+			<button>Reject</button>
+			<button>Accept</button>
+		</div>
+	</div>
+	<!-- COOKIE END -->
 	<div class="galeria_background" style="display:none; z-index: 3;">
 		<img src="" class="galeria_big_img" style="z-index:3;">
 	</div>
